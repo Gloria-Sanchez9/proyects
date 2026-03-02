@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Favicon desde la carpeta "imagenes" -->
+<link rel="icon" href="imagenes/logo1.png" type="image/png">
+<link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de ConversiÃ³n de Coordenadas</title>
+    <style>
+        :root {
+            --primary-color: #4682B4;
+            --primary-dark: #4682B4;
+            --light-bg: #f5f5f5;
+            --card-bg: #a5a5a5;
+            --section-bg: #f9f9f9;
+            --border-color: #ddd;
+            --text-dark: #333;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('imagenes/fondo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .input-section{
+            border: 3px solid;
+            padding: 15px;
+            border-radius: 5px;
+            background-color:#A9A9A9;
+            border-color:
+#ecf4ec;
+        }
+        
+        .output-section {
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 2px;
+            background-color: #D3D3D3;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .dimension-buttons, .coord-type-buttons, .conversion-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .dimension-buttons, .coord-type-buttons {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            flex: 1 1 auto;
+            min-width: 120px;
+        }
+        
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        button.active {
+            background-color: var(--primary-dark);
+            font-weight: bold;
+        }
+         button1 {
+            padding: 10px 15px;
+            background-color: purple;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            flex: 1 1 auto;
+            min-width: 120px;
+        }
+         button1:hover {
+            background-color: #9370D8;
+        }
+        
+        button1.active {
+            background-color: white;
+            font-weight: bold;
+        }
+        
+        
+        .input-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        label {
+            min-width: 60px;
+        }
+        
+        input {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .conversion-title {
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            color: var(--text-dark);
+        }
+        
+        #result {
+            padding: 10px;
+            background-color: #F5FFFA;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin: 0 0 20px 0;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: var(--text-dark);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .result-coord {
+            margin: 5px 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 13px;
+                min-width: 100px;
+            }
+            
+            .input-section, .output-section {
+                padding: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+            
+            button {
+                min-width: 80px;
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            input {
+                padding: 6px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            label {
+                min-width: auto;
+            }
+            
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de ConversiÃ³n de Coordenadas</h1>
+    
+    <div class="container">
+        <div class="output-section">
+            <h4>Resultado</h4>
+            <div id="result"></div>
+        </div>
+        <div class="input-section">
+            <center><h4>Modos</h4></center>
+            
+            <div class="dimension-buttons">
+                <button id="btn-2d" class="active" onclick="setDimension('2D')">RÂ² (2D)</button>
+                <button id="btn-3d" onclick="setDimension('3D')">RÂ³ (3D)</button>
+            </div>
+            <h4>Sistema</h4>
+            <div class="coord-type-buttons">
+                <button id="btn-rect" class="active" onclick="setCoordType('rect')">Rectangulares</button>
+                <button id="btn-polar" onclick="setCoordType('polar')">Polares</button>
+                <button id="btn-cylindrical" class="hidden" onclick="setCoordType('cylindrical')">CilÃ­ndricas</button>
+                <button id="btn-spherical" class="hidden" onclick="setCoordType('spherical')">EsfÃ©ricas</button>
+            </div>
+            
+            <h4>Ingrese las coordenadas:</h4>
+            <div class="input-fields">
+                <div class="input-group" id="input1">
+                    <label id="label1">X:</label>
+                    <input type="number" id="val1" step="any">
+                </div>
+                <div class="input-group" id="input2">
+                    <label id="label2">Y:</label>
+                    <input type="number" id="val2" step="any">
+                </div>
+                <div class="input-group hidden" id="input3">
+                    <label id="label3">Z:</label>
+                    <input type="number" id="val3" step="any">
+                </div>
+                <div class="buttons-container">
+           <div class="conversion-title" id="conversion-title">Convertir a:</div>
+            <div class="conversion-buttons" id="conversion-options"></div>
+        </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <a href= index.html >
+    <center><button1>VOLVER INICIO</button1></center>
+    </a>
+    
+    <script>
+        // Variables de estado
+        let currentDimension = '2D';
+        let currentCoordType = 'rect';
+        let targetCoordType = '';
+        
+        // Objeto con todas las conversiones posibles
+        const conversions = {
+            '2D': {
+                'rect': [
+                    {name: 'Polares', func: rectToPolar, target: 'polar'}
+                ],
+                'polar': [
+                    {name: 'Rectangulares', func: polarToRect, target: 'rect'}
+                ]
+            },
+            '3D': {
+                'rect': [
+                    {name: 'CilÃ­ndricas', func: rectToCylindrical, target: 'cylindrical'},
+                    {name: 'EsfÃ©ricas', func: rectToSpherical, target: 'spherical'}
+                ],
+                'cylindrical': [
+                    {name: 'Rectangulares', func: cylindricalToRect, target: 'rect'},
+                    {name: 'EsfÃ©ricas', func: cylindricalToSpherical, target: 'spherical'}
+                ],
+                'spherical': [
+                    {name: 'Rectangulares', func: sphericalToRect, target: 'rect'},
+                    {name: 'CilÃ­ndricas', func: sphericalToCylindrical, target: 'cylindrical'}
+                ]
+            }
+        };
+        
+        // Funciones para manejar los botones
+        function setDimension(dimension) {
+            currentDimension = dimension;
+            document.getElementById('btn-2d').classList.remove('active');
+            document.getElementById('btn-3d').classList.remove('active');
+            document.getElementById(`btn-${dimension.toLowerCase()}`).classList.add('active');
+            
+            // Mostrar/ocultar botones de tipo de coordenadas
+            if (dimension === '2D') {
+                document.getElementById('btn-cylindrical').classList.add('hidden');
+                document.getElementById('btn-spherical').classList.add('hidden');
+                document.getElementById('btn-polar').classList.remove('hidden');
+                document.getElementById('input3').classList.add('hidden');
+                
+                // Resetear a coordenadas rectangulares si estaba en 3D
+                if (currentCoordType === 'cylindrical' || currentCoordType === 'spherical') {
+                    setCoordType('rect');
+                }
+            } else {
+                document.getElementById('btn-cylindrical').classList.remove('hidden');
+                document.getElementById('btn-spherical').classList.remove('hidden');
+                document.getElementById('btn-polar').classList.add('hidden');
+                document.getElementById('input3').classList.remove('hidden');
+                
+                // Si estaba en polares, cambiar a rectangulares
+                if (currentCoordType === 'polar') {
+                    setCoordType('rect');
+                }
+            }
+            
+            updateUI();
+        }
+        
+        function setCoordType(coordType) {
+            currentCoordType = coordType;
+            
+            // Actualizar estado de los botones
+            document.getElementById('btn-rect').classList.remove('active');
+            document.getElementById('btn-polar').classList.remove('active');
+            document.getElementById('btn-cylindrical').classList.remove('active');
+            document.getElementById('btn-spherical').classList.remove('active');
+            document.getElementById(`btn-${coordType}`).classList.add('active');
+            
+            updateUI();
+        }
+        
+        function updateUI() {
+            // Actualizar etiquetas de entrada
+            updateInputLabels();
+            
+            // Actualizar botones de conversiÃ³n
+            updateConversionButtons();
+        }
+        
+        function updateInputLabels() {
+            if (currentCoordType === 'rect') {
+                document.getElementById('label1').textContent = 'X:';
+                document.getElementById('label2').textContent = 'Y:';
+                if (currentDimension === '3D') {
+                    document.getElementById('label3').textContent = 'Z:';
+                }
+            } else if (currentCoordType === 'polar') {
+                document.getElementById('label1').textContent = 'r:';
+                document.getElementById('label2').textContent = 'Î¸ (Â°):';
+            } else if (currentCoordType === 'cylindrical') {
+                document.getElementById('label1').textContent = 'r:';
+                document.getElementById('label2').textContent = 'Î¸ (Â°):';
+                document.getElementById('label3').textContent = 'z:';
+            } else if (currentCoordType === 'spherical') {
+                document.getElementById('label1').textContent = 'Ï:';
+                document.getElementById('label2').textContent = 'Î¸ (Â°):';
+                document.getElementById('label3').textContent = 'Ï† (Â°):';
+            }
+        }
+        
+        function updateConversionButtons() {
+            const titleElement = document.getElementById('conversion-title');
+            const optionsElement = document.getElementById('conversion-options');
+            
+            // Limpiar opciones anteriores
+            optionsElement.innerHTML = '';
+            
+            // Obtener conversiones disponibles
+            const availableConversions = conversions[currentDimension][currentCoordType];
+            
+            // Actualizar tÃ­tulo
+            let systemName = '';
+            if (currentCoordType === 'rect') systemName = 'Rectangulares';
+            else if (currentCoordType === 'polar') systemName = 'Polares';
+            else if (currentCoordType === 'cylindrical') systemName = 'CilÃ­ndricas';
+            else if (currentCoordType === 'spherical') systemName = 'EsfÃ©ricas';
+            
+            titleElement.textContent = `Convertir de ${systemName} a:`;
+            
+            // Crear botones para cada conversiÃ³n disponible
+            availableConversions.forEach(conversion => {
+                const button = document.createElement('button');
+                button.textContent = conversion.name;
+                button.onclick = () => {
+                    targetCoordType = conversion.target;
+                    conversion.func();
+                };
+                optionsElement.appendChild(button);
+            });
+        }
+        
+        // FunciÃ³n para formatear el resultado segÃºn el tipo de coordenada
+        function formatResult(values) {
+            let labels = [];
+            let resultHTML = '';
+            
+            if (targetCoordType === 'rect') {
+                labels = currentDimension === '2D' ? ['X', 'Y'] : ['X', 'Y', 'Z'];
+            } else if (targetCoordType === 'polar') {
+                labels = ['r', 'Î¸ (Â°)'];
+            } else if (targetCoordType === 'cylindrical') {
+                labels = ['r', 'Î¸ (Â°)', 'z'];
+            } else if (targetCoordType === 'spherical') {
+                labels = ['Ï', 'Î¸ (Â°)', 'Ï† (Â°)'];
+            }
+            
+            // Obtener el nombre del sistema de coordenadas de destino
+            let systemName = '';
+            if (targetCoordType === 'rect') systemName = 'Rectangulares';
+            else if (targetCoordType === 'polar') systemName = 'Polares';
+            else if (targetCoordType === 'cylindrical') systemName = 'CilÃ­ndricas';
+            else if (targetCoordType === 'spherical') systemName = 'EsfÃ©ricas';
+            
+            resultHTML += `<div><strong>Coordenadas ${systemName}:</strong></div>`;
+            
+            values.forEach((value, index) => {
+                resultHTML += `<div class="result-coord">${labels[index]} = ${value.toFixed(4)}</div>`;
+            });
+            
+            return resultHTML;
+        }
+        
+        // =============================================
+        // FUNCIONES DE CONVERSIÃ“N 2D
+        // =============================================
+        
+        function rectToPolar() {
+            const x = parseFloat(document.getElementById('val1').value);
+            const y = parseFloat(document.getElementById('val2').value);
+            
+            if (isNaN(x) || isNaN(y)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para X e Y.");
+                return;
+            }
+            
+            const r = Math.sqrt(x*x + y*y);
+            const theta = Math.atan2(y, x) * (180 / Math.PI); // en grados
+            
+            showResult(formatResult([r, theta]));
+        }
+        
+        function polarToRect() {
+            const r = parseFloat(document.getElementById('val1').value);
+            const thetaDeg = parseFloat(document.getElementById('val2').value);
+            
+            if (isNaN(r) || isNaN(thetaDeg)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para r y Î¸.");
+                return;
+            }
+            
+            const theta = thetaDeg * (Math.PI / 180); // convertir a radianes
+            const x = r * Math.cos(theta);
+            const y = r * Math.sin(theta);
+            
+            showResult(formatResult([x, y]));
+        }
+        
+        // =============================================
+        // FUNCIONES DE CONVERSIÃ“N 3D
+        // =============================================
+        
+        function rectToCylindrical() {
+            const x = parseFloat(document.getElementById('val1').value);
+            const y = parseFloat(document.getElementById('val2').value);
+            const z = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para X, Y y Z.");
+                return;
+            }
+            
+            const r = Math.sqrt(x*x + y*y);
+            const theta = Math.atan2(y, x) * (180 / Math.PI); // en grados
+            
+            showResult(formatResult([r, theta, z]));
+        }
+        
+        function cylindricalToRect() {
+            const r = parseFloat(document.getElementById('val1').value);
+            const thetaDeg = parseFloat(document.getElementById('val2').value);
+            const z = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(r) || isNaN(thetaDeg) || isNaN(z)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para r, Î¸ y z.");
+                return;
+            }
+            
+            const theta = thetaDeg * (Math.PI / 180); // convertir a radianes
+            const x = r * Math.cos(theta);
+            const y = r * Math.sin(theta);
+            
+            showResult(formatResult([x, y, z]));
+        }
+        
+        function cylindricalToSpherical() {
+            const r = parseFloat(document.getElementById('val1').value);
+            const thetaDeg = parseFloat(document.getElementById('val2').value);
+            const z = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(r) || isNaN(thetaDeg) || isNaN(z)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para r, Î¸ y z.");
+                return;
+            }
+            
+            const rho = Math.sqrt(r*r + z*z);
+            const phi = Math.atan2(r, z) * (180 / Math.PI);
+            
+            showResult(formatResult([rho, thetaDeg, phi]));
+        }
+        
+        function rectToSpherical() {
+            const x = parseFloat(document.getElementById('val1').value);
+            const y = parseFloat(document.getElementById('val2').value);
+            const z = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para X, Y y Z.");
+                return;
+            }
+            
+            const rho = Math.sqrt(x*x + y*y + z*z);
+            const theta = Math.atan2(y, x) * (180 / Math.PI); // en grados (azimuthal)
+            const phi = Math.atan2(Math.sqrt(x*x + y*y), z) * (180 / Math.PI); // en grados (polar)
+            
+            showResult(formatResult([rho, theta, phi]));
+        }
+        
+        function sphericalToRect() {
+            const rho = parseFloat(document.getElementById('val1').value);
+            const thetaDeg = parseFloat(document.getElementById('val2').value);
+            const phiDeg = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(rho) || isNaN(thetaDeg) || isNaN(phiDeg)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para Ï, Î¸ y Ï†.");
+                return;
+            }
+            
+            const theta = thetaDeg * (Math.PI / 180); // azimuthal en radianes
+            const phi = phiDeg * (Math.PI / 180); // polar en radianes
+            
+            const x = rho * Math.sin(phi) * Math.cos(theta);
+            const y = rho * Math.sin(phi) * Math.sin(theta);
+            const z = rho * Math.cos(phi);
+            
+            showResult(formatResult([x, y, z]));
+        }
+        
+        function sphericalToCylindrical() {
+            const rho = parseFloat(document.getElementById('val1').value);
+            const thetaDeg = parseFloat(document.getElementById('val2').value);
+            const phiDeg = parseFloat(document.getElementById('val3').value);
+            
+            if (isNaN(rho) || isNaN(thetaDeg) || isNaN(phiDeg)) {
+                showResult("Por favor ingrese valores vÃ¡lidos para Ï, Î¸ y Ï†.");
+                return;
+            }
+            
+            const phi = phiDeg * (Math.PI / 180); // polar en radianes
+            
+            const r = rho * Math.sin(phi);
+            const z = rho * Math.cos(phi);
+            
+            showResult(formatResult([r, thetaDeg, z]));
+        }
+        
+        function showResult(message) {
+            document.getElementById('result').innerHTML = message;
+        }
+        
+        // Inicializar la UI al cargar la pÃ¡gina
+        document.addEventListener('DOMContentLoaded', function() {
+            updateUI();
+        });
+    </script>
+</body>
+</html>

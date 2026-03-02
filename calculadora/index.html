@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="imagenes/logo1.png" type="image/png">
+    <link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversión de Coordenadas</title>
+    <style>
+        html {
+            background-image: url('imagenes/fondoPrincipal.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            text-align: center;
+            background-color: #FFFFF0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .Calculadoras {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            gap: clamp(10px, 3vw, 30px);
+            font-family: 'Segoe UI', sans-serif;
+            justify-content: center;
+        }
+
+        nav a {
+            padding: 10px 0;
+            position: relative;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: purple;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        nav a:hover {
+            color: purple;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav h2 {
+            margin: 0;
+            font-size: clamp(16px, 4vw, 24px);
+        }
+
+        nav h5 {
+            margin: 0;
+            font-size: clamp(16px, 4vw, 24px);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .nav-button {
+            background-color: purple;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            width: auto;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+
+        .nav-button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <button class="nav-button"><a href="../index.html">REGRESAR A PROYECTOS</a></button>
+        </nav>
+    </div>
+    <div class="Calculadoras">
+        <nav>
+            <ul>
+                <li><a href="conversion.html">
+                        <h2>Conversión de Coordenadas</h2>
+                    </a></li>
+                <li><a href="distancia.html">
+                        <h2>Distancia</h2>
+                    </a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>

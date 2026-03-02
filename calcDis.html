@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distancia entre Dos Puntos</title>
+    <style>
+        :root {
+            --primary-color: #4682B4;
+            --primary-dark: #4682B4;
+            --light-bg: #f5f5f5;
+            --card-bg: #a5a5a5;
+            --border-color: #ddd;
+            --text-dark: #333;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url('calculadora/imagenes/fondoFondo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* SecciÃ³n superior: Campos + Resultados (2 columnas) */
+        .top-section {
+            display: flex;
+            margin-bottom: 20px;
+            flex: 1;
+            border: 1px solid;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #D3D3D3;
+        }
+        
+        .input-column {
+            flex: 1;
+            border: 3px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .output-column {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #D3D3D3;
+        }
+        
+        #result {
+            padding: 10px;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+        
+        /* SecciÃ³n inferior: Botones (ancho completo) */
+        .abajo{
+            text-align: center;
+            border: 3px solid #ecf4ec;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #A9A9A9;
+        }
+        
+        /* Estilos para botones y campos */
+        .dimension-buttons, .coord-type-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            flex: 1 1 auto;
+            min-width: 120px;
+        }
+        
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        button.active {
+            background-color: var(--primary-dark);
+            font-weight: bold;
+        }
+        
+        .input-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .point-group {
+            margin-bottom: 15px;
+        }
+        
+        .point-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        label {
+            min-width: 60px;
+        }
+        
+        input {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            flex: 1;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .result-value {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+        
+        .formula {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .top-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>CALCULADORA DE DISTANCIA</h3>
+        
+        <!-- SecciÃ³n superior: 2 columnas -->
+        <div class="top-section">
+            <!-- Columna izquierda: Campos de entrada -->
+            <div class="input-column">
+                <h4>Ingrese las coordenadas:</h4>
+                
+                <div class="input-fields">
+                    <div class="point-group">
+                        <div class="point-title">Punto A:</div>
+                        <div class="input-group" id="a1-group">
+                            <label id="a1-label">X:</label>
+                            <input type="number" id="a1" step="any">
+                        </div>
+                        <div class="input-group" id="a2-group">
+                            <label id="a2-label">Y:</label>
+                            <input type="number" id="a2" step="any">
+                        </div>
+                        <div class="input-group hidden" id="a3-group">
+                            <label id="a3-label">Z:</label>
+                            <input type="number" id="a3" step="any">
+                        </div>
+                    </div>
+                    
+                    <div class="point-group">
+                        <div class="point-title">Punto B:</div>
+                        <div class="input-group" id="b1-group">
+                            <label id="b1-label">X:</label>
+                            <input type="number" id="b1" step="any">
+                        </div>
+                        <div class="input-group" id="b2-group">
+                            <label id="b2-label">Y:</label>
+                            <input type="number" id="b2" step="any">
+                        </div>
+                        <div class="input-group hidden" id="b3-group">
+                            <label id="b3-label">Z:</label>
+                            <input type="number" id="b3" step="any">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columna derecha: Resultados -->
+            <div class="output-column">
+                <center><h4>Resultado</h4></center>
+                <div id="result"></div>
+            </div>
+        </div>
+        
+        <center>  <h4>FÃ³rmula:</h4>
+            <div id="formula-display" class="formula">
+                âˆš[(xâ‚‚ - xâ‚)Â² + (yâ‚‚ - yâ‚)Â²]
+            </div></center>
+            
+        
+        <div class="abajo">
+            <h4>Modos</h4>
+            <div class="dimension-buttons">
+                <button id="btn-2d" class="active" onclick="setDimension('2D')">RÂ²</button>
+                <button id="btn-3d" onclick="setDimension('3D')">RÂ³</button>
+            </div>
+            
+            <h4>Sistema</h4>
+            <div class="coord-type-buttons">
+                <button id="btn-rect" class="active" onclick="setCoordType('rect')">Rectangulares</button>
+                <button id="btn-polar" onclick="setCoordType('polar')">Polares</button>
+                <button id="btn-cylindrical" class="hidden" onclick="setCoordType('cylindrical')">CilÃ­ndricas</button>
+                <button id="btn-spherical" class="hidden" onclick="setCoordType('spherical')">EsfÃ©ricas</button>
+            </div>
+
+            <button id="btn-calculate" onclick="calculateDistance()">Calcular Distancia</button>
+        </div>
+    </div>
+    
+    <script>
+        // Variables de estado
+        let currentDimension = '2D';
+        let currentCoordType = 'rect';
+        
+        // Objeto con las fÃ³rmulas para cada sistema de coordenadas
+        const formulas = {
+            '2D': {
+                'rect': "âˆš[(xâ‚‚ - xâ‚)Â² + (yâ‚‚ - yâ‚)Â²]",
+                'polar': "âˆš[râ‚Â² + râ‚‚Â² - 2Â·râ‚Â·râ‚‚Â·cos(Î¸â‚‚ - Î¸â‚)]"
+            },
+            '3D': {
+                'rect': "âˆš[(xâ‚‚ - xâ‚)Â² + (yâ‚‚ - yâ‚)Â² + (zâ‚‚ - zâ‚)Â²]",
+                'cylindrical': "âˆš[râ‚Â² + râ‚‚Â² - 2Â·râ‚Â·râ‚‚Â·cos(Î¸â‚‚ - Î¸â‚) + (zâ‚‚ - zâ‚)Â²]",
+                'spherical': "âˆš[Ïâ‚Â² + Ïâ‚‚Â² - 2Â·Ïâ‚Â·Ïâ‚‚Â·(sinÏ†â‚Â·sinÏ†â‚‚Â·cos(Î¸â‚‚ - Î¸â‚) + cosÏ†â‚Â·cosÏ†â‚‚)]"
+            }
+        };
+        
+        // FunciÃ³n para actualizar la fÃ³rmula mostrada
+        function updateFormulaDisplay() {
+            document.getElementById('formula-display').textContent = 
+                formulas[currentDimension][currentCoordType];
+        }
+        
+        // FunciÃ³n para cambiar entre 2D y 3D
+        function setDimension(dimension) {
+            currentDimension = dimension;
+            document.getElementById('btn-2d').classList.remove('active');
+            document.getElementById('btn-3d').classList.remove('active');
+            document.getElementById(`btn-${dimension.toLowerCase()}`).classList.add('active');
+            
+            // Mostrar/ocultar botones de tipo de coordenadas
+            if (dimension === '2D') {
+                document.getElementById('btn-cylindrical').classList.add('hidden');
+                document.getElementById('btn-spherical').classList.add('hidden');
+                document.getElementById('btn-polar').classList.remove('hidden');
+                
+                // Resetear a coordenadas rectangulares si estaba en 3D
+                if (currentCoordType === 'cylindrical' || currentCoordType === 'spherical') {
+                    setCoordType('rect');
+                }
+            } else {
+                document.getElementById('btn-cylindrical').classList.remove('hidden');
+                document.getElementById('btn-spherical').classList.remove('hidden');
+                document.getElementById('btn-polar').classList.add('hidden');
+                
+                // Si estaba en polares, cambiar a rectangulares
+                if (currentCoordType === 'polar') {
+                    setCoordType('rect');
+                }
+            }
+            
+            updateInputLabels();
+            updateFormulaDisplay();
+        }
+        
+        // FunciÃ³n para cambiar el tipo de coordenadas
+        function setCoordType(coordType) {
+            currentCoordType = coordType;
+            
+            // Actualizar estado de los botones
+            document.getElementById('btn-rect').classList.remove('active');
+            document.getElementById('btn-polar').classList.remove('active');
+            document.getElementById('btn-cylindrical').classList.remove('active');
+            document.getElementById('btn-spherical').classList.remove('active');
+            document.getElementById(`btn-${coordType}`).classList.add('active');
+            
+            updateInputLabels();
+            updateFormulaDisplay();
+        }
+        
+        // FunciÃ³n para actualizar las etiquetas de los inputs
+        function updateInputLabels() {
+            const labels = {
+                'rect': ['X', 'Y', 'Z'],
+                'polar': ['r', 'Î¸ (Â°)', ''],
+                'cylindrical': ['r', 'Î¸ (Â°)', 'z'],
+                'spherical': ['Ï', 'Î¸ (Â°)', 'Ï† (Â°)']
+            };
+            
+            const coordLabels = labels[currentCoordType];
+            
+            // Actualizar etiquetas del Punto A
+            document.getElementById('a1-label').textContent = `${coordLabels[0]}:`;
+            document.getElementById('a2-label').textContent = `${coordLabels[1]}:`;
+            document.getElementById('a3-label').textContent = `${coordLabels[2]}:`;
+            
+            // Actualizar etiquetas del Punto B
+            document.getElementById('b1-label').textContent = `${coordLabels[0]}:`;
+            document.getElementById('b2-label').textContent = `${coordLabels[1]}:`;
+            document.getElementById('b3-label').textContent = `${coordLabels[2]}:`;
+            
+            // Mostrar/ocultar campo Z segÃºn dimensiÃ³n
+            if (currentDimension === '3D') {
+                document.getElementById('a3-group').classList.remove('hidden');
+                document.getElementById('b3-group').classList.remove('hidden');
+            } else {
+                document.getElementById('a3-group').classList.add('hidden');
+                document.getElementById('b3-group').classList.add('hidden');
+            }
+        }
+        
+        // FunciÃ³n para convertir coordenadas a rectangulares
+        function convertToRect(values, coordType) {
+            if (coordType === 'rect') return values;
+            
+            if (coordType === 'polar') {
+                const [r, thetaDeg] = values;
+                const theta = thetaDeg * Math.PI / 180;
+                return [
+                    r * Math.cos(theta),
+                    r * Math.sin(theta)
+                ];
+            }
+            
+            if (coordType === 'cylindrical') {
+                const [r, thetaDeg, z] = values;
+                const theta = thetaDeg * Math.PI / 180;
+                return [
+                    r * Math.cos(theta),
+                    r * Math.sin(theta),
+                    z
+                ];
+            }
+            
+            if (coordType === 'spherical') {
+                const [rho, thetaDeg, phiDeg] = values;
+                const theta = thetaDeg * Math.PI / 180;
+                const phi = phiDeg * Math.PI / 180;
+                return [
+                    rho * Math.sin(phi) * Math.cos(theta),
+                    rho * Math.sin(phi) * Math.sin(theta),
+                    rho * Math.cos(phi)
+                ];
+            }
+            
+            return values;
+        }
+        
+        // FunciÃ³n para calcular la distancia
+        function calculateDistance() {
+            // Obtener valores de los puntos
+            const a1 = parseFloat(document.getElementById('a1').value);
+            const a2 = parseFloat(document.getElementById('a2').value);
+            const a3 = currentDimension === '3D' ? parseFloat(document.getElementById('a3').value) : 0;
+            
+            const b1 = parseFloat(document.getElementById('b1').value);
+            const b2 = parseFloat(document.getElementById('b2').value);
+            const b3 = currentDimension === '3D' ? parseFloat(document.getElementById('b3').value) : 0;
+            
+            // Validar valores
+            if (isNaN(a1) || isNaN(a2) || (currentDimension === '3D' && isNaN(a3)) ||
+                isNaN(b1) || isNaN(b2) || (currentDimension === '3D' && isNaN(b3))) {
+                showResult("Por favor ingrese valores vÃ¡lidos para todas las coordenadas.");
+                return;
+            }
+            
+            // Convertir ambos puntos a coordenadas rectangulares
+            const pointA = convertToRect([a1, a2, a3], currentCoordType);
+            const pointB = convertToRect([b1, b2, b3], currentCoordType);
+            
+            // Calcular distancia
+            let dx = pointB[0] - pointA[0];
+            let dy = pointB[1] - pointA[1];
+            let dz = currentDimension === '3D' ? pointB[2] - pointA[2] : 0;
+            
+            let distance = Math.sqrt(dx*dx + dy*dy + dz*dz);
+            
+            // Generar fÃ³rmula aplicada segÃºn el sistema de coordenadas
+            let appliedFormula;
+            if (currentCoordType === 'rect') {
+                if (currentDimension === '2D') {
+                    appliedFormula = `âˆš[(${pointB[0].toFixed(2)} - ${pointA[0].toFixed(2)})Â² + (${pointB[1].toFixed(2)} - ${pointA[1].toFixed(2)})Â²]`;
+                } else {
+                    appliedFormula = `âˆš[(${pointB[0].toFixed(2)} - ${pointA[0].toFixed(2)})Â² + (${pointB[1].toFixed(2)} - ${pointA[1].toFixed(2)})Â² + (${pointB[2].toFixed(2)} - ${pointA[2].toFixed(2)})Â²]`;
+                }
+            } else if (currentCoordType === 'polar') {
+                appliedFormula = `âˆš[${a1.toFixed(2)}Â² + ${b1.toFixed(2)}Â² - 2Â·${a1.toFixed(2)}Â·${b1.toFixed(2)}Â·cos(${b2.toFixed(2)}Â° - ${a2.toFixed(2)}Â°)]`;
+            } else if (currentCoordType === 'cylindrical') {
+                appliedFormula = `âˆš[${a1.toFixed(2)}Â² + ${b1.toFixed(2)}Â² - 2Â·${a1.toFixed(2)}Â·${b1.toFixed(2)}Â·cos(${b2.toFixed(2)}Â° - ${a2.toFixed(2)}Â°) + (${b3.toFixed(2)} - ${a3.toFixed(2)})Â²]`;
+            } else if (currentCoordType === 'spherical') {
+                appliedFormula = `âˆš[${a1.toFixed(2)}Â² + ${b1.toFixed(2)}Â² - 2Â·${a1.toFixed(2)}Â·${b1.toFixed(2)}Â·(sin(${a3.toFixed(2)}Â°)Â·sin(${b3.toFixed(2)}Â°)Â·cos(${b2.toFixed(2)}Â° - ${a2.toFixed(2)}Â°) + cos(${a3.toFixed(2)}Â°)Â·cos(${b3.toFixed(2)}Â°))]`;
+            }
+            
+            // Mostrar resultado (todos los nÃºmeros con 2 decimales)
+            const resultHTML = `
+                <div class="result-value"><strong>Distancia:</strong> ${distance.toFixed(2)}</div>
+                <div class="result-value"><strong>FÃ³rmula aplicada:</strong></div>
+                <div class="formula">${appliedFormula}</div>
+                <div class="result-value"><strong>Punto A (rectangulares):</strong> (${pointA[0].toFixed(2)}, ${pointA[1].toFixed(2)}${currentDimension === '3D' ? `, ${pointA[2].toFixed(2)}` : ''})</div>
+                <div class="result-value"><strong>Punto B (rectangulares):</strong> (${pointB[0].toFixed(2)}, ${pointB[1].toFixed(2)}${currentDimension === '3D' ? `, ${pointB[2].toFixed(2)}` : ''})</div>
+            `;
+            
+            showResult(resultHTML);
+        }
+        
+        // FunciÃ³n para mostrar resultados
+        function showResult(message) {
+            document.getElementById('result').innerHTML = message;
+        }
+        
+        // Inicializar la UI al cargar la pÃ¡gina
+        document.addEventListener('DOMContentLoaded', function() {
+            setDimension('2D');
+        });
+    </script>
+</body>
+</html>
