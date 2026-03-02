@@ -1,0 +1,186 @@
+﻿<html>
+<head>
+    <!-- Favicon desde la carpeta "imagenes" -->
+<link rel="icon" href="imagenes/logo1.png" type="image/png">
+<link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <title>Practicar SCE</title>
+
+    <style>
+        html {
+            background-color: #d5e4f0;
+        }
+
+        h1 {
+            text-decoration-color: #020947;
+            font-family: Arial;
+            border-radius: 50px;
+            background-color: white;
+            max-width: 60%;
+        }
+
+        img {
+            background-color: white;
+            border-radius: 50px;
+        }
+
+        button {
+            display: inline-block; /* Cambiado a inline-block para que los botones estÃ©n en la misma lÃ­nea */
+            width: auto; /* Cambiado a auto para que los botones se ajusten al contenido */
+            padding: 10px;
+            background-color: #020947;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px; /* Reducido el margen para que los botones estÃ©n mÃ¡s juntos */
+        }
+
+        button:hover { background-color: #1a1f6e;
+        }
+
+        .contenedor {
+            border: #020947 7px groove;
+            border-radius: 20px;
+            max-width: 80%;
+            margin: 20px auto; /* Agregado margen superior e inferior */
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            background-image: url("imagenes/fonde.png");
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-contenido {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            position: relative;
+            text-align: center;
+        }
+
+        .cerrar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cerrar:hover,
+        .cerrar:focus {
+            color: black;
+        }
+
+        .popup:target {
+            display: block;
+        }
+        
+        #comentarios {
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        .comentario {
+            border: 1px solid #eee;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center><img src="imagenes/practicartitulo.png" width="400"></center><br><br><br>
+
+    <center><h1>Conversiones</h1></center>
+    <div class="contenedor">
+        <a href="#miPopupConversiones3"><button>SCC - SCE</button></a>
+        <a href="#miPopupConversiones4"><button>SCR - SCE</button></a>
+    </div>
+
+    <center><h1>Distancia entre dos puntos</h1></center>
+    <div class="contenedor">
+        <a href="#miPopupDistancia1"><button>d(B,A)</button></a>
+        <a href="#miPopupDistancia2"><button>rho negativa</button></a>
+        <a href="#miPopupDistancia4"><button>ejercicios</button></a>
+    </div>
+
+    <center><h1>Graficar</h1></center>
+    <div class="contenedor">
+        <a href="#miPopupGraficar4"><button>ejercicios</button></a>
+    </div>
+
+
+    <div id="miPopupConversiones3" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/ejscc/1.png" width=80%><br>
+            <br><img src="imagenes/ejscc/2.png" width=80%><br>
+            <br><img src="imagenes/ejscc/3.png" width=80%><br>
+        </div>
+    </div>
+    <div id="miPopupConversiones4" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/ejscr/1.png" width=80%><br>
+            <br><img src="imagenes/ejscr/2.png" width=80%><br>
+            <br><img src="imagenes/ejscr/3.png" width=80%><br>
+        </div>
+    </div>
+
+    <div id="miPopupDistancia1" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/d/1.png" width=80%><br>
+            <br><img src="imagenes/d/2.png" width=80%><br>
+            <br><img src="imagenes/d/3.png" width=80%><br>
+            <br><img src="imagenes/d/4.png" width=80%><br>
+        </div>
+    </div>
+    <div id="miPopupDistancia2" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <br><img src="imagenes/rhoNd/1.png" width=80%><br>
+            <br><img src="imagenes/rhoNd/2.png" width=80%><br>
+            <br><img src="imagenes/rhoNd/3.png" width=80%><br>
+            <br><img src="imagenes/rhoNd/4.png" width=80%><br>
+        </div>
+    </div>
+    <div id="miPopupDistancia4" class="popup">
+        <div class="popup-contenido">
+            <img src="imagenes/ejd/1.png" width=80%><br>
+            <br><img src="imagenes/ejd/2.png" width=80%><br>
+            <br><img src="imagenes/ejd/3.png" width=80%><br>
+        </div>
+    </div>
+
+    <div id="miPopupGraficar4" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/ejg/1.png" width=80%><br>
+            <br><img src="imagenes/ejg/2.png" width=80%><br>
+            <br><img src="imagenes/ejg/3.png" width=80%><br>
+        </div>
+    </div>
+
+    
+    <center><a href="index.html"><button>VOLVER INICIO</button></a></center>
+</body>
+</html>
+   

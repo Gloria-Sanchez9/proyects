@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="imagenes/logo1.png" type="image/png">
+    <link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficar SCE</title>
+    <style>
+        html {
+            background-color: #d5e4f0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        img {
+            background-color: white;
+            border-radius: 50px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            display: block;
+            width: 25%;
+            min-width: 150px;
+            padding: 10px;
+            background-color: #020947;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px auto;
+        }
+
+        button:hover {
+            background-color: #1a1f6e;
+        }
+
+        .graficadora {
+            border: #020947 7px groove;
+            border-radius: 20px;
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            background-image: url("imagenes/fonde.png");
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .graficadora iframe {
+            width: 100%;
+            min-height: 500px;
+            border: none;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-contenido {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .popup-contenido img {
+            border-radius: 10px;
+        }
+
+        .cerrar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cerrar:hover,
+        .cerrar:focus {
+            color: black;
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        .titulo-img {
+            max-width: 400px;
+            width: 90%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .nav-top {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .nav-top button {
+            background-color: blue;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            width: auto;
+        }
+
+        .nav-top button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .nav-top button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-top">
+        <button><a href="index.html">VOLVER INICIO</a></button>
+    </div>
+
+    <div style="text-align:center;">
+        <img src="imagenes/graficartitulo.png" class="titulo-img" alt="Graficar">
+    </div><br>
+
+    <div class="graficadora">
+        <iframe src="https://www.geogebra.org/classic/H5SAVTXy" loading="lazy"></iframe>
+    </div>
+
+    <br><br>
+    <div style="text-align:center;">
+        <img src="imagenes/comograficarTitulo.png" class="titulo-img" alt="Cómo Graficar">
+    </div><br>
+    <div class="graficadora">
+
+        <a href="#miPopup">
+            <button>Papel</button>
+        </a>
+
+        <div id="miPopup" class="popup">
+            <div class="popup-contenido">
+                <a href="#">
+                    <span class="cerrar">&times;</span>
+                    <img src="imagenes/1.png" width="80%" loading="lazy" alt="Paso 1"><br>
+                    <br><img src="imagenes/2.png" width="80%" loading="lazy" alt="Paso 2"><br>
+                    <br><img src="imagenes/3.png" width="80%" loading="lazy" alt="Paso 3"><br>
+                    <br><img src="imagenes/4.png" width="80%" loading="lazy" alt="Paso 4"><br>
+                    <br><img src="imagenes/5.png" width="80%" loading="lazy" alt="Paso 5"><br>
+                    <br><img src="imagenes/6.png" width="80%" loading="lazy" alt="Paso 6"><br>
+                </a>
+            </div>
+        </div>
+
+        <a href="#miPopup1">
+            <button>Geogebra</button>
+        </a>
+
+        <div id="miPopup1" class="popup">
+            <div class="popup-contenido">
+                <a href="#">
+                    <span class="cerrar">&times;</span>
+                    <img src="imagenes/enGeogebra/1.png" width="80%" loading="lazy" alt="Paso 1"><br>
+                    <br><img src="imagenes/enGeogebra/2.png" width="80%" loading="lazy" alt="Paso 2"><br>
+                    <br><img src="imagenes/enGeogebra/3.png" width="80%" loading="lazy" alt="Paso 3"><br>
+                    <br><img src="imagenes/enGeogebra/4.png" width="80%" loading="lazy" alt="Paso 4"><br>
+                    <br><img src="imagenes/enGeogebra/5.png" width="80%" loading="lazy" alt="Paso 5"><br>
+                    <br><img src="imagenes/enGeogebra/6.png" width="80%" loading="lazy" alt="Paso 6"><br>
+                    <br><img src="imagenes/enGeogebra/7.png" width="80%" loading="lazy" alt="Paso 7"><br>
+                    <br><img src="imagenes/enGeogebra/8.png" width="80%" loading="lazy" alt="Paso 8"><br>
+                    <br><img src="imagenes/enGeogebra/9.png" width="80%" loading="lazy" alt="Paso 9"><br>
+                    <br><img src="imagenes/enGeogebra/10.png" width="80%" loading="lazy" alt="Paso 10"><br>
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin: 20px 0;">
+        <button onclick="window.location.href='index.html'"
+            style="background-color:#020947; border-radius:30px; padding: 0.75rem 1.5rem; cursor:pointer; color:white; font-weight:bold;">VOLVER
+            INICIO</button>
+    </div>
+</body>
+
+</html>

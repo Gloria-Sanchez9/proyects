@@ -1,0 +1,165 @@
+﻿<html>
+<head>
+    <!-- Favicon desde la carpeta "imagenes" -->
+<link rel="icon" href="imagenes/logo1.png" type="image/png">
+<link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <title>Formulas SCE</title>
+    <style>
+        html {
+            background-color: #d5e4f0;
+        }
+
+        h1 {
+            text-decoration-color: #020947;
+            font-family: Arial;
+            border-radius: 50px;
+            background-color: white;
+            max-width: 60%;
+        }
+
+        img {
+            background-color: white;
+            border-radius: 50px;
+        }
+
+        button {
+            display: block;
+            width: 25%;
+            padding: 10px;
+            background-color: #020947;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px auto;
+        }
+
+        button:hover { background-color: #1a1f6e;
+        }
+
+        .contenedor {
+            border: #020947 7px groove;
+            border-radius: 20px;
+            max-width: 80%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            background-image: url("imagenes/fonde.png");
+            background-size: 100%;
+            background-position: center;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-contenido {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            position: relative;
+            text-align: center;
+        }
+
+        .cerrar {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cerrar:hover,
+        .cerrar:focus {
+            color: black;
+        }
+
+        .popup:target {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <center><img src="imagenes/formulastitulo.png" width="400"></center><br><br>
+
+    <center><h1>Conversiones</h1></center>
+    <div class="contenedor">
+        <a href="#miPopupConversiones1"><button>SCR - SCE</button></a>
+        <a href="#miPopupConversiones2"><button>SCC - SCE</button></a>
+    </div>
+
+    <br><br>
+
+    <center><h1>Distancia entre dos puntos</h1></center>
+    <div class="contenedor">
+        <a href="#miPopupDistancia"><button>ComprobaciÃ³n</button></a>
+    </div>
+
+    <div id="miPopupConversiones1" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/SCR-SCE/1.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/2.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/3.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/4.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/5.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/6.png" width=80%><br>
+            <br><img src="imagenes/SCR-SCE/7.png" width=80%><br>
+        </div>
+    </div>
+
+    <div id="miPopupConversiones2" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <img src="imagenes/SCC-SCE/1.png" width=80%><br>
+            <br><img src="imagenes/SCC-SCE/2.png" width=80%><br>
+            <br><img src="imagenes/SCC-SCE/3.png" width=80%><br>
+            <br><img src="imagenes/SCC-SCE/4.png" width=80%><br>
+            <br><img src="imagenes/SCC-SCE/5.png" width=80%><br>
+            <br><img src="imagenes/SCC-SCE/6.png" width=80%><br>
+        </div>
+    </div>
+
+    <div id="miPopupDistancia" class="popup">
+        <div class="popup-contenido">
+            <a href="#"><span class="cerrar">&times;</span></a>
+            <br><img src="imagenes/fdd/2.png" width=80%><br>
+            <br><img src="imagenes/fdd/3.png" width=80%><br>
+            <br><img src="imagenes/fdd/4.png" width=80%><br>
+            <br><img src="imagenes/fdd/5.png" width=80%><br>
+            <br><img src="imagenes/fdd/6.png" width=80%><br>
+            <br><img src="imagenes/fdd/7.png" width=80%><br>
+            <br><img src="imagenes/fdd/8.png" width=80%><br>
+            <br><img src="imagenes/fdd/9.png" width=80%><br>
+            <br><img src="imagenes/fdd/10.png" width=80%><br>
+            <br><img src="imagenes/fdd/11.png" width=80%><br>
+            <br><img src="imagenes/fdd/12.png" width=80%><br>
+            <br><img src="imagenes/fdd/13.png" width=80%><br>
+            <br><img src="imagenes/fdd/14.png" width=80%><br>
+            <br><img src="imagenes/fdd/15.png" width=80%><br>
+            <br><img src="imagenes/fdd/16.png" width=80%><br>
+            <br><img src="imagenes/fdd/17.png" width=80%><br>
+
+
+
+
+        </div>
+    </div>
+
+    <center><a href="index.html"><button>VOLVER INICIO</button></a></center>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="imagenes/icono.png" type="image/png">
+    <link rel="shortcut icon" href="imagenes/icono.png" type="image/png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ParabolicPets - Movimiento de Proyectiles</title>
+    <style>
+        :root {
+            --primary-color: #2628de;
+            --secondary-color: #f9f9f9;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .header h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .header p.subtitle {
+            margin: 0.5rem 0 0;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--light-text);
+            font-weight: 300;
+            padding: 0 1rem;
+        }
+
+        .main-content {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .game-container {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        #unity-container {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #unity-canvas {
+            width: 960px;
+            height: 600px;
+            background: url('Build/ParabolicPets-Build.jpg') center / cover;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .description {
+            background-color: var(--white);
+            padding: 2rem;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .description h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-weight: 700;
+        }
+
+        .description p {
+            margin-bottom: 1.25rem;
+            color: #555;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.7;
+        }
+
+        .description a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.25rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .description a:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+
+        footer {
+            background-color: var(--white);
+            color: var(--text-color);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            border-top: 1px solid #eaeaea;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav-button {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            width: auto;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+
+        .nav-button a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+        }
+
+        /* iOS fallback message */
+        .ios-fallback {
+            display: none;
+            background-color: var(--white);
+            padding: 2rem;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .ios-fallback h2 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        .ios-fallback p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .ios-fallback .btn-video {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .ios-fallback .btn-video:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .video-container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #unity-canvas {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 960/600;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .description {
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
+
+            .nav-button {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1.25rem 0.75rem;
+            }
+
+            .description {
+                padding: 1.25rem;
+                margin: 1.25rem auto;
+            }
+
+            .nav-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-button a {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-container">
+        <nav>
+            <button class="nav-button"><a href="../index.html">REGRESAR A PROYECTOS</a></button>
+        </nav>
+    </div>
+
+    <div class="header">
+        <h1>PARABOLIC PETS</h1>
+        <p class="subtitle">Simulación de Movimiento Parabólico</p>
+    </div>
+
+    <main class="main-content">
+        <div class="game-container">
+            <!-- iOS fallback message -->
+            <div class="ios-fallback" id="ios-fallback">
+                <h2>📱 Dispositivo iOS Detectado</h2>
+                <p>Lamentablemente, los juegos Unity WebGL no son compatibles con Safari en dispositivos iOS
+                    (iPhone/iPad). Sin embargo, puedes ver el juego en acción a través de nuestro video explicativo:</p>
+                <a href="https://youtu.be/X9C-v5EGG_M?si=7mcgmWn_g_Fm-6-q" target="_blank" class="btn-video">🎬 Ver
+                    Video del Juego</a>
+                <p style="margin-top:1.5rem; font-size:0.9rem; color:#999;">Para jugar directamente, accede desde una
+                    computadora de escritorio o laptop con Chrome, Firefox o Edge.</p>
+            </div>
+
+            <div id="unity-container">
+                <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+            </div>
+
+            <div class="description">
+                <h2>Acerca del Juego</h2>
+                <p>ParabolicPets es un juego interactivo que demuestra los principios físicos del movimiento parabólico.
+                    Inspirado en el concepto de Angry Birds, esta versión del juego llega con el objetivo de
+                    experimentar con diferentes ángulos y velocidades en situaciones ya establecidas.</p>
+                <p><strong>Conceptos físicos aplicados:</strong><br> Trayectoria parabólica, gravedad, velocidad
+                    inicial, componentes vectoriales del movimiento.</p>
+                <a href="https://youtu.be/X9C-v5EGG_M?si=7mcgmWn_g_Fm-6-q" target="_blank">Ver video explicativo</a>
+            </div>
+        </div>
+        <div class="description">
+            <h3>Siguiente actualización...</h3><br>
+            <div class="video-container">
+                <video controls preload="metadata">
+                    <source src="Build/cutscene1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-container">
+                <video controls preload="metadata">
+                    <source src="Build/cutscene2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Trabajo realizado por alumnos de la Universidad de Sonora
+    </footer>
+
+    <script>
+        // Detect iOS devices
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+        if (isIOS) {
+            // Show iOS fallback message
+            document.getElementById('ios-fallback').style.display = 'block';
+            // Hide Unity container
+            document.getElementById('unity-container').style.display = 'none';
+        } else {
+            // Load Unity only on non-iOS devices
+            const script = document.createElement('script');
+            script.src = 'Build/ParabolicPets-Build.loader.js';
+            script.onload = function () {
+                createUnityInstance(document.querySelector("#unity-canvas"), {
+                    dataUrl: "Build/ParabolicPets-Build.data",
+                    frameworkUrl: "Build/ParabolicPets-Build.framework.js",
+                    codeUrl: "Build/ParabolicPets-Build.wasm",
+                    streamingAssetsUrl: "StreamingAssets",
+                    companyName: "DefaultCompany",
+                    productName: "ParabolicPets",
+                    productVersion: "1.0",
+                }).then(instance => {
+                    // Responsive canvas adjustment
+                    function adjustCanvas() {
+                        const canvas = document.querySelector("#unity-canvas");
+                        if (window.innerWidth <= 1000) {
+                            canvas.style.width = "100%";
+                            canvas.style.height = "auto";
+                            canvas.style.aspectRatio = "960/600";
+                        } else {
+                            canvas.style.width = "960px";
+                            canvas.style.height = "600px";
+                            canvas.style.aspectRatio = "none";
+                        }
+                    }
+                    adjustCanvas();
+                    window.addEventListener('resize', adjustCanvas);
+                }).catch(message => {
+                    console.error("Error loading Unity:", message);
+                });
+            };
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+
+</html>

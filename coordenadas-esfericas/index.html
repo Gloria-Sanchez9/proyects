@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="imagenes/logo1.png" type="image/png">
+    <link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordenadas Esféricas</title>
+
+    <style>
+        .opciones {
+            max-width: 90%;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        a {
+            max-width: 25%;
+        }
+
+        a img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav h5 {
+            margin: 0;
+            font-size: clamp(16px, 4vw, 24px);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        button {
+            background-color: blue;
+            border: none;
+            border-radius: 30px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            width: auto;
+            max-width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(38, 40, 222, 0.3);
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            white-space: nowrap;
+        }
+
+        .titulo-img {
+            max-width: 400px;
+            width: 90%;
+            height: auto;
+        }
+
+        .fondo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <button class="button"><a href="../index.html">REGRESAR A PROYECTOS</a></button>
+    </nav>
+    <br>
+    <div style="text-align:center;">
+        <img src="imagenes/Titulo.png" class="titulo-img" alt="Coordenadas Esféricas">
+    </div>
+
+    <div class="opciones">
+        <a href="graficar.html">
+            <img src="imagenes/graficartitulo.png" width="200" alt="Graficar">
+        </a>
+
+        <a href="formulas.html">
+            <img src="imagenes/formulastitulo.png" width="200" alt="Fórmulas">
+        </a>
+
+        <a href="practicar.html">
+            <img src="imagenes/practicartitulo.png" width="200" alt="Practicar">
+        </a>
+    </div>
+
+    <div style="text-align:center;">
+        <img src="imagenes/fonde.png" class="fondo-img" loading="lazy" alt="Fondo decorativo">
+    </div>
+</body>
+
+</html>
