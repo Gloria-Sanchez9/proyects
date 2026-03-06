@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Favicon desde la carpeta "imagenes" -->
+<link rel="icon" href="imagenes/logo1.png" type="image/png">
+<link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de ConversiÃ³n de Coordenadas</title>
+    
+</head>
+<body>
+    <script src="scriptInicio.js"></script>
+    <h1>Calculadora de ConversiÃ³n de Coordenadas</h1>
+    
+    <div class="container">
+        <div class="output-section">
+            <h4>Resultado</h4>
+            <div id="result"></div>
+        </div>
+        <div class="input-section">
+            <center><h4>Modos</h4></center>
+            
+            <div class="dimension-buttons">
+                <button id="btn-2d" class="active" onclick="setDimension('2D')">RÂ² (2D)</button>
+                <button id="btn-3d" onclick="setDimension('3D')">RÂ³ (3D)</button>
+            </div>
+            <h4>Sistema</h4>
+            <div class="coord-type-buttons">
+                <button id="btn-rect" class="active" onclick="setCoordType('rect')">Rectangulares</button>
+                <button id="btn-polar" onclick="setCoordType('polar')">Polares</button>
+                <button id="btn-cylindrical" class="hidden" onclick="setCoordType('cylindrical')">CilÃ­ndricas</button>
+                <button id="btn-spherical" class="hidden" onclick="setCoordType('spherical')">EsfÃ©ricas</button>
+            </div>
+            
+            <h4>Ingrese las coordenadas:</h4>
+            <div class="input-fields">
+                <div class="input-group" id="input1">
+                    <label id="label1">X:</label>
+                    <input type="number" id="val1" step="any">
+                </div>
+                <div class="input-group" id="input2">
+                    <label id="label2">Y:</label>
+                    <input type="number" id="val2" step="any">
+                </div>
+                <div class="input-group hidden" id="input3">
+                    <label id="label3">Z:</label>
+                    <input type="number" id="val3" step="any">
+                </div>
+                <div class="buttons-container">
+           <div class="conversion-title" id="conversion-title">Convertir a:</div>
+            <div class="conversion-buttons" id="conversion-options"></div>
+        </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <a href= inicio.html >
+    <center><button1>VOLVER INICIO</button1></center>
+    </a>
+</body>
+</html>
