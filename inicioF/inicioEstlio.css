@@ -110,9 +110,7 @@ p{
 
 .circle{ 
     position:absolute; /*poner los elementos en una posicion exacta*/
-    background:#D9D9D9; 
-    border-radius:50%; 
-    box-shadow:0 5px 10px rgba(0,0,0,0.2); 
+    border-radius:10%;  
 } 
 
 .c1{ 
@@ -120,13 +118,22 @@ p{
     height:130px; 
     left:100px; 
     top: 100px; 
+    background-image: url('imagenesInicio/icon1.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
+    
 } 
 
 .c2{
      width:90px; 
      height:90px; 
      left:50px; 
-     top:330px; 
+     top:330px;
+     background-image: url('imagenesInicio/icon2.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute; 
 } 
 
 .c3{ 
@@ -134,6 +141,10 @@ p{
     height:120px; 
     left:210px; 
     top:380px;
+    background-image: url('imagenesInicio/icon3.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 .c4{ 
@@ -141,6 +152,10 @@ p{
     height:90px; 
     left:110px; 
     top:610px; 
+    background-image: url('imagenesInicio/icon1.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 .c5{ 
@@ -148,6 +163,10 @@ p{
     height:130px; 
     right:120px; 
     top:100px; 
+    background-image: url('imagenesInicio/icon2.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 .c6{ 
@@ -155,6 +174,10 @@ p{
     height:90px; 
     right:200px; 
     top:330px; 
+    background-image: url('imagenesInicio/icon3.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 .c7{ 
@@ -162,6 +185,10 @@ p{
     height:120px; 
     right:30px; 
     top:380px; 
+    background-image: url('imagenesInicio/icon1.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 .c8{ 
@@ -169,6 +196,10 @@ p{
     height:90px; 
     right:155px; 
     top:610px; 
+    background-image: url('imagenesInicio/icon1.png');
+    background-size: cover;    /*  la imagen cubre todo el cuadro */
+    background-position: center; /* centrar la imagen */
+    position: absolute;
 } 
 
 /* Aro del fondo */ 
@@ -334,7 +365,7 @@ h3{
 }
 
 /* Diseño posters */
-.team-member-card1 {
+.team-member-cardd {
     flex: 0 0 300px; /* Ancho fijo para que no se aplasten */
     height: 550px;
     background-color: white;
@@ -346,12 +377,20 @@ h3{
     justify-content: space-between;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
+    background-size: cover;
+    background-position: center;
 }
 
-.team-member-card1:hover {
+.team-member-cardd:hover {
     transform: translateY(-10px);
     background-color: white;
 }
+
+.card1 { background-image: url('imagenesInicio/poster1.png'); }
+.card2 { background-image: url('imagenesInicio/poster2.png'); }
+.card3 { background-image: url('imagenesInicio/poster3.png'); }
+.card4 { background-image: url('imagenesInicio/poster1.png'); }
+.card5 { background-image: url('imagenesInicio/poster2.png'); }
 
 .card-top h3 {
     font-size: 30px;
@@ -361,6 +400,19 @@ h3{
 .card-bottom img {
     max-height: 35px;
     opacity: 0.7;
+    background-size: cover;
+}
+
+.card-link {
+    text-decoration: none; 
+    color: inherit;       
+    display: block;     
+}
+
+
+.card-link:hover {
+    transform: translateY(-10px);
+    background-color: white;
 }
 
 /*
@@ -388,14 +440,75 @@ Botones
 .next-btn::after { content: '›'; }
 */
 
+/* Esto arregla que el link no corte la carta */
+    .link-invisible {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; 
+        width: 100%; 
+    }
+
+   
+    .link-invisible .card-top h3 {
+        margin-top: 0; 
+    }
+
+    a.team-member-cardd {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .team-member-cardd {
+        flex: 0 0 300px; 
+        width: 300px;    
+        height: 550px;   
+
+    }
+
+    a.team-member-cardd h3 {
+        margin: 0;
+        color: white;
+    }
+
 /* FOOTER*/
 
-footer {
-    background-color: #f8f9fa;
-    color: #333;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
-    border-top: 1px solid #e9ecef;
-    font-size: 14px;
-        }
+    footer {
+        background-color: #f8f9fa;
+        color: #333;
+        padding: 20px 0;
+        text-align: center;
+        margin-top: 40px;
+        border-top: 1px solid #e9ecef;
+        font-size: 14px;
+            }
+
+        .mi-footer {
+        display: flex;
+        flex-direction: column; 
+        padding: 20px;
+        background-color: #f8f8f8; 
+    }
+
+    .footer-top {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        margin-bottom: 20px; 
+    }
+
+    .info-profesor {
+        display: flex;
+        align-items: center;
+        gap: 15px; 
+    }
+
+    .footer-bottom {
+        text-align: center; 
+        width: 100%;
+        border-top: 1px solid #ddd; 
+        padding-top: 10px;
+    }

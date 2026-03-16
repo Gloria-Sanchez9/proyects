@@ -4,15 +4,26 @@
     <!-- Favicon desde la carpeta "imagenes" -->
 <link rel="icon" href="imagenes/logo1.png" type="image/png">
 <link rel="shortcut icon" href="imagenes/logo1.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styleConversion.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de ConversiÃ³n de Coordenadas</title>
+    <title>Conversión de Coordenadas</title>
     
 </head>
+<header>
+<nav>
+        <div class ="logo-box">
+            <img class = "logo" src="../imagenes/logo2.png" width="70px"> </div>  
+        </div>
+        <a href="../../inicioF/inicio.html">Proyectos</a>
+        <a href="../inicio/inicio.html">Inicio</a>
+        <a href="../conversion/conversion.html">Conversion Coordenadas</a>
+        <a href="../distancia/distancia.html">Distancia</a>
+        <a href="../videos/videos.html">Videos</a>
+    </nav>
+</header>
 <body>
-    <script src="scriptInicio.js"></script>
-    <h1>Calculadora de ConversiÃ³n de Coordenadas</h1>
+    <h1>CONVERSIÓN DE COORDENADAS</h1>
     
     <div class="container">
         <div class="output-section">
@@ -30,8 +41,8 @@
             <div class="coord-type-buttons">
                 <button id="btn-rect" class="active" onclick="setCoordType('rect')">Rectangulares</button>
                 <button id="btn-polar" onclick="setCoordType('polar')">Polares</button>
-                <button id="btn-cylindrical" class="hidden" onclick="setCoordType('cylindrical')">CilÃ­ndricas</button>
-                <button id="btn-spherical" class="hidden" onclick="setCoordType('spherical')">EsfÃ©ricas</button>
+                <button id="btn-cylindrical" class="hidden" onclick="setCoordType('cylindrical')">Cili­ndricas</button>
+                <button id="btn-spherical" class="hidden" onclick="setCoordType('spherical')">Esféricas</button>
             </div>
             
             <h4>Ingrese las coordenadas:</h4>
@@ -56,9 +67,6 @@
         </div>
         <br>
     </div>
-    <br>
-    <a href= inicio.html >
-    <center><button1>VOLVER INICIO</button1></center>
-    </a>
+    <script src="script.js"></script>
 </body>
 </html>
