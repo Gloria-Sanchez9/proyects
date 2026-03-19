@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: #F9F9F9;
+    background-color: white;
     overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
 }
 
@@ -62,7 +62,7 @@ nav a{ /*para todos los links dentro del nav */
 .header-con-ola {
     position: relative;
     height: 98vh;
-    background-image: url('../imagenes/fondo.jpg');
+    background-image: url('../imagenes/fondo1.png');
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -75,12 +75,13 @@ nav a{ /*para todos los links dentro del nav */
 
 .imagen-flotante {
     position: absolute;
-    top: 100px;
+    top: 200px;
     left: 50%;
     transform: translateX(-50%);
     width: 800px;
     height: auto;
     animation: float 4s ease-in-out infinite;
+
 }
 @keyframes float {
     0% { transform: translateX(-50%) translateY(0); }
@@ -100,3 +101,101 @@ nav a{ /*para todos los links dentro del nav */
 .wave svg path {
     fill: var(--color-wave-fill);
 }
+
+.container{
+    display: flex;            
+    justify-content: center;   
+    align-items: center;       
+    gap: 30px;                
+    flex-wrap: wrap;          
+    padding: 10px;
+    width: 100%;
+    height: 450px;
+    background-color: white;
+}
+
+.container1{
+    display: flex;                  
+    gap: 0;                
+    align-items: center;
+    justify-content: center;         
+
+}
+
+.container2{
+    display: flex;            
+    justify-content: center;   
+    align-items: center;       
+    gap: 30px;                
+    flex-wrap: wrap;          
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: #E8EFF0;        
+
+}
+
+.img1{
+    width: 1000px;
+    
+
+}
+
+.img3{
+    width: 100%;
+    margin-top: -40px;
+
+}
+
+.creepy {
+    font-family: 'Creepster', cursive;
+    margin-top: -70px;
+    text-align: center;
+    font-size: 100px;
+    color: #FFCF0D ;
+    -webkit-text-stroke: 3px #B7521B;
+}
+
+.onest {
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+.onest1 {
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #FFCF0D ;
+    -webkit-text-stroke: 2px #B7521B;
+}
+
+h2{
+    text-align: center;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
+    font-size: 50px;
+}
+
+.rebote {
+  animation: brincar 1s infinite;
+}
+
+@keyframes brincar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+/* FOOTER*/
+
+        footer {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px solid #e9ecef;
+            font-size: 14px;
+        }
