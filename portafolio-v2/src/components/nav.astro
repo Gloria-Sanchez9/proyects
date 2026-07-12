@@ -1,0 +1,75 @@
+<nav>
+        <a href="../pages/inicio.astro" class="nav-link activo">INICIO</a>
+        <a href="../pages/nosotros.astro" class="nav-link">NOSOTROS</a>
+
+        <div class ="logo-box">
+            <img class = "logo" src="imagenes/inicio/logoFINAL.png" width="150px">  
+        </div>
+
+        <a href="#Proyectos" class="nav-link">PROYECTOS</a>
+        <a href="#Foro" class="nav-link">FORO</a>
+    </nav>
+
+<style>
+/* Nav */
+
+header{
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+nav{
+    height: 90px;
+    display:flex; /*activar flexbox */
+    justify-content: center; /*alinear elementos horizontalmente */
+    align-items: center; /*alinear elementos verticalmente */
+    gap: 50px; /* espacio entre elemntos*/
+    position: fixed;   /*  fijo en pantalla */
+    top: 0;           /* borde superior */
+    left: 0;          /* borde izquierdo */
+    width: 100%;      
+    z-index: 10000;    /*  por encima de todo lo demás */
+    background-color: #F9F9F9; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+
+
+}
+
+.nav-link{/*para todos los links dentro del nav */
+    text-decoration:none;
+    color:black;
+    font-size:18px;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+
+}
+.nav-link.activo {
+    color: #7dabc5; 
+    border-bottom: 3px solid #7dabc5; /* línea de debajo */
+    font-weight: bold; 
+}
+
+/* Logo (dentro del nav) */
+
+.logo-box{
+    width:70px; 
+    height:55px; 
+    background:#F9F9F9; 
+    border-radius:10px; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+}
+
+.logo-central{
+    width: 600px; 
+    left:-100px; 
+    top: -200px;
+    border-radius:10px; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+}
+</style>

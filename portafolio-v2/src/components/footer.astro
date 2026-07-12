@@ -1,0 +1,245 @@
+<footer class="footer-eloa">
+  <div class="arco arco-izquierdo"></div>
+  <div class="arco arco-derecho"></div>
+
+  <div class="redes-sociales">
+    <a href="https://www.instagram.com/eloadevteam" target="_blank" rel="noopener noreferrer">
+        <img class="imagenes_redes" src="/imagenes/inicio/instagram.png" alt="Instagram" />
+    </a>
+    <a href="#"><img src="imagenes/inicio/tiktol.png" alt="TikTok"></a>
+    <a href="mailto:eloadevteam@gmail.com">
+        <img class="imagenes_redes" src="/imagenes/inicio/correo.png" alt="Correo" />
+    </a>
+  </div>
+
+  <div class="footer-contenido">
+    
+    <div class="footer-header">
+      <div class="logo-principal">
+        <img src="imagenes/inicio/logo1FINAL.png" alt="ELOA Dev Team" class="img-logo-eloa">
+    </div>
+      <div class="linea-separadora"></div>
+      
+      <div class="slogan-art">
+        <p>
+          <span class="texto-oscuro">E a t</span> <span class="texto-naranja">L o g i c</span><br>
+          <span class="texto-oscuro">O u t p u t</span> <span class="texto-morado">A r t</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-columnas">
+      
+      <div class="columna-info1">
+        <h4 class="titulo-oscuro">Tu voz, nuestro motor.</h4>
+        <p class="texto-normal">Hermosillo, Sonora<br>eloadevteam@gmail.com</p>
+        <h4 class="titulo-naranja">Tus ideas no solo se<br>escuchan, aquí se<br>construyen.</h4>
+      </div>
+
+      <div class="columna-info2">
+        <h4 class="titulo-oscuro">Aprovechamos este espacio para<br>reconocer a</h4>
+        <img src="imagenes/inicio/logo-unison.png" alt="Universidad de Sonora" class="logo-unison">
+        
+        <div class="profesor-seccion">
+          <p class="texto-normal text-left">A nuestro profesor<br>encargado :<br><br>Jose Alfredo<br>Galaviz Sañudo</p>
+          <div class="foto-profesor">
+            <img src="foto-paisaje.png" alt="Profesor">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-copyright">
+      <p><span class="texto-naranja">© 2026</span> Trabajo realizado por alumnos de la Universidad de Sonora</p>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+/* FOOTER*/
+    :root {
+    --azul-oscuro: #1b2e45;
+    --naranja: #d46b42;
+    --morado: #b886b5;
+    --azul-claro: #83a5b6;
+    }
+
+    .footer-eloa {
+    position: relative;
+    overflow: hidden; 
+    background-color: #ffffff;
+    padding: 60px 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--azul-oscuro);
+    }
+
+    /* arcos*/
+    .arco {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 30px solid var(--azul-claro);
+    z-index: 1; 
+    }
+    .arco-izquierdo { 
+        left: -300px; 
+        
+    }
+    .arco-derecho { 
+        right: -300px; 
+        top:100px
+    }
+
+    /* redes*/
+    .redes-sociales {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+    }
+    .redes-sociales img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease;
+    }
+    .redes-sociales img:hover {
+    transform: scale(1.1); 
+    }
+
+    
+    .footer-contenido {
+    position: relative;
+    z-index: 5; 
+    max-width: 900px;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    
+    .footer-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    }
+    .logo-principal {
+    text-align: center;
+    }
+    .logo-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .img-logo-eloa {
+    max-height: 100px;  
+    width: auto;       
+    object-fit: contain;
+    }
+    .linea-separadora {
+    width: 2px;
+    height: 90px;
+    background-color: var(--azul-oscuro);
+    }
+    .slogan-art p {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin: 0;
+    }
+    .texto-oscuro { color: var(--azul-oscuro); }
+    .texto-naranja { color: var(--naranja); }
+    .texto-morado { color: var(--morado); }
+
+   
+    .footer-columnas {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50px;
+    gap: 50px;
+    }
+    .columna-info1{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    }
+
+    .columna-info2 {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    }
+
+    .titulo-oscuro {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    color: #182d42;
+    }
+    .titulo-naranja {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--naranja);
+    margin: 0;
+    font-family: 'Franklin Gothic';
+    }
+    .texto-normal {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
+    }
+    .logo-unison {
+    max-width: 270px;
+    height: auto;
+    }
+
+    .profesor-seccion {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 10px;
+    }
+    .text-left {
+    text-align: left;
+    }
+    .foto-profesor {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Fondo por si no carga la imagen */
+    }
+    .foto-profesor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    }
+
+    
+    .footer-copyright {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    }
+</style> 

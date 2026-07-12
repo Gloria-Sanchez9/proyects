@@ -1,3 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+<section class="hero">
+    <div class="aro1"></div>
+    <div class="orbit-container c1-container">
+        <div class="circle c1" id="Inicio"></div>
+    </div>
+    <div class="orbit-container c2-container">
+        <div class="circle c2"></div>
+    </div>
+    <div class="orbit-container c3-container">
+        <div class="circle c3"></div>
+    </div>
+    <div class="orbit-container c4-container">
+        <div class="circle c4"></div>
+    </div>
+
+    <div class="aro2"></div>
+
+    <div class="orbit-container c5-container">
+    <div class="circle c5"></div>
+    </div>
+    <div class="orbit-container c6-container">
+        <div class="circle c6"></div>
+    </div>
+    <div class="orbit-container c7-container">
+        <div class="circle c7"></div>
+    </div>
+    <div class="orbit-container c8-container">
+        <div class="circle c8"></div>
+    </div>
+        
+    <br /><br />
+<div class="tarjeta-central">
+    <br />
+    <img class="logo-central" src="/imagenes/inicio/logo1FINALL.png"></div><br />
+
+<br /><br />
+<br /><br />
+<br /><br />
+</section>
+
+<div class="container-lerp1-condel"> 
+    <img class="lerp1" src="/imagenes/inicio/LERPsalu2.png" />
+
+    <div class="container_delgado">
+        <p class="texto-principal">
+        Eat <span class="destacado-naranja">Logic</span> Output <span class="destacado-rosa">Art</span>
+    </p>
+    </div>
+    <div class="container_redes">
+        <a href="https://www.instagram.com/eloadevteam" target="_blank" rel="noopener noreferrer">
+        <img class="imagenes_redes" src="/imagenes/inicio/instagram.png" alt="Instagram" />
+    </a>
+        <img class="imagenes_redes" src="/imagenes/inicio/tiktol.png" /> 
+        <a href="mailto:eloadevteam@gmail.com">
+        <img class="imagenes_redes" src="/imagenes/inicio/correo.png" alt="Correo" />
+    </a>
+    </div>
+</div>
+
+<div class="titulo-bienvenido">
+<h2>BIENVENIDOS A</h2>
+</div>
+
+<div class="container_abstracto">
+    <div class="logo-texto">
+    <img class="logo-bienvenida" src="/imagenes/inicio/logoBienvenida.png" />
+    <div class="texto-texto">
+    <h4>Ingienería mexicana con propósito.</h4>
+    <p class="texto-abstracto"> En ELOA, transformamos la teoría en experiencias interactivas. Somos estudiantes comprometidos con facilitar el aprendizaje a través de juegos y herramientas, creando un ecosistema digital donde educar es divertido y simultáneo. Explora nuestra visión de la tecnología. </p>
+    </div>
+</div>
+    <div class="texto-imagen">
+    <div class="textoO">
+        <img src="/imagenes/inicio/programacion.png" width="80px" />
+        <p class="texto-arriba">Desarrolladores universitarios mexicanos</p>
+    </div>
+    <img class="imagenB" src="/imagenes/inicio/junta.jpg" />
+    </div>
+</div>   
+<br /><br />
+
+<!--FRAME 3 FIGMA -->
+<h3 id="Proyectos">NUESTROS PROYECTOS</h3><br />
+<br/><br/>
+
+<div class="container2">
+  <div class="carruselcarousel-s">
+    
+    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior"></button>
+    <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente"></button>
+
+    <div class="carrusel-container" id="carruselContainer">
+      
+      <div class="carrusel-tarjetas" id="carruselTarjetas">
+        
+        <a href="ruta/a/particulas.html" class="team-member-cardd card1">
+          <div class="card-bottom"><img src="/imagenes/inicio/miniLERP.png" /></div>
+        </a>
+
+        <a href="ruta/a/party-problems.html" class="team-member-cardd card2">
+          <div class="card-bottom"><img src="/imagenes/inicio/miniLERP.png" /></div>
+        </a>
+
+        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3">
+          <div class="card-bottom"><img src="/imagenes/inicio/miniLERP.png" /></div>
+        </a>
+
+        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card4">
+          <div class="card-bottom"><img src="/imagenes/inicio/miniLERP.png" /></div>
+        </a>
+
+        <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5">
+          <div class="card-bottom"><img src="/imagenes/inicio/miniLERP.png" /></div>
+        </a>
+
+      </div> 
+    </div> 
+  </div> 
+</div>
+</BaseLayout>
+
+<style> 
 
 /* FRAME 1 FIGMA*/
 /* General */
@@ -12,57 +139,8 @@
 body{
     background-color: #F9F9F9;
     overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
-}
-
-/* Nav */
-
-header{
-    background-color: #F9F9F9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-nav{
-    height: 90px;
-    display:flex; /*activar flexbox */
-    justify-content: center; /*alinear elementos horizontalmente */
-    align-items: center; /*alinear elementos verticalmente */
-    gap: 50px; /* espacio entre elemntos*/
-    position: fixed;   /*  fijo en pantalla */
-    top: 0;           /* borde superior */
-    left: 0;          /* borde izquierdo */
-    width: 100%;      
-    z-index: 10000;    /*  por encima de todo lo demás */
-    background-color: #F9F9F9; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-
-
-}
-
-.nav-link{/*para todos los links dentro del nav */
-    text-decoration:none;
-    color:black;
-    font-size:18px;
-    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-    font-weight: bold;
-
-}
-.nav-link.activo {
-    color: #7dabc5; 
-    border-bottom: 3px solid #7dabc5; /* línea de debajo */
-    font-weight: bold; 
-}
-
-/* Logo (dentro del nav) */
-
-.logo-box{
-    width:70px; 
-    height:55px; 
-    background:#F9F9F9; 
-    border-radius:10px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
-    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+    margin: 0;
+    padding: 0;
 }
 
 .logo-central{
@@ -75,7 +153,6 @@ nav{
     align-items:center; 
     position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
 }
-
 
 /* Hero (la parte despues del nav)*/
 
@@ -145,7 +222,7 @@ p{
     height:110px; 
     left:300px; 
     top: 40px; 
-    background-image: url('imagenesInicio/icon1.png');
+    background-image: url('/imagenes/inicio/icon1.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -157,7 +234,7 @@ p{
      height:110px; 
      left:-50px; 
      top:380px;
-     background-image: url('imagenesInicio/icon2.png');
+     background-image: url('/imagenes/inicio/icon2.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute; 
@@ -168,7 +245,7 @@ p{
     height:110px; 
     left:280px; 
     top:340px;
-    background-image: url('imagenesInicio/icon3.png');
+    background-image: url('/imagenes/inicio/icon3.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -177,9 +254,9 @@ p{
 .c4{ /*esta es la imagen q no se acomoda*/
     width:110px; 
     height:110px; 
-    left:50px; 
-    top:200px; 
-    background-image: url('imagenesInicio/icon1.png');
+    left:-90px; 
+    top:-70px; 
+    background-image: url('/imagenes/inicio/icon4.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -190,7 +267,7 @@ p{
     height:110px; 
     right:10px; 
     top:490px; 
-    background-image: url('imagenesInicio/icon2.png');
+    background-image: url('/imagenes/inicio/icon5.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -201,7 +278,7 @@ p{
     height:110px; 
     right:-10px; 
     top:920px; 
-    background-image: url('imagenesInicio/icon3.png');
+    background-image: url('/imagenes/inicio/icon6.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -210,9 +287,9 @@ p{
 .c7{  /* esta es la imagen q no se acomoda*/
     width:110px; 
     height:110px; 
-    right:30px; 
+    right:-300px; 
     top:600px; 
-    background-image: url('imagenesInicio/icon1.png');
+    background-image: url('/imagenes/inicio/icon7.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -223,7 +300,7 @@ p{
     height:110px; 
     right:180px; 
     top:680px; 
-    background-image: url('imagenesInicio/icon1.png');
+    background-image: url('/imagenes/inicio/icon8.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -255,11 +332,11 @@ p{
     width: 100%;
     height: 100px;
     background-color: #182d42;
-    z-index: 9999;/*este arriba de todo*/
-    position: absolute; /*esto para que funcione el z-index*/
-    display: flex;             
-    justify-content: center;   
-    align-items: center;       
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
+    z-index: 10;   
 }
 
 .texto-principal{
@@ -281,6 +358,18 @@ p{
     color:#da5d1a;
 }
 
+.container-lerp1-condel{
+    display: flex;
+    flex-direction: column; 
+    width: 100vw;
+    
+}
+
+.lerp1{
+    width: 450px;
+    height: 300px;
+}
+
 .imagenes_redes{
     width: 40px;
     height: 40px;   
@@ -289,8 +378,6 @@ p{
 .container_redes{
     width: 200px;
     height: 90px;
-    z-index: 9999;/*este arriba de todo*/
-    position: absolute; /*esto para que funcione el z-index*/
     display: flex;             
     justify-content: center;   
     align-items: center;
@@ -369,7 +456,7 @@ h4{
 
 .textoO{
     color: white;
-    padding: 0;
+    padding: 10px;
     margin-bottom: 20px;
     width: 300px; 
     height: 80px;
@@ -382,10 +469,10 @@ h4{
 .texto-arriba{
     color: white;
     padding: 5px;
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 17px;
     width: 200px; 
     height: 70px;
+    font-family: 'Franklin Gothic';
 
 }
 
@@ -454,19 +541,27 @@ h3{
 
 /* Diseño posters */
 .team-member-cardd {
-    flex: 0 0 300px; /* Ancho fijo para que no se aplasten */
-    height: 550px;
-    background-color: white;
+    flex: 0 0 300px;         
+    height: 550px;           
+    background-color: white; 
     border-radius: 5px;
-    color: white;
     padding: 30px;
+    
+    /* Flexbox interno para separar el texto arriba y el logo abajo */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
+    
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Evita que el link rompa el diseño */
+    text-decoration: none !important;
+    color: inherit;
 }
 
 .team-member-cardd:hover {
@@ -474,21 +569,21 @@ h3{
     background-color: white;
 }
 
-.card1 { background-image: url('imagenesInicio/poster1.png'); }
-.card2 { background-image: url('imagenesInicio/poster2.png'); }
-.card3 { background-image: url('imagenesInicio/poster3.png'); }
-.card4 { background-image: url('imagenesInicio/poster1.png'); }
-.card5 { background-image: url('imagenesInicio/poster2.png'); }
+.card1 { background-image: url('imagenes/inicio/poster4.png'); }
+.card2 { background-image: url('imagenes/inicio/poster5.png'); }
+.card3 { background-image: url('imagenes/inicio/poster1.png'); }
+.card4 { background-image: url('imagenes/inicio/poster3.png'); }
+.card5 { background-image: url('imagenes/inicio/poster2.png'); }
 
-.card-top h3 {
-    font-size: 30px;
-    margin-top: -50px;
+.team-member-cardd:hover {
+  transform: translateY(-10px);
 }
 
+
+/* minilerp */
 .card-bottom img {
-    max-height: 35px;
-    opacity: 0.7;
-    background-size: cover;
+  max-height: 35px;
+  opacity: 0.8;            
 }
 
 .card-link {
@@ -561,42 +656,105 @@ Botones
         margin: 0;
         color: white;
     }
+/*
+    * {
+  outline: 2px solid red !important;
+}
+  */
 
-/* FOOTER*/
-
-    footer {
-        background-color: #f8f9fa;
-        color: #333;
-        padding: 20px 0;
-        text-align: center;
-        margin-top: 40px;
-        border-top: 1px solid #e9ecef;
-        font-size: 14px;
-            }
-
-        .mi-footer {
-        display: flex;
-        flex-direction: column; 
-        padding: 20px;
-        background-color: #f8f8f8; 
-    }
-
-    .footer-top {
-        display: flex;
-        justify-content: space-between; 
-        align-items: center;
-        margin-bottom: 20px; 
-    }
-
-    .info-profesor {
-        display: flex;
-        align-items: center;
-        gap: 15px; 
-    }
-
-    .footer-bottom {
-        text-align: center; 
+    /* El contenedor es el que gira, pero es invisible */
+    .orbit-container {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        border-top: 1px solid #ddd; 
-        padding-top: 10px;
+        height: 100%;
+        animation: orbitarTrayectoria 20s linear infinite;
     }
+
+    /* El círculo adentro tiene la rotación inversa para mantenerse derecho */
+    .circle {
+        animation: mantenerDerecho 20s linear infinite;
+    }
+
+    /* La rotación del contenedor */
+    @keyframes orbitarTrayectoria {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* La rotación inversa para que la imagen no gire sobre sí misma */
+    @keyframes mantenerDerecho {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+    }
+
+    /* Ajuste del centro de giro para cada grupo (para que sigan el arco) */
+    .c1-container, .c2-container, .c3-container, .c4-container {
+        transform-origin: 100px 200px; /* Centro del primer arco */
+    }
+
+    .c5-container, .c6-container, .c7-container, .c8-container {
+        transform-origin: calc(100% - 0px) 750px; /* Centro del segundo arco 
+    }
+
+</style>
+
+<script>
+/*FRAME 3 FIGMA */
+/* CARRUSEL PROYECTOS */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById('carruselContainer');
+    const track = document.querySelector('.carrusel-tarjetas');
+    const btnSiguiente = document.getElementById('nextBtn');
+    const btnAtras = document.getElementById('prevBtn');
+
+    // Clonación de las tarjetas para crear el efecto infinito
+    const tarjetas = Array.from(track.children);
+    tarjetas.forEach(tarjeta => {
+        const clon = tarjeta.cloneNode(true);
+        track.appendChild(clon); // se ponen los clones al final
+    });
+
+    const obtenerAnchoBase = () => {
+        const tarjeta = document.querySelector('.team-member-card1');
+        return tarjeta ? tarjeta.offsetWidth + 20 : 320;
+    };
+
+    // Movimiento automático
+    let velocidad = 1.0; // el tiempo en el q se mueven
+    let pausa = false;
+
+    const loopInfinito = () => {
+        if (!pausa) {
+            container.scrollLeft += velocidad;
+
+            // cuando el carrusel llega a la mitad, se salta al inicio (la intencion es q no se note)
+            if (container.scrollLeft >= track.scrollWidth / 2) {
+                container.scrollLeft = 0;
+            }
+        }
+        requestAnimationFrame(loopInfinito);
+    };
+
+    // iniciar el loop
+    requestAnimationFrame(loopInfinito);
+
+    /*// botones para mover 
+    btnSiguiente.onclick = () => {
+        container.scrollLeft += obtenerAnchoBase();
+        if (container.scrollLeft >= track.scrollWidth / 2) container.scrollLeft = 0;
+    };
+
+    btnAtras.onclick = () => {
+        if (container.scrollLeft <= 0) container.scrollLeft = track.scrollWidth / 2;
+        container.scrollLeft -= obtenerAnchoBase();
+    };*/
+
+    // pausa al pasar el mouse
+    container.onmouseenter = () => pausa = true;
+    container.onmouseleave = () => pausa = false;
+});
+</script>
+
