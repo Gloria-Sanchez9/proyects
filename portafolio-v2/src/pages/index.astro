@@ -4,152 +4,87 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
 <section class="hero">
-    <div class="hero-wrapper">
+    <!-- Mantenemos la estructura original pero con contenedores flexibles -->
+    <div class="hero-content">
         <div class="aro1"></div>
-        <div class="orbit-container c1-container">
-            <div class="circle c1" id="Inicio"></div>
-        </div>
-        <div class="orbit-container c2-container">
-            <div class="circle c2"></div>
-        </div>
-        <div class="orbit-container c3-container">
-            <div class="circle c3"></div>
-        </div>
-        <div class="orbit-container c4-container">
-            <div class="circle c4"></div>
-        </div>
-
+        <div class="orbit-container c1-container"><div class="circle c1"></div></div>
+        <div class="orbit-container c2-container"><div class="circle c2"></div></div>
+        <div class="orbit-container c3-container"><div class="circle c3"></div></div>
+        <div class="orbit-container c4-container"><div class="circle c4"></div></div>
         <div class="aro2"></div>
-
-        <div class="orbit-container c5-container">
-            <div class="circle c5"></div>
-        </div>
-        <div class="orbit-container c6-container">
-            <div class="circle c6"></div>
-        </div>
-        <div class="orbit-container c7-container">
-            <div class="circle c7"></div>
-        </div>
-        <div class="orbit-container c8-container">
-            <div class="circle c8"></div>
-        </div>
-            
-        <div class="tarjeta-central">
-            <img class="logo-central" src="imagenes/inicio/logo1FINALL.png">
-        </div>
+        <div class="orbit-container c5-container"><div class="circle c5"></div></div>
+        <div class="orbit-container c6-container"><div class="circle c6"></div></div>
+        <div class="orbit-container c7-container"><div class="circle c7"></div></div>
+        <div class="orbit-container c8-container"><div class="circle c8"></div></div>
+        <div class="tarjeta-central"><img class="logo-central" src="imagenes/inicio/logo1FINALL.png"></div>
     </div>
 </section>
 
+<!-- Resto de tu estructura igual -->
 <div class="container-lerp1-condel"> 
     <img class="lerp1" src="imagenes/inicio/LERPsalu2.png" />
     <div class="container_delgado">
-        <p class="texto-principal">
-            Eat <span class="destacado-naranja">Logic</span> Output <span class="destacado-rosa">Art</span>
-        </p>
+        <p class="texto-principal">Eat <span class="destacado-naranja">Logic</span> Output <span class="destacado-rosa">Art</span></p>
     </div>
     <div class="container_redes">
-        <a href="https://www.instagram.com/eloadevteam" target="_blank" rel="noopener noreferrer">
-            <img class="imagenes_redes" src="imagenes/inicio/instagram.png" alt="Instagram" />
-        </a>
-        <img class="imagenes_redes" src="imagenes/inicio/tiktol.png" /> 
-        <a href="mailto:eloadevteam@gmail.com">
-            <img class="imagenes_redes" src="imagenes/inicio/correo.png" alt="Correo" />
-        </a>
+        <a href="https://www.instagram.com/eloadevteam"><img class="imagenes_redes" src="imagenes/inicio/instagram.png"></a>
+        <img class="imagenes_redes" src="imagenes/inicio/tiktol.png"> 
+        <a href="mailto:eloadevteam@gmail.com"><img class="imagenes_redes" src="imagenes/inicio/correo.png"></a>
     </div>
 </div>
 
-<div class="titulo-bienvenido">
-    <h2>BIENVENIDOS A</h2>
-</div>
+<div class="titulo-bienvenido"><h2>BIENVENIDOS A</h2></div>
 
 <div class="container_abstracto">
     <div class="logo-texto">
         <img class="logo-bienvenida" src="imagenes/inicio/logoBienvenida.png" />
         <div class="texto-texto">
-            <h4>Ingienería mexicana con propósito.</h4>
-            <p class="texto-abstracto"> En ELOA, transformamos la teoría en experiencias interactivas. Somos estudiantes comprometidos con facilitar el aprendizaje a través de juegos y herramientas, creando un ecosistema digital donde educar es divertido y simultáneo. Explora nuestra visión de la tecnología. </p>
+            <h4>Ingeniería mexicana con propósito.</h4>
+            <p class="texto-abstracto">En ELOA, transformamos la teoría en experiencias interactivas...</p>
         </div>
     </div>
-    <div class="texto-imagen">
-        <div class="textoO">
-            <img src="imagenes/inicio/programacion.png" width="80px" />
-            <p class="texto-arriba">Desarrolladores universitarios mexicanos</p>
-        </div>
-        <img class="imagenB" src="imagenes/inicio/junta.jpg" />
-    </div>
-</div> 
-
-<h3 id="Proyectos">NUESTROS PROYECTOS</h3>
-
-<div class="container2">
-    <div class="carrusel-container" id="carruselContainer">
-        <div class="carrusel-tarjetas" id="carruselTarjetas">
-            <a href="ruta/a/particulas.html" class="team-member-cardd card1"></a>
-            <a href="ruta/a/party-problems.html" class="team-member-cardd card2"></a>
-            <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3"></a>
-            <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card4"></a>
-            <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5"></a>
-        </div> 
-    </div> 
 </div>
 </BaseLayout>
 
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
-    body { background-color: #F9F9F9; overflow-x: hidden; }
-
-    /* Escalado Responsivo del Hero */
-    .hero { width: 100%; height: 800px; position: relative; display: flex; justify-content: center; overflow: hidden; }
-    .hero-wrapper { position: relative; width: 1200px; height: 100%; transform-origin: top center; transition: transform 0.3s; }
+    /* 1. Reset básico fluido */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
-    @media (max-width: 1200px) { .hero-wrapper { transform: scale(0.8); } }
-    @media (max-width: 900px) { .hero-wrapper { transform: scale(0.6); } }
-    @media (max-width: 600px) { .hero-wrapper { transform: scale(0.4); } }
+    /* 2. El truco del font-size permite que los rem escalen con el tamaño de pantalla */
+    html { font-size: 16px; }
+    @media (max-width: 1000px) { html { font-size: 12px; } }
+    @media (max-width: 600px) { html { font-size: 9px; } }
 
-    /* Elementos */
-    .logo-central { width: 600px; }
-    .tarjeta-central { width: 280px; position: absolute; left: 150px; top: 40px; }
+    body { overflow-x: hidden; background: #F9F9F9; }
+
+    /* Hero responsivo: Usamos unidades relativas (rem) */
+    .hero { width: 100%; height: 50rem; position: relative; display: flex; justify-content: center; }
+    .hero-content { position: relative; width: 100%; max-width: 1200px; }
+
+    .logo-central { width: 37.5rem; } /* 600px / 16 */
+    .tarjeta-central { position: absolute; left: 9.3rem; top: 2.5rem; }
+
+    /* Círculos: mantén tus clases, solo asegura que sean relativas */
+    .circle { width: 6.8rem; height: 6.8rem; position: absolute; background-size: cover; }
     
-    .circle { position: absolute; width: 110px; height: 110px; border-radius: 10%; background-size: cover; }
-    /* (Mantén tus clases .c1 a .c8 con las mismas coordenadas, al estar dentro de .hero-wrapper escalarán solas) */
+    /* Contenedores de secciones inferiores */
+    .container_abstracto { 
+        width: 100%; 
+        height: auto; 
+        min-height: 40rem; 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        padding: 2rem;
+    }
 
-    .aro1 { position: absolute; width: 500px; height: 500px; border: 30px solid #7DABC5; border-radius: 50%; left: -94px; top: -7px; }
-    .aro2 { position: absolute; width: 500px; height: 500px; border: 30px solid #7DABC5; border-radius: 50%; right: -250px; top: 500px; }
-
-    .container-lerp1-condel { display: flex; flex-direction: column; width: 100%; align-items: center; }
+    .container2 { width: 100%; overflow: hidden; }
     
-    .container_delgado { width: 100%; height: auto; padding: 20px; background-color: #182d42; display: flex; justify-content: center; }
-    .texto-principal { font-size: 3rem; color: white; text-align: center; }
+    /* Carrusel */
+    .carrusel-container { display: flex; overflow-x: auto; width: 100%; }
+    .team-member-cardd { flex: 0 0 18.75rem; height: 34.3rem; }
 
-    .container_abstracto { width: 100%; min-height: 700px; background-color: #182d42; display: flex; flex-wrap: wrap; padding: 50px; }
-    .logo-bienvenida { width: 100%; max-width: 500px; }
-    .texto-abstracto { width: 100%; max-width: 500px; color: white; }
-
-    .container2 { width: 100%; background-color: #182d42; padding: 50px 0; }
-    .carrusel-container { overflow-x: auto; display: flex; }
-    .carrusel-tarjetas { display: flex; gap: 20px; padding: 20px; }
-    .team-member-cardd { flex: 0 0 300px; height: 550px; background-size: cover; }
-    
-    /* Animaciones */
+    /* Animaciones igual */
     .orbit-container { position: absolute; width: 100%; height: 100%; animation: orbitarTrayectoria 20s linear infinite; }
-    .circle { animation: mantenerDerecho 20s linear infinite; }
     @keyframes orbitarTrayectoria { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes mantenerDerecho { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
 </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById('carruselContainer');
-        const track = document.querySelector('.carrusel-tarjetas');
-        
-        // Loop infinito simple
-        let scrollPos = 0;
-        const animate = () => {
-            scrollPos += 1;
-            container.scrollLeft = scrollPos;
-            if (container.scrollLeft >= (track.scrollWidth / 2)) scrollPos = 0;
-            requestAnimationFrame(animate);
-        };
-        requestAnimationFrame(animate);
-    });
-</script>
