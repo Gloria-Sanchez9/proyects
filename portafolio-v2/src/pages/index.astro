@@ -3,46 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
+<!--FRAME 1 AROS E ICONOS -->
 <section class="hero">
     <div class="aro1"></div>
-    <div class="orbit-container c1-container">
-        <div class="circle c1" id="Inicio"></div>
-    </div>
-    <div class="orbit-container c2-container">
-        <div class="circle c2"></div>
-    </div>
-    <div class="orbit-container c3-container">
-        <div class="circle c3"></div>
-    </div>
-    <div class="orbit-container c4-container">
-        <div class="circle c4"></div>
-    </div>
-
+    <div class="orbit-container c1-container"><div class="circle c1" id="Inicio"></div></div>
+    <div class="orbit-container c2-container"><div class="circle c2"></div></div>
+    <div class="orbit-container c3-container"><div class="circle c3"></div></div>
+    <div class="orbit-container c4-container"><div class="circle c4"></div></div>
     <div class="aro2"></div>
-
-    <div class="orbit-container c5-container">
-    <div class="circle c5"></div>
-    </div>
-    <div class="orbit-container c6-container">
-        <div class="circle c6"></div>
-    </div>
-    <div class="orbit-container c7-container">
-        <div class="circle c7"></div>
-    </div>
-    <div class="orbit-container c8-container">
-        <div class="circle c8"></div>
-    </div>
-        
+    <div class="orbit-container c5-container"><div class="circle c5"></div></div>
+    <div class="orbit-container c6-container"><div class="circle c6"></div></div>
+    <div class="orbit-container c7-container"><div class="circle c7"></div></div>
+    <div class="orbit-container c8-container"><div class="circle c8"></div></div>  
     <br /><br />
-<div class="tarjeta-central">
-    <br />
-    <img class="logo-central" src="imagenes/inicio/logo1FINALL.png"></div><br />
-
-<br /><br />
-<br /><br />
-<br /><br />
+    <div class="tarjeta-central">
+        <br />
+        <img class="logo-central" src={`${base}imagenes/inicio/logo1FINALL.png`} alt="Logo Central">
+    </div><br />
+    <br /><br /><br /><br /><br /><br />
 </section>
 
+<!--FRAME 2 LERP, ELOA Y REDES -->
 <div class="container-lerp1-condel"> 
     <img class="lerp1" src="imagenes/inicio/LERPsalu2.png" />
 
@@ -62,6 +43,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 </div>
 
+<!--FRAME 3 EXPLICACIÓN ELOA -->
 <div class="titulo-bienvenido">
 <h2>BIENVENIDOS A</h2>
 </div>
@@ -84,49 +66,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>   
 <br /><br />
 
-<!--FRAME 3 FIGMA -->
+<!--FRAME 4 PROYECTOS -->
 <h3 id="Proyectos">NUESTROS PROYECTOS</h3><br />
 <br/><br/>
 
 <div class="container2">
   <div class="carruselcarousel-s">
-    
+
     <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior"></button>
     <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente"></button>
 
     <div class="carrusel-container" id="carruselContainer">
-      
       <div class="carrusel-tarjetas" id="carruselTarjetas">
         
-        <a href="ruta/a/particulas.html" class="team-member-cardd card1">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
-        </a>
-
-        <a href="ruta/a/party-problems.html" class="team-member-cardd card2">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
-        </a>
-
-        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
-        </a>
-
-        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card4">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
-        </a>
-
-        <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
-        </a>
-
-      </div> 
+        <a href="ruta/a/particulas.html" class="team-member-cardd card1"><div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div></a>
+        <a href="ruta/a/party-problems.html" class="team-member-cardd card2"><div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div></a>
+        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3"><div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div></a>
+        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card4"><div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div></a>
+        <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5"><div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div></a>
+        </div> 
     </div> 
   </div> 
 </div>
 </BaseLayout>
 
 <style> 
-
-/* FRAME 1 FIGMA*/
 /* General */
 
 *{
@@ -225,8 +189,7 @@ p{
     background-image: url('/imagenes/inicio/icon1.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
-    position: absolute;
-    
+    position: absolute; 
 } 
 
 .c2{
@@ -361,8 +324,7 @@ p{
 .container-lerp1-condel{
     display: flex;
     flex-direction: column; 
-    width: 100vw;
-    
+    width: 100vw;  
 }
 
 .lerp1{
@@ -411,8 +373,7 @@ p{
 .logo-texto{
     display: flex;
     align-items: center;
-    gap: 30px;
-    
+    gap: 30px;  
 }
 
 .texto-texto{
@@ -443,7 +404,6 @@ h4{
     font-size: 20px;
     font-family: 'Lucida Sans Regular';
     color:#ffffff;
-
 }
 
 .texto-imagen{
@@ -451,7 +411,6 @@ h4{
     display: flex;
     height: 600px;
     margin: 50px;
-
 }
 
 .textoO{
@@ -473,10 +432,7 @@ h4{
     width: 200px; 
     height: 70px;
     font-family: 'Franklin Gothic';
-
 }
-
-/* FRAME 2 FIGMA*/
 
 h3{
     font-family: 'Franklin Gothic Medium';
@@ -500,15 +456,10 @@ h3{
     background-color: #ADCDCD;
 }
 
-
-
-/* FRAME 3 FIGMA*/
-
 .container2{
     width: 100%;
     height: 600px;
-    background-color: #182d42;
-    
+    background-color: #182d42;   
 }
 
 .carrusel-s {
@@ -579,7 +530,6 @@ h3{
   transform: translateY(-10px);
 }
 
-
 /* minilerp */
 .card-bottom img {
   max-height: 35px;
@@ -592,36 +542,10 @@ h3{
     display: block;     
 }
 
-
 .card-link:hover {
     transform: translateY(-10px);
     background-color: white;
 }
-
-/*
-Botones 
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    color: #624142;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: 0.3s;
-}
-
-.nav-btn:hover { background-color: rgba(255, 255, 255, 0.4); }
-.prev-btn { left: -60px; }
-.next-btn { right: -60px; }
-.prev-btn::after { content: '‹'; }
-.next-btn::after { content: '›'; }
-*/
 
 /* Esto arregla que el link no corte la carta */
     .link-invisible {
@@ -634,7 +558,6 @@ Botones
         width: 100%; 
     }
 
-   
     .link-invisible .card-top h3 {
         margin-top: 0; 
     }
@@ -649,7 +572,6 @@ Botones
         flex: 0 0 300px; 
         width: 300px;    
         height: 550px;   
-
     }
 
     a.team-member-cardd h3 {
@@ -701,7 +623,6 @@ Botones
 </style>
 
 <script>
-/*FRAME 3 FIGMA */
 /* CARRUSEL PROYECTOS */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -757,4 +678,3 @@ document.addEventListener("DOMContentLoaded", () => {
     container.onmouseleave = () => pausa = false;
 });
 </script>
-
