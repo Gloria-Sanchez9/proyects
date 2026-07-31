@@ -1,3 +1,5 @@
+const currentPath = Astro.url.pathname;
+const isNosotros = currentPath.includes('nosotros');
 <nav>
         <a href="/proyects/" class={`nav-link ${esInicio ? 'activo' : ''}`}>INICIO</a>
         <a href="/proyects/nosotros" class={`nav-link ${esNosotros ? 'activo' : ''}`}>NOSOTROS</a>
