@@ -73,3 +73,17 @@ nav{
     position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
 }
 </style>
+
+<script>
+    // Detecta la ruta actual del navegador
+    const rutaActual = window.location.pathname;
+    const enlaces = document.querySelectorAll('.nav-link');
+
+    enlaces.forEach(enlace => {
+        // Si el href del enlace coincide con la ruta actual, le añade la clase 'activo'
+        if (enlace.getAttribute('href') === rutaActual) {
+            enlaces.forEach(e => e.classList.remove('activo'));
+            enlace.classList.add('activo');
+        }
+    });
+</script>
