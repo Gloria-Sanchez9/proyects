@@ -1,6 +1,6 @@
 <nav>
-        <a href="/proyects/" class="nav-link activo">INICIO</a>
-        <a href="/proyects/nosotros" class="nav-link">NOSOTROS</a>
+        <a href="/proyects/" class={`nav-link ${esInicio ? 'activo' : ''}`}>INICIO</a>
+        <a href="/proyects/nosotros" class={`nav-link ${esNosotros ? 'activo' : ''}`}>NOSOTROS</a>
 
         <div class ="logo-box">
             <img class = "logo" src="/proyects/imagenes/inicio/logoFINAL.png" width="150px">  
@@ -73,25 +73,3 @@ nav{
     position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
 }
 </style>
-
-<script>
-    // Detecta la ruta actual del navegador en minúsculas
-    const rutaActual = window.location.pathname.toLowerCase();
-    const enlaces = document.querySelectorAll('.nav-link');
-
-    enlaces.forEach(enlace => {
-        const href = enlace.getAttribute('href').toLowerCase();
-        
-        // Limpiamos la clase 'activo' de todos primero
-        enlace.classList.remove('activo');
-
-        // Si estamos en la página de nosotros y el enlace es el de nosotros
-        if (rutaActual.includes('nosotros') && href.includes('nosotros')) {
-            enlace.classList.add('activo');
-        } 
-        // Si estamos en la página de inicio (la raíz) y el enlace es el de inicio
-        else if ((rutaActual === '/proyects/' || rutaActual === '/proyects') && (href === '/proyects/' || href === '/proyects')) {
-            enlace.classList.add('activo');
-        }
-    });
-</script>
