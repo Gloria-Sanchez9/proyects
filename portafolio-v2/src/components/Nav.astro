@@ -75,14 +75,22 @@ nav{
 </style>
 
 <script>
-    // Detecta la ruta actual del navegador
-    const rutaActual = window.location.pathname;
+    // Detecta la ruta actual del navegador en minúsculas
+    const rutaActual = window.location.pathname.toLowerCase();
     const enlaces = document.querySelectorAll('.nav-link');
 
     enlaces.forEach(enlace => {
-        // Si el href del enlace coincide con la ruta actual, le añade la clase 'activo'
-        if (enlace.getAttribute('href') === rutaActual) {
-            enlaces.forEach(e => e.classList.remove('activo'));
+        const href = enlace.getAttribute('href').toLowerCase();
+        
+        // Limpiamos la clase 'activo' de todos primero
+        enlace.classList.remove('activo');
+
+        // Si estamos en la página de nosotros y el enlace es el de nosotros
+        if (rutaActual.includes('nosotros') && href.includes('nosotros')) {
+            enlace.classList.add('activo');
+        } 
+        // Si estamos en la página de inicio (la raíz) y el enlace es el de inicio
+        else if ((rutaActual === '/proyects/' || rutaActual === '/proyects') && (href === '/proyects/' || href === '/proyects')) {
             enlace.classList.add('activo');
         }
     });
