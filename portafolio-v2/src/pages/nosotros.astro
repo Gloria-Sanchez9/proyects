@@ -4,9 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
 <div class="container_delgado">
+<br><br><br><br>
         <p class="texto-principal">
         Eat <span class="destacado-naranja">Logic</span> Output <span class="destacado-rosa">Art</span>
     </p>
+    <img src="imagenes/nosotros/LERPmirandoarriba2.png" width="400px"/>
 </div>
 
 <section class="mas-alla-seccion">
@@ -30,32 +32,155 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 
     <div class="columna-iconos">
-      <img src="icono-plato.png" alt="Eat">
-      <img src="icono-engrane.png" alt="Logic / Output">
-      <img src="icono-paleta.png" alt="Art">
+      <img src="imagenes/nosotros/eat.png" alt="Eat">
+      <img src="imagenes/nosotros/logicandart.png" alt="Logic / Output">
+      <img src="imagenes/nosotros/art.png" alt="Art">
     </div>
 
   </div>
 </section>
 
-<div class="titulo-bienvenido">
-<h2>BIENVENIDOS A</h2>
+<div class="titulo_mision">
+<h2 class="titulo_vision_mision">MISIÓN</h2>
 </div>
 
-<div class="container_abstracto2"></div>
-<div class="container_abstracto1"></div>
+<div class="container_abstracto2">
+<div class="texto_mision">DESAROLLAR SOFTWARE Y JUEGOS EDUCATIVOS INNOVADORES QUE ESTIMULEN EL PENSAMIENTO CRÍTICO, LA CREATIVIDAD Y EL APRENDIZAJE ACTIVO.</div>
+</div>
+<div class="mini_texto_mision"> 
+    <div class="carrusel-track">
+        <span>CALIDAD</span>
+        <span>APRENDIZAJE</span>
+        <span>LÚDICO</span>
+        <span>CONEXIÓN</span>
+        <span>PASIÓN</span>
+        <!-- Se duplica -->
+        <span>CALIDAD</span>
+        <span>APRENDIZAJE</span>
+        <span>LÚDICO</span>
+        <span>CONEXIÓN</span>
+        <span>PASIÓN</span>
+    </div>
+</div>
+
+<div class="titulo_vision">
+<h2 class="titulo_vision_mision">VISIÓN</h2>
+</div>
+<div class="container_abstracto1">
+<div class="texto_vision">SER UNA MARCA QUE SE UTILICE COMO HERRAMIENTA EN EL APRENDIZAJE Y QUE REPRESENTE CALIDAD.</div>
+</div>
+<div class="mini_texto_vision"> 
+    <div class="carrusel-track">
+        <span>CALIDAD</span>
+        <span>APRENDIZAJE</span>
+        <span>LÚDICO</span>
+        <span>CONEXIÓN</span>
+        <span>PASIÓN</span>
+        <!-- Se duplica -->
+        <span>CALIDAD</span>
+        <span>APRENDIZAJE</span>
+        <span>LÚDICO</span>
+        <span>CONEXIÓN</span>
+        <span>PASIÓN</span>
+    </div>
+</div>
 
 <br><br> <br> <br> <br>  
+<div class="container_equipo">
 <h2 class="titulo-equipo">CONOCE AL EQUIPO</h2>
+<div class="titulo-equipo1">Estudiantes de Ingienería en Sistemas de la Información</div>
+<div class="arco arco-izquierdo"></div>
+<div class="arco arco-derecho1"></div>
+<div class="arco arco-derecho2"></div>
 <br>
-<div class="container-brandon"></div>
-<br>
-<div class="container-gloria"></div>
-<br>
-<div class="container-mia"></div>
-<br>
-<div class="container-fei"></div>
 
+<div class="container-mia">
+  <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
+    <div class="tarjeta-foto-flipper">
+      <div class="lado frente">
+        <img class="img_integrante1" src="imagenes/nosotros/foto_mia.PNG" alt="Foto Mia">
+    </div>
+      <div class="lado atras">
+        <img class="img_integrante1" src="imagenes/nosotros/dibujo_mia.svg" alt="Dibujo Mia">
+      </div>
+    </div>
+  </div>
+
+      <div class="container_integrante_info1">
+          <div class="titulo_integrante1">Mia Reneé Valenzuela Yescas</div>
+          <div class="texto_integrante1">Somos un grupo de estudiantes de tercer semestre de Ingeniería en Sistemas y desarrollamos esta página web con el objetivo de presentar proyectos.</div>
+          <a href="https://www.instagram.com/miaren._" target="_blank" rel="noopener noreferrer">
+              <img class="img_esquina1" src="imagenes/nosotros/instagram_blanco.png" alt="Instagram Mia">
+          </a>
+      </div>
+</div>
+<br>
+<br>
+
+<div class="container-gloria">
+      <div class="container_integrante_info1">
+          <div class="titulo_integrante1">Gloria Jesús Sánchez López</div>
+          <div class="texto_integrante1">Somos un grupo de estudiantes de tercer semestre de Ingeniería en Sistemas y desarrollamos esta página web con el objetivo de presentar proyectos.</div>
+          <a href="https://www.instagram.com/gloriaschzz_" target="_blank" rel="noopener noreferrer">
+              <img class="img_esquina2" src="imagenes/nosotros/instagram_blanco.png" alt="Instagram Gloria">
+          </a>
+  </div>
+  <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
+    <div class="tarjeta-foto-flipper">
+      <div class="lado frente">
+        <img class="img_integrante1" src="imagenes/nosotros/foto_gloria.PNG" alt="Foto Gloria">
+    </div>
+      <div class="lado atras">
+        <img class="img_integrante1" src="imagenes/nosotros/dibujo_gloria.svg" alt="Dibujo Gloria">
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container-brandon">
+<div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
+    <div class="tarjeta-foto-flipper">
+      <div class="lado frente">
+        <img class="img_integrante1" src="imagenes/nosotros/foto_brandon.PNG" alt="Foto Brandon">
+    </div>
+      <div class="lado atras">
+        <img class="img_integrante1" src="imagenes/nosotros/dibujo_brandon.svg" alt="Dibujo Brandon">
+      </div>
+    </div>
+  </div>
+
+      <div class="container_integrante_info1">
+          <div class="titulo_integrante1">Brandon Isaac Miranda Montes</div>
+          <div class="texto_integrante1">Somos un grupo de estudiantes de tercer semestre de Ingeniería en Sistemas y desarrollamos esta página web con el objetivo de presentar proyectos.</div>
+          <a href="https://www.instagram.com/brnndnn_miir" target="_blank" rel="noopener noreferrer">
+              <img class="img_esquina1" src="imagenes/nosotros/instagram_blanco.png" alt="Instagram Brandon">
+          </a>
+  </div>
+</div>
+<br>
+
+<div class="container-fei">
+      <div class="container_integrante_info1">
+          <div class="titulo_integrante1">Fei Fei Wu Zhang</div>
+          <div class="texto_integrante1">Somos un grupo de estudiantes de tercer semestre de Ingeniería en Sistemas y desarrollamos esta página web con el objetivo de presentar proyectos.</div>
+          <a href="https://www.instagram.com/moon_rabblt" target="_blank" rel="noopener noreferrer">
+              <img class="img_esquina2" src="imagenes/nosotros/instagram_blanco.png" alt="Instagram Fei">
+          </a>
+  </div>
+  <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
+    <div class="tarjeta-foto-flipper">
+      <div class="lado frente">
+        <img class="img_integrante1" src="imagenes/nosotros/foto_fei.jpeg" alt="Foto Fei">
+    </div>
+      <div class="lado atras">
+        <img class="img_integrante1" src="imagenes/nosotros/dibujo_fei.svg" alt="Dibujo Fei">
+      </div>
+    </div>
+  </div>
+</div>
+<img class="lerp_naranja" src="imagenes/nosotros/LERP_naranja.png" alt="LERP icono">
+</div>
 </BaseLayout>
 
 <style> 
@@ -73,77 +198,17 @@ body{
     padding: 0;
 }
 
-/* Nav */
-
-header{
-    background-color: #F9F9F9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-nav{
-    height: 90px;
-    display:flex; /*activar flexbox */
-    justify-content: center; /*alinear elementos horizontalmente */
-    align-items: center; /*alinear elementos verticalmente */
-    gap: 50px; /* espacio entre elemntos*/
-    position: fixed;   /*  fijo en pantalla */
-    top: 0;           /* borde superior */
-    left: 0;          /* borde izquierdo */
-    width: 100%;      
-    z-index: 10000;    /*  por encima de todo lo demás */
-    background-color: #F9F9F9; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-
-
-}
-
-.nav-link{/*para todos los links dentro del nav */
-    text-decoration:none;
-    color:black;
-    font-size:18px;
-    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-    font-weight: bold;
-
-}
-.nav-link.activo {
-    color: #7dabc5; 
-    border-bottom: 3px solid #7dabc5; /* línea de debajo */
-    font-weight: bold; 
-}
-
-/* Logo (dentro del nav) */
-
-.logo-box{
-    width:70px; 
-    height:55px; 
-    background:#F9F9F9; 
-    border-radius:10px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
-    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
-}
-
-.logo-central{
-    width: 600px; 
-    left:-100px; 
-    top: -200px;
-    border-radius:10px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
-    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
-}
-
 .container_delgado{
     width: 100%;
     height: 500px;
     background-color: #182d42;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Manda el texto arriba y la imgen abajo de todo*/
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
     z-index: 10;   
+    flex-direction: column;
+    padding-bottom: 0;
 }
 
 .texto-principal{
@@ -192,8 +257,8 @@ nav{
 
 .titulo-azul {
   color: #83a5b6; 
-  font-family: 'Franklin Gothic Medium';
-  font-size: 55px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 65px;
   font-weight: 700; 
   margin: 0;
   line-height: 1; 
@@ -203,7 +268,7 @@ nav{
 .parrafo-normal {
   color: #1b2e45;
   font-family: 'Montserrat', 'Arial', sans-serif;
-  font-size: 18px;
+  font-size: 23px;
   line-height: 1.6; 
   margin: 0;
 }
@@ -211,7 +276,7 @@ nav{
 .frase-naranja {
   color: #d46b42; 
   font-family: 'Franklin Gothic Medium';
-  font-size: 26px;
+  font-size: 36px;
   font-weight: 700;
   margin: 20px 0 0 0; 
   line-height: 1.3;
@@ -234,20 +299,20 @@ nav{
 
 .container_abstracto1{
     width: 100%;
-    height: 300px;
-    background-color:#182d42 ;
+    height: 250px;
+    background-color: #182d42 ;
     z-index: 9999;/*este arriba de todo*/
     position: relative; /*esto para que funcione el z-index*/
     display: flex;  
     align-items: center;           
     /* Orden de los puntos: Arriba-Izquierda, Arriba-Derecha, Abajo-Derecha, Abajo-Izquierda */
-    clip-path: polygon(0 25%, 100% 0, 100% 80%, 0 100%);      
+    clip-path: polygon(0 25%, 100% 10, 100% 80%, 0 100%);      
 }
 
 .container_abstracto2{
     width: 100%;
-    height: 300px;
-    background-color:#182d42 ;
+    height: 250px;
+    background-color: #182d42 ;
     z-index: 9999;/*este arriba de todo*/
     position: relative; /*esto para que funcione el z-index*/
     display: flex;  
@@ -256,9 +321,103 @@ nav{
     clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 80%);      
 }
 
-.titulo-bienvenido{
-    transform: rotate(-8deg) translateY(60px);
+.titulo_mision{
+    transform: rotate(4deg) translateY(30px);
     margin-bottom: 0;
+    text-align: right;
+    padding:30px;
+}
+
+.texto_mision{
+    transform: rotate(2deg) translateY(30px);
+    text-align: center;
+    color: white;
+    font-family:  'Franklin Gothic Medium';
+    font-size: 30px;
+}
+
+.mini_texto_mision {
+    transform: translateY(-20px) rotate(2deg); 
+    color: #4b77b5;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 25px;
+    
+    
+    /*para que funcione el carrusel en su lugar */
+    overflow: hidden; 
+    white-space: nowrap;
+    width: 100%;
+}
+
+.carrusel-track {
+    display: inline-flex;
+    gap: 40px;
+    animation: deslizar 15s linear infinite; /* Velocidad carrusel */
+}
+
+/* Animación continua de desplazamiento */
+@keyframes deslizar {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.titulo_vision{
+    transform: rotate(-4deg) translateY(30px);
+    margin-bottom: 0;
+    padding:30px;
+}
+
+.texto_vision{
+    transform: rotate(-2deg) translateY(30px);
+    text-align: center;
+    padding:50px;
+    color: white;
+    font-family:  'Franklin Gothic Medium';
+    font-size: 30px;
+}
+
+.mini_texto_vision {
+    transform: rotate(-2deg) translateY(-25px);
+    color: #4b77b5;
+    font-family:  'Franklin Gothic Medium';
+    font-size: 25px;
+    
+    
+    /*para que funcione el carrusel en su lugar */
+    overflow: hidden; 
+    white-space: nowrap;
+    width: 100%;
+}
+
+.carrusel-track {
+    display: inline-flex;
+    gap: 40px;
+    animation: deslizar 15s linear infinite; /* Velocidad carrusel */
+}
+
+/* Animación continua de desplazamiento */
+@keyframes deslizar {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+.titulo_vision_mision{
+  color: #1b2e45; 
+  font-family: 'Oswald', sans-serif;
+  font-size: 80px;
+  font-weight: 700; 
+  margin: 0;
+  line-height: 1; 
+  text-transform: uppercase;
 }
 
 h2{
@@ -269,24 +428,205 @@ h2{
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
 }
 
+.container_equipo{
+    background-color: #ffffff; 
+    width: 100%;                    
+    margin: 0 auto;            
+    padding: 10px;        /* Espacio interno */
+    display: flex;
+    flex-direction: column;    
+    gap: 30px;    
+    position: relative;             
+}
+
 .titulo-equipo{
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Oswald', sans-serif;
     letter-spacing: -4px;
     font-size:90px; 
     color:#182d42; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
+    text-align:center;
 }
 
-.container-brandon{
+.titulo-equipo1{
+    font-family: 'Oswald', sans-serif;
+    font-size:25px; 
+    color:#182d42; 
+    text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
+    text-align:center;
+}
+
+/* arcos*/
+    .arco {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 30px solid var(--azul-claro);
+    z-index: 1; 
+    }
+    .arco-izquierdo { 
+        left: -250px; 
+        top: 100px;
+        
+    }
+    .arco-derecho1 { 
+        right: -380px; 
+        top:-500px
+    }
+
+    .arco-derecho2 { 
+        right: -100px; 
+        top: 600px
+    }
+
+.lerp_naranja{
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;   
+    width: 200px;  
+}
+
+.img_integrante1{
+  border-radius:10px; 
+  height: 300px;
+}
+
+.container_integrante_info1{
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  align-items: center; 
+  padding:40px;
+  height: 300px;
+  width: 1000px;
+}
+
+.titulo_integrante1{
+    text-align: top;
+    font-family: 'Franklin Gothic Medium';
+    font-size:28px; 
+    color:white; 
+    text-shadow:1px 1px 3px rgba(0,0,0,0.1); 
+}
+
+.texto_integrante1{
+  color: white;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 20px;
+  line-height: 1.6; 
+  margin: 0;
+  text-align:center;
+}
+
+.img_esquina1{
+  position: absolute;
+    bottom: 10px; 
+    right: 10px;   
+  width: 60px;  
+
+}
+
+.tarjeta-foto-contenedor {
+    width: 200px;  
+    height: 300px; 
+    perspective: 1000px;
+    cursor: pointer;
+    flex-shrink: 0; 
+}
+
+/* el giro */
+.tarjeta-foto-flipper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+/*  giro al hacer clic */
+.tarjeta-foto-contenedor.girar .tarjeta-foto-flipper {
+    transform: rotateY(180deg);
+}
+
+
+.tarjeta-foto-flipper .lado {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjeta-foto-flipper .frente {
+    z-index: 2;
+}
+
+.tarjeta-foto-flipper .atras {
+    transform: rotateY(180deg);
+}
+
+.tarjeta-foto-flipper .lado img.img_integrante1 {
+    width: 95%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+.img_integrante2{
+  border-radius:10px; 
+  height: 300px;
+}
+
+.container_integrante_info2{
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  align-items: center; 
+  padding:40px;
+  height: 300px;
+  width: 1000px;
+}
+
+.titulo_integrante2{
+    text-align: top;
+    font-family: 'Franklin Gothic Medium';
+    font-size:28px; 
+    color:white; 
+    text-shadow:1px 1px 3px rgba(0,0,0,0.1); 
+}
+
+.texto_integrante2{
+  color: white;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 20px;
+  line-height: 1.6; 
+  margin: 0;
+  text-align:center;
+}
+
+.img_esquina2{
+    position: absolute;
+    bottom: 10px; 
+    left: 10px;   
+    width: 60px;  
+
+}
+
+.container-mia{
     width: 750px;
     height: 300px;
-    background-color: #7f6ab1;
+    background-color: #737e39;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;   
+    z-index: 10;  
+    padding: 40px; 
 }
 
 .container-gloria{
@@ -298,18 +638,22 @@ h2{
     justify-content: center;
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;   
+    z-index: 10;  
+    padding: 40px;  
+    margin-left: auto; /* contenedor hacia el borde derecho */
+    margin-right: 0;   /* no espacio extra a la derecha */
 }
-.container-mia{
+.container-brandon{
     width: 750px;
     height: 300px;
-    background-color: #737e39;
+    background-color: #7f6ab1;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;   
+    z-index: 10; 
+    padding: 35px;   
 }
 .container-fei{
     width: 750px;
@@ -320,193 +664,11 @@ h2{
     justify-content: center;
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;   
+    z-index: 10;  
+    padding: 40px;  
+    margin-left: auto; /* contenedor hacia el borde derecho */
+    margin-right: 0;   /* no espacio extra a la derecha */
 }
-
-/* FOOTER*/
-    :root {
-    --azul-oscuro: #1b2e45;
-    --naranja: #d46b42;
-    --morado: #b886b5;
-    --azul-claro: #83a5b6;
-    }
-
-    .footer-eloa {
-    position: relative;
-    overflow: hidden; 
-    background-color: #ffffff;
-    padding: 60px 0 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--azul-oscuro);
-    }
-
-    /* arcos*/
-    .arco {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    border: 30px solid var(--azul-claro);
-    z-index: 1; 
-    }
-    .arco-izquierdo { 
-        left: -300px; 
-        
-    }
-    .arco-derecho { 
-        right: -300px; 
-        top:100px
-    }
-
-    /* redes*/
-    .redes-sociales {
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 10;
-    }
-    .redes-sociales img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.2s ease;
-    }
-    .redes-sociales img:hover {
-    transform: scale(1.1); 
-    }
-
-    
-    .footer-contenido {
-    position: relative;
-    z-index: 5; 
-    max-width: 900px;
-    margin: 0 auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    }
-
-    
-    .footer-header {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 50px;
-    }
-    .logo-principal {
-    text-align: center;
-    }
-    .logo-principal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-
-    .img-logo-eloa {
-    max-height: 100px;  
-    width: auto;       
-    object-fit: contain;
-    }
-    .linea-separadora {
-    width: 2px;
-    height: 90px;
-    background-color: var(--azul-oscuro);
-    }
-    .slogan-art p {
-    font-size: 40px;
-    font-weight: 900;
-    line-height: 1.3;
-    margin: 0;
-    }
-    .texto-oscuro { color: var(--azul-oscuro); }
-    .texto-naranja { color: var(--naranja); }
-    .texto-morado { color: var(--morado); }
-
-   
-    .footer-columnas {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 50px;
-    gap: 50px;
-    }
-    .columna-info1{
-    flex: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
-    }
-
-    .columna-info2 {
-    flex: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    }
-
-    .titulo-oscuro {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0;
-    color: #182d42;
-    }
-    .titulo-naranja {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--naranja);
-    margin: 0;
-    font-family: 'Franklin Gothic';
-    }
-    .texto-normal {
-    font-size: 15px;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.6;
-    }
-    .logo-unison {
-    max-width: 270px;
-    height: auto;
-    }
-
-    .profesor-seccion {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-top: 10px;
-    }
-    .text-left {
-    text-align: left;
-    }
-    .foto-profesor {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #f0f0f0; /* Fondo por si no carga la imagen */
-    }
-    .foto-profesor img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    }
-
-    
-    .footer-copyright {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-    }
 /*
     * {
   outline: 2px solid red !important;
