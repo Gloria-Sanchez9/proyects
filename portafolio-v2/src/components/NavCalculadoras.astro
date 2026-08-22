@@ -53,4 +53,46 @@ nav{
     border-bottom: 3px solid #7dabc5; /* línea de debajo */
     font-weight: bold; 
 }
+
+.logo-box{
+    width:50px; 
+    height:40px; 
+    background:#F9F9F9; 
+    border-radius:10px; 
+    display:flex; 
+    justify-content:center; 
+    align-items:center; 
+    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+    order: -1; /* en mobile, el logo se va primero (arriba) y los links debajo */
+    flex-basis: 100%; /* el logo ocupa toda la línea, empujando los links a su propia fila */
+}
+
+.logo-box .logo {
+    width: 90px; /* más chico que los 150px originales */
+}
+
+/* ===== A partir de aquí, pantallas más grandes (tablet/escritorio) ===== */
+@media (min-width: 700px) {
+    nav{
+        min-height: 90px;
+        flex-wrap: nowrap; /* ya no se envuelve, todo en una fila */
+        gap: 50px; /* el espaciado grande original */
+        padding: 0;
+    }
+
+    .nav-link{
+        font-size:18px; /* el tamaño grande original */
+    }
+
+    .logo-box{
+        width:70px; 
+        height:55px; 
+        order: 0; /* regresa a su posición normal en medio del nav */
+        flex-basis: auto;
+    }
+
+    .logo-box .logo {
+        width: 150px; /* el tamaño grande original */
+    }
+}
 </style>
