@@ -131,6 +131,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-color: #F9F9F9;
     overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
@@ -347,6 +351,7 @@ p{
     word-spacing: 6px;
     font-size: 22px;
     font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
     color:#ffffff;
     text-align: center;
 }
@@ -365,7 +370,7 @@ p{
 .container-lerp1-condel{
     display: flex;
     flex-direction: column; 
-    width: 100vw;
+    width: 100%;
     align-items: center;
     
     
@@ -719,7 +724,8 @@ Botones
         width: 420px;
         max-width: 90%;
         height: auto;
-        margin: 0 auto 40px auto;
+        margin: 15px auto 40px auto;
+        left: 170px;
     }
 
     h1{
