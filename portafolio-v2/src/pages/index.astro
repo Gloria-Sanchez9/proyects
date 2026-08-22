@@ -94,23 +94,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="carrusel-tarjetas" id="carruselTarjetas">
         
         <a href="ruta/a/particulas.html" class="team-member-cardd card1">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" loading="lazy" /></div>
         </a>
 
         <a href="ruta/a/party-problems.html" class="team-member-cardd card2">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" loading="lazy" /></div>
         </a>
 
         <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" loading="lazy" /></div>
         </a>
 
         <a href="/proyects/calculadoras" class="team-member-cardd card4">
-            <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+            <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" loading="lazy" /></div>
         </a>
 
         <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" loading="lazy" /></div>
         </a>
 
       </div> 
@@ -711,9 +711,9 @@ Botones
 @media (min-width: 700px) {
 
     .logo-central{
-        width: 420px;
+        width: clamp(280px, 35vw, 420px);
         max-width: none;
-        height: 150px;
+        height: clamp(100px, 12vw, 150px);
     }
 
     .hero{
@@ -721,21 +721,21 @@ Botones
     }
 
     .tarjeta-central{
-        width: 420px;
+        width: clamp(280px, 35vw, 420px);
         max-width: 90%;
         height: auto;
-        margin: 15px auto 40px auto;
-        left: 150px;
+        margin: 0 auto 40px auto;
+        left: clamp(0px, 5vw, 50px);
     }
 
     h1{
-        font-size: 60px;
+        font-size: clamp(38px, 6vw, 60px);
         margin-top: 40px;
     }
 
     h2{
         letter-spacing: -4px;
-        font-size: 80px;
+        font-size: clamp(40px, 8vw, 80px);
     }
 
     p{
@@ -743,17 +743,16 @@ Botones
     }
 
     .orbit-container,
-    .aro1,
     .aro2{
-        display: block;
+        display: none; /* siguen ocultos en tablet, se activan más adelante cuando ya hay espacio real */
     }
 
     .aro1{
-        width:500px; 
-        height:500px; 
-        border:30px solid rgba(125, 171, 197); 
-        left:-94px; 
-        top:-7px; 
+        width: clamp(220px, 30vw, 500px);
+        height: clamp(220px, 30vw, 500px);
+        border-width: clamp(15px, 2vw, 30px);
+        left: clamp(-110px, -8vw, -94px);
+        top: -7px;
     }
 
     .container_delgado{
@@ -762,9 +761,9 @@ Botones
     }
 
     .texto-principal{
-        letter-spacing: 15px;
-        word-spacing: 20px;
-        font-size: 60px;
+        letter-spacing: clamp(3px, 1.5vw, 15px);
+        word-spacing: clamp(6px, 2vw, 20px);
+        font-size: clamp(28px, 5vw, 60px);
     }
 
     .lerp1{
@@ -819,7 +818,7 @@ Botones
 
     h3{
         letter-spacing: 4px;
-        font-size: 60px;
+        font-size: clamp(32px, 6vw, 60px);
         text-align: right;
         margin-right: 20px;
     }
@@ -851,20 +850,52 @@ Botones
     }
 }
 
-/* ===== Solo en pantallas realmente anchas (computadoras): aquí sí ponemos el texto y la laptop en fila.
-   Entre 700px y 1099px (tablets como iPad) se queda en columna, para que nunca se encimen. ===== */
-@media (min-width: 1100px) {
+/* ===== A partir de aquí ponemos el texto y la laptop en fila, pero con flex-wrap: 
+   si en algún ancho no alcanza el espacio, en vez de encimarse, pasa a la siguiente línea. 
+   Así funciona en cualquier dispositivo sin tener que adivinar anchos exactos. ===== */
+@media (min-width: 700px) {
 
     .container_abstracto{
-        height: 700px;
+        height: auto;
+        min-height: 700px;
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
         clip-path: polygon(0 16%, 100% 0, 100% 80%, 0 100%);
     }
 
     .logo-texto{
         flex-direction: row;
+        flex: 1 1 480px;
+        max-width: 750px;
+        min-width: 0; /* clave: permite que este bloque se encoja en vez de desbordarse */
         gap: 30px;
+        align-items: center;
+    }
+
+    .logo-bienvenida{
+        flex: 0 0 clamp(180px, 22vw, 260px); /* tamaño estable, ya no compite por espacio con el texto */
+        width: clamp(180px, 22vw, 260px);
+        max-width: none;
+        margin: 0;
+    }
+
+    .texto-texto{
+        flex: 1 1 220px;
+        min-width: 0; /* clave: sin esto el párrafo se desborda en vez de encogerse */
+        text-align: left;
+    }
+
+    h4{
+        text-align: left;
+    }
+
+    .texto-abstracto{
+        max-width: 100%; /* ya no un ancho fijo que pelea con el logo, se ajusta al espacio real */
+        margin: 15px 0;
+        text-align: left;
     }
 
     .imagenB{
@@ -873,9 +904,21 @@ Botones
     }
 
     .texto-imagen{
-        height: 600px;
-        margin: 50px;
+        flex: 1 1 280px;
+        max-width: 320px;
+        min-width: 0;
+        height: auto;
+        margin: 0;
         align-items: flex-end;
+    }
+}
+
+/* ===== A partir de 1024px (computadoras, no tablets): aquí sí hay espacio de sobra
+   para los 8 íconos orbitando y el segundo arco completos. ===== */
+@media (min-width: 1024px) {
+    .orbit-container,
+    .aro2{
+        display: block;
     }
 }
 
