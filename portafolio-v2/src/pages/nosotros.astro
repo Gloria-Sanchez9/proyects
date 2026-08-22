@@ -4,11 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout>
 <div class="container_delgado">
-<br><br><br><br>
         <p class="texto-principal">
         Eat <span class="destacado-naranja">Logic</span> Output <span class="destacado-rosa">Art</span>
     </p>
-    <img src={`${import.meta.env.BASE_URL}/imagenes/nosotros/LERPmirandoarriba2.png`} width="400px"/>
+    <img class="lerp-mirando" src={`${import.meta.env.BASE_URL}/imagenes/nosotros/LERPmirandoarriba2.png`} />
 </div>
 
 <section class="mas-alla-seccion">
@@ -85,23 +84,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 </div>
 
-<br><br> <br> <br> <br>  
 <div class="container_equipo">
 <h2 class="titulo-equipo">CONOCE AL EQUIPO</h2>
 <div class="titulo-equipo1">Estudiantes de Ingienería en Sistemas de la Información</div>
 <div class="arco arco-izquierdo"></div>
 <div class="arco arco-derecho1"></div>
 <div class="arco arco-derecho2"></div>
-<br>
 
 <div class="container-mia">
   <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
     <div class="tarjeta-foto-flipper">
       <div class="lado frente">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_mia.PNG" alt="Foto Mia">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_mia.jpg" alt="Foto Mia" loading="lazy">
     </div>
       <div class="lado atras">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_mia.svg" alt="Dibujo Mia">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_mia.svg" alt="Dibujo Mia" loading="lazy">
       </div>
     </div>
   </div>
@@ -114,8 +111,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
       </div>
 </div>
-<br>
-<br>
 
 <div class="container-gloria">
       <div class="container_integrante_info1">
@@ -128,24 +123,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
     <div class="tarjeta-foto-flipper">
       <div class="lado frente">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_gloria.PNG" alt="Foto Gloria">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_gloria.jpg" alt="Foto Gloria" loading="lazy">
     </div>
       <div class="lado atras">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_gloria.svg" alt="Dibujo Gloria">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_gloria.svg" alt="Dibujo Gloria" loading="lazy">
       </div>
     </div>
   </div>
 </div>
-<br>
 
 <div class="container-brandon">
 <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
     <div class="tarjeta-foto-flipper">
       <div class="lado frente">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_brandon.PNG" alt="Foto Brandon">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_brandon.jpg" alt="Foto Brandon" loading="lazy">
     </div>
       <div class="lado atras">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_brandon.svg" alt="Dibujo Brandon">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_brandon.svg" alt="Dibujo Brandon" loading="lazy">
       </div>
     </div>
   </div>
@@ -158,7 +152,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </a>
   </div>
 </div>
-<br>
 
 <div class="container-fei">
       <div class="container_integrante_info1">
@@ -171,10 +164,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="tarjeta-foto-contenedor" onclick="this.classList.toggle('girar')">
     <div class="tarjeta-foto-flipper">
       <div class="lado frente">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_fei.jpeg" alt="Foto Fei">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/foto_fei.jpeg" alt="Foto Fei" loading="lazy">
     </div>
       <div class="lado atras">
-        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_fei.svg" alt="Dibujo Fei">
+        <img class="img_integrante1" src="/proyects/imagenes/nosotros/dibujo_fei.svg" alt="Dibujo Fei" loading="lazy">
       </div>
     </div>
   </div>
@@ -185,165 +178,185 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style> 
 *{
-    margin: 0; /*espacio dentro de la caja (elemento y borde) */
-    padding: 0; /*espacio entre cajas */
+    margin: 0;
+    padding: 0;
     box-sizing:border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-color: #F9F9F9;
-    overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
+/* ===== MOBILE FIRST: base para pantallas chicas ===== */
+
 .container_delgado{
     width: 100%;
-    height: 500px;
+    min-height: 320px;
     background-color: #182d42;
     display: flex;
-    justify-content: space-between; /* Manda el texto arriba y la imgen abajo de todo*/
+    justify-content: flex-start;
     align-items: center;  
-    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
+    position: relative;  
     z-index: 10;   
     flex-direction: column;
-    padding-bottom: 0;
+    padding: 110px 15px 0 15px; /* 110px arriba: no lo tapa el nav fijo; 0 abajo: la imagen queda pegada */
+    text-align: center;
+    gap: 15px;
+}
+
+.lerp-mirando{
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin-top: auto; /* empuja la imagen hasta el borde inferior del contenedor */
+    display: block;
 }
 
 .texto-principal{
-    letter-spacing: 15px;
-    word-spacing: 20px;
-    font-size: 60px;
-    font-family: 'Franklin Gothic Medium';
+    letter-spacing: 3px;
+    word-spacing: 6px;
+    font-size: 22px;
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
     color:#ffffff;
 }
 
 .destacado-rosa{
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
     color:#d8a2d8;
 }
 
 .destacado-naranja{
-    
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
     color:#da5d1a;
 }
 
 .mas-alla-seccion {
   background-color: #fcfcfc; 
-  padding: 80px 20px;
+  padding: 40px 20px;
   display: flex;
   justify-content: center; 
 }
 
 .contenedor-principal {
   display: flex;
+  flex-direction: column;
   align-items: center; 
-  justify-content: space-between; 
   max-width: 1000px; 
   width: 100%;
-  gap: 60px; 
+  gap: 30px; 
 }
 
-
 .columna-texto {
-  flex: 1; 
+  flex: 1 1 260px; 
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 25px; 
+  gap: 20px; 
   text-align: justify; 
 }
 
 .titulo-azul {
   color: #83a5b6; 
   font-family: 'Oswald', sans-serif;
-  font-size: 65px;
+  font-size: clamp(32px, 8vw, 65px);
   font-weight: 700; 
   margin: 0;
   line-height: 1; 
   text-transform: uppercase;
+  text-align: center;
 }
 
 .parrafo-normal {
   color: #1b2e45;
   font-family: 'Montserrat', 'Arial', sans-serif;
-  font-size: 23px;
+  font-size: 17px;
   line-height: 1.6; 
   margin: 0;
 }
 
 .frase-naranja {
   color: #d46b42; 
-  font-family: 'Franklin Gothic Medium';
-  font-size: 36px;
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+  font-size: clamp(20px, 5vw, 36px);
   font-weight: 700;
-  margin: 20px 0 0 0; 
+  margin: 15px 0 0 0; 
   line-height: 1.3;
   text-transform: uppercase;
+  text-align: center;
 }
 
 /* iconos*/
 .columna-iconos {
   display: flex;
-  flex-direction: column;
-  gap: 40px; 
-  align-items: center; 
+  flex-direction: row;
+  gap: 20px; 
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .columna-iconos img {
-  width: 110px; 
+  width: 65px; 
   height: auto; 
   opacity: 0.9; 
 }
 
+/* Franjas Misión/Visión: altura FIJA (no auto) a propósito, para que el clip-path
+   en porcentaje sea siempre seguro y nunca dependa de cuánto crezca el contenido */
 .container_abstracto1{
     width: 100%;
-    height: 250px;
+    height: 210px;
     background-color: #182d42 ;
-    z-index: 9999;/*este arriba de todo*/
-    position: relative; /*esto para que funcione el z-index*/
+    z-index: 9999;
+    position: relative; 
     display: flex;  
-    align-items: center;           
-    /* Orden de los puntos: Arriba-Izquierda, Arriba-Derecha, Abajo-Derecha, Abajo-Izquierda */
-    clip-path: polygon(0 25%, 100% 10, 100% 80%, 0 100%);      
+    align-items: center;      
+    padding: 20px 25px;   
+    clip-path: polygon(0 25%, 100% 10%, 100% 80%, 0 100%);
 }
 
 .container_abstracto2{
     width: 100%;
-    height: 250px;
+    height: 210px;
     background-color: #182d42 ;
-    z-index: 9999;/*este arriba de todo*/
-    position: relative; /*esto para que funcione el z-index*/
+    z-index: 9999;
+    position: relative; 
     display: flex;  
-    align-items: center;           
-    /* Orden de los puntos: Arriba-Izquierda, Arriba-Derecha, Abajo-Derecha, Abajo-Izquierda */
-    clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 80%);      
+    align-items: center;    
+    padding: 20px 25px;       
+    clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 80%);
 }
 
 .titulo_mision{
-    transform: rotate(4deg) translateY(30px);
+    transform: rotate(2deg) translateY(15px);
     margin-bottom: 0;
     text-align: right;
-    padding:30px;
+    padding: 15px 30px 15px 15px;
 }
 
 .texto_mision{
-    transform: rotate(2deg) translateY(30px);
+    transform: rotate(1deg);
     text-align: center;
     color: white;
-    font-family:  'Franklin Gothic Medium';
-    font-size: 30px;
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    width: 100%;
 }
 
 .mini_texto_mision {
-    transform: translateY(-20px) rotate(2deg); 
+    transform: translateY(-10px) rotate(1deg); 
     color: #4b77b5;
-    font-family: 'Franklin Gothic Medium';
-    font-size: 25px;
-    
-    
-    /*para que funcione el carrusel en su lugar */
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
     overflow: hidden; 
     white-space: nowrap;
     width: 100%;
@@ -351,69 +364,46 @@ body{
 
 .carrusel-track {
     display: inline-flex;
-    gap: 40px;
-    animation: deslizar 15s linear infinite; /* Velocidad carrusel */
+    gap: 25px;
+    animation: deslizar 15s linear infinite;
 }
 
-/* Animación continua de desplazamiento */
 @keyframes deslizar {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .titulo_vision{
-    transform: rotate(-4deg) translateY(30px);
+    transform: rotate(-2deg) translateY(15px);
     margin-bottom: 0;
-    padding:30px;
+    text-align: left;
+    padding: 15px 15px 15px 30px;
 }
 
 .texto_vision{
-    transform: rotate(-2deg) translateY(30px);
+    transform: rotate(-1deg);
     text-align: center;
-    padding:50px;
+    padding: 15px 20px;
     color: white;
-    font-family:  'Franklin Gothic Medium';
-    font-size: 30px;
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    width: 100%;
 }
 
 .mini_texto_vision {
-    transform: rotate(-2deg) translateY(-25px);
+    transform: rotate(-1deg) translateY(-10px);
     color: #4b77b5;
-    font-family:  'Franklin Gothic Medium';
-    font-size: 25px;
-    
-    
-    /*para que funcione el carrusel en su lugar */
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
     overflow: hidden; 
     white-space: nowrap;
     width: 100%;
 }
-
-.carrusel-track {
-    display: inline-flex;
-    gap: 40px;
-    animation: deslizar 15s linear infinite; /* Velocidad carrusel */
-}
-
-/* Animación continua de desplazamiento */
-@keyframes deslizar {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
 
 .titulo_vision_mision{
   color: #1b2e45; 
   font-family: 'Oswald', sans-serif;
-  font-size: 80px;
+  font-size: clamp(30px, 9vw, 80px);
   font-weight: 700; 
   margin: 0;
   line-height: 1; 
@@ -421,9 +411,9 @@ body{
 }
 
 h2{
-    font-family: 'Franklin Gothic Medium';
-    letter-spacing: -4px;
-    font-size:80px; 
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -1px;
+    font-size: 38px; 
     color:black; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
 }
@@ -432,17 +422,19 @@ h2{
     background-color: #ffffff; 
     width: 100%;                    
     margin: 0 auto;            
-    padding: 10px;        /* Espacio interno */
+    padding: 40px 15px;
     display: flex;
     flex-direction: column;    
-    gap: 30px;    
-    position: relative;             
+    align-items: center;
+    gap: 20px;    
+    position: relative;
+    overflow: hidden; /* para que los arcos decorativos no generen scroll horizontal */
 }
 
 .titulo-equipo{
     font-family: 'Oswald', sans-serif;
-    letter-spacing: -4px;
-    font-size:90px; 
+    letter-spacing: -1px;
+    font-size: clamp(32px, 9vw, 90px); 
     color:#182d42; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
     text-align:center;
@@ -450,62 +442,59 @@ h2{
 
 .titulo-equipo1{
     font-family: 'Oswald', sans-serif;
-    font-size:25px; 
+    font-size:16px; 
     color:#182d42; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
     text-align:center;
+    padding: 0 15px;
 }
 
-/* arcos*/
-    .arco {
+/* arcos decorativos: chicos en mobile para no saturar */
+.arco {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    border: 30px solid var(--azul-claro);
+    border: 15px solid #83a5b6;
     z-index: 1; 
-    }
-    .arco-izquierdo { 
-        left: -250px; 
-        top: 100px;
-        
-    }
-    .arco-derecho1 { 
-        right: -380px; 
-        top:-500px
-    }
-
-    .arco-derecho2 { 
-        right: -100px; 
-        top: 600px
-    }
+}
+.arco-izquierdo { 
+    left: -130px; 
+    top: 40px;
+}
+.arco-derecho1 { 
+    display: none; /* con 3 arcos se satura mucho en mobile; se deja solo 1 */
+}
+.arco-derecho2 { 
+    right: -100px; 
+    top: 900px;
+}
 
 .lerp_naranja{
-    position: absolute;
-    bottom: 10px; 
-    left: 10px;   
-    width: 200px;  
+    display: none; /* en mobile no hay espacio limpio para este ícono flotante sin estorbar */
 }
 
 .img_integrante1{
   border-radius:10px; 
-  height: 300px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .container_integrante_info1{
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  flex: 1 1 220px;
+  min-width: 0; /* clave: permite que el texto se encoja en vez de desbordar la tarjeta */
+  gap: 12px; 
   align-items: center; 
-  padding:40px;
-  height: 300px;
-  width: 1000px;
+  padding: 20px;
+  text-align: center;
 }
 
 .titulo_integrante1{
-    text-align: top;
-    font-family: 'Franklin Gothic Medium';
-    font-size:28px; 
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px; 
     color:white; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.1); 
 }
@@ -513,29 +502,27 @@ h2{
 .texto_integrante1{
   color: white;
   font-family: 'Montserrat', 'Arial', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   line-height: 1.6; 
   margin: 0;
-  text-align:center;
 }
 
-.img_esquina1{
-  position: absolute;
+.img_esquina1, .img_esquina2{
+    position: absolute;
     bottom: 10px; 
-    right: 10px;   
-  width: 60px;  
-
+    width: 40px;  
 }
+.img_esquina1{ right: 10px; }
+.img_esquina2{ left: 10px; }
 
 .tarjeta-foto-contenedor {
-    width: 200px;  
-    height: 300px; 
+    width: 130px;  
+    height: 190px; 
     perspective: 1000px;
     cursor: pointer;
     flex-shrink: 0; 
 }
 
-/* el giro */
 .tarjeta-foto-flipper {
     width: 100%;
     height: 100%;
@@ -544,11 +531,9 @@ h2{
     transform-style: preserve-3d;
 }
 
-/*  giro al hacer clic */
 .tarjeta-foto-contenedor.girar .tarjeta-foto-flipper {
     transform: rotateY(180deg);
 }
-
 
 .tarjeta-foto-flipper .lado {
     width: 100%;
@@ -561,118 +546,222 @@ h2{
     overflow: hidden;
 }
 
-.tarjeta-foto-flipper .frente {
-    z-index: 2;
-}
-
-.tarjeta-foto-flipper .atras {
-    transform: rotateY(180deg);
-}
+.tarjeta-foto-flipper .frente { z-index: 2; }
+.tarjeta-foto-flipper .atras { transform: rotateY(180deg); }
 
 .tarjeta-foto-flipper .lado img.img_integrante1 {
-    width: 95%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     margin: 0;
 }
 
-.img_integrante2{
-  border-radius:10px; 
-  height: 300px;
-}
-
-.container_integrante_info2{
-  display: flex;
-  flex-direction: column;
-  gap: 20px; 
-  align-items: center; 
-  padding:40px;
-  height: 300px;
-  width: 1000px;
-}
-
-.titulo_integrante2{
-    text-align: top;
-    font-family: 'Franklin Gothic Medium';
-    font-size:28px; 
-    color:white; 
-    text-shadow:1px 1px 3px rgba(0,0,0,0.1); 
-}
-
-.texto_integrante2{
-  color: white;
-  font-family: 'Montserrat', 'Arial', sans-serif;
-  font-size: 20px;
-  line-height: 1.6; 
-  margin: 0;
-  text-align:center;
-}
-
-.img_esquina2{
-    position: absolute;
-    bottom: 10px; 
-    left: 10px;   
-    width: 60px;  
-
-}
-
-.container-mia{
-    width: 750px;
-    height: 300px;
-    background-color: #737e39;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;  
-    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;  
-    padding: 40px; 
-}
-
-.container-gloria{
-    width: 750px;
-    height: 300px;
-    background-color: #4b77b5;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10;  
-    padding: 40px;  
-    margin-left: auto; /* contenedor hacia el borde derecho */
-    margin-right: 0;   /* no espacio extra a la derecha */
-}
-.container-brandon{
-    width: 750px;
-    height: 300px;
-    background-color: #7f6ab1;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
-    z-index: 10; 
-    padding: 35px;   
-}
+/* Las 4 tarjetas de integrantes: apiladas en columna en mobile */
+.container-mia,
+.container-gloria,
+.container-brandon,
 .container-fei{
-    width: 750px;
-    height: 300px;
-    background-color: #e9d252;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;  
-    position: relative;  /* Acepta el z-index pero NO se sale de su caja */
+    position: relative;  
     z-index: 10;  
-    padding: 40px;  
-    margin-left: auto; /* contenedor hacia el borde derecho */
-    margin-right: 0;   /* no espacio extra a la derecha */
+    padding: 20px;
+    margin: 0 auto;
+    gap: 15px;
 }
-/*
-    * {
-  outline: 2px solid red !important;
+
+.container-mia{ background-color: #737e39; flex-direction: column; }
+.container-gloria{ background-color: #4b77b5; flex-direction: column-reverse; }
+.container-brandon{ background-color: #7f6ab1; flex-direction: column; }
+.container-fei{ background-color: #e9d252; flex-direction: column-reverse; }
+
+/* ===== A partir de 700px: tamaños intermedios para tablets. Entre 700 y 1099px
+   TODO se queda en columna (como en mobile) para que nunca se encimen las tarjetas
+   de 750px de tu diseño original; solo crecen los tamaños. ===== */
+@media (min-width: 700px) {
+
+    .container_delgado{
+        min-height: 380px;
+        padding: 110px 20px 0 20px;
+    }
+
+    .lerp-mirando{
+        max-width: 280px;
+    }
+
+    .texto-principal{
+        letter-spacing: 8px;
+        word-spacing: 12px;
+        font-size: 34px;
+    }
+
+    .mas-alla-seccion{
+        padding: 60px 20px;
+    }
+
+    .parrafo-normal{
+        font-size: 19px;
+    }
+
+    .columna-iconos img{
+        width: 85px;
+    }
+
+    .container_abstracto1,
+    .container_abstracto2{
+        height: 230px;
+    }
+
+    .texto_mision,
+    .texto_vision{
+        font-size: 22px;
+    }
+
+    .mini_texto_mision,
+    .mini_texto_vision{
+        font-size: 20px;
+    }
+
+    .arco{
+        width: 320px;
+        height: 320px;
+        border-width: 20px;
+    }
+    .arco-izquierdo{ left: -180px; top: 60px; }
+    .arco-derecho2{ right: -150px; top: 1000px; }
+
+    .titulo-equipo1{
+        font-size: 19px;
+    }
+
+    .tarjeta-foto-contenedor{
+        width: 160px;
+        height: 240px;
+    }
+
+    .titulo_integrante1{
+        font-size: 22px;
+    }
+
+    .texto_integrante1{
+        font-size: 15px;
+    }
+
+    .container-mia,
+    .container-gloria,
+    .container-brandon,
+    .container-fei{
+        max-width: 420px;
+        padding: 25px;
+    }
 }
-  */
+
+/* ===== A partir de 1100px: aquí sí hay espacio real para que "Más allá del código"
+   se ponga en fila, y las tarjetas de integrantes (750px) quepan sin apretarse. ===== */
+@media (min-width: 1100px) {
+
+    .contenedor-principal{
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    .columna-texto{
+        text-align: justify;
+    }
+
+    .titulo-azul,
+    .frase-naranja{
+        text-align: left;
+    }
+
+    .columna-iconos{
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .columna-iconos img{
+        width: 110px;
+    }
+
+    .parrafo-normal{
+        font-size: 23px;
+    }
+
+    .arco-derecho1{
+        display: block;
+        right: -380px; 
+        top: -500px;
+        width: 500px;
+        height: 500px;
+        border-width: 30px;
+    }
+    .arco-izquierdo{
+        width: 500px;
+        height: 500px;
+        border-width: 30px;
+        left: -250px; 
+        top: 100px;
+    }
+    .arco-derecho2{
+        width: 500px;
+        height: 500px;
+        border-width: 30px;
+        right: -100px; 
+        top: 600px;
+    }
+
+    .lerp_naranja{
+        display: block;
+        position: absolute;
+        bottom: 10px; 
+        left: 10px;   
+        width: 160px;
+    }
+
+    .container_equipo{
+        padding: 60px 40px;
+        gap: 30px;
+    }
+
+    .container-mia,
+    .container-gloria,
+    .container-brandon,
+    .container-fei{
+        max-width: none;
+        width: min(750px, 90vw);
+        height: auto;
+        min-height: 300px;
+        flex-direction: row;
+        padding: 40px;
+        gap: 0;
+    }
+
+    .container-mia{ justify-content: space-between; margin-left: 0; margin-right: auto; }
+    .container-gloria{ justify-content: center; margin-left: auto; margin-right: 0; }
+    .container-brandon{ justify-content: center; margin-left: 0; margin-right: auto; }
+    .container-fei{ justify-content: center; margin-left: auto; margin-right: 0; }
+
+    .tarjeta-foto-contenedor{
+        width: 200px;
+        height: 300px;
+    }
+
+    .titulo_integrante1{
+        font-size: 28px;
+    }
+
+    .texto_integrante1{
+        font-size: 18px;
+    }
+
+    .img_esquina1, .img_esquina2{
+        width: 60px;
+    }
+}
 
 </style>
