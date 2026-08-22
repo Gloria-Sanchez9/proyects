@@ -618,31 +618,6 @@ h3{
     background-color: white;
 }
 
-/*
-Botones 
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    color: #624142;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: 0.3s;
-}
-
-.nav-btn:hover { background-color: rgba(255, 255, 255, 0.4); }
-.prev-btn { left: -60px; }
-.next-btn { right: -60px; }
-.prev-btn::after { content: '‹'; }
-.next-btn::after { content: '›'; }
-*/
-
 /* Esto arregla que el link no corte la carta */
     .link-invisible {
         text-decoration: none;
@@ -851,6 +826,81 @@ Botones
     }
 }
 
+/* ===== SOLO PARA TABLETS (iPad y similares), en cualquier orientación: 700px hasta 1099px.
+   Aquí SOLO achico los tamaños que en el paso anterior quedaron pensados para pantallas 
+   más anchas (compu), para que no se sientan amontonados en una columna angosta.
+   No toca nada de <700px (celular) ni de >=1100px (compu). ===== */
+@media (min-width: 700px) and (max-width: 1099px) {
+
+    .logo-central{
+        width: 300px;
+        height: 110px;
+    }
+
+    .tarjeta-central{
+        width: 300px;
+        left: 0;
+        margin: 15px auto 25px auto;
+    }
+
+    h1{
+        font-size: 42px;
+    }
+
+    h2{
+        font-size: 52px;
+    }
+
+    .aro1{
+        width: 320px;
+        height: 320px;
+        border-width: 20px;
+        left: -70px;
+    }
+
+    .texto-principal{
+        letter-spacing: 6px;
+        word-spacing: 10px;
+        font-size: 36px;
+    }
+
+    .imagenes_redes{
+        width: 44px;
+        height: 44px;
+    }
+
+    h4{
+        font-size: 19px;
+    }
+
+    .logo-bienvenida{
+        margin: 15px auto;
+        max-width: 320px;
+    }
+
+    .texto-abstracto{
+        line-height: 26px;
+        margin: 15px auto;
+        max-width: 420px;
+        font-size: 17px;
+    }
+
+    .imagenB{
+        max-width: 260px;
+    }
+
+    h3{
+        font-size: 40px;
+    }
+
+    .team-member-cardd {
+        flex: 0 0 260px;
+        width: 260px;
+        height: 480px;
+        padding: 24px;
+    }
+}
+
 /* ===== Solo en pantallas realmente anchas (computadoras): aquí sí ponemos el texto y la laptop en fila.
    Entre 700px y 1099px (tablets como iPad) se queda en columna, para que nunca se encimen. ===== */
 @media (min-width: 1100px) {
@@ -921,17 +971,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // iniciar el loop
     requestAnimationFrame(loopInfinito);
-
-    /*// botones para mover 
-    btnSiguiente.onclick = () => {
-        container.scrollLeft += obtenerAnchoBase();
-        if (container.scrollLeft >= track.scrollWidth / 2) container.scrollLeft = 0;
-    };
-
-    btnAtras.onclick = () => {
-        if (container.scrollLeft <= 0) container.scrollLeft = track.scrollWidth / 2;
-        container.scrollLeft -= obtenerAnchoBase();
-    };*/
 
     // pausa al pasar el mouse
     container.onmouseenter = () => pausa = true;
