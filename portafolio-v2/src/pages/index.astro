@@ -762,7 +762,7 @@ h3{
 
     .titulo-bienvenido{
         transform: rotate(-8deg);
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         text-align: left;
         padding-left: 60px;
     }
@@ -831,6 +831,17 @@ h3{
    más anchas (compu), para que no se sientan amontonados en una columna angosta.
    No toca nada de <700px (celular) ni de >=1100px (compu). ===== */
 @media (min-width: 700px) and (max-width: 1099px) {
+
+    /* Los 8 íconos orbitando y el segundo arco son para escritorio (1366px+);
+       en tablet los volvemos a ocultar, dejando solo el arco chico */
+    .orbit-container,
+    .aro2{
+        display: none;
+    }
+
+    .aro1{
+        display: block;
+    }
 
     .logo-central{
         width: 300px;
@@ -906,15 +917,47 @@ h3{
 @media (min-width: 1100px) {
 
     .container_abstracto{
-        height: 700px;
+        height: auto;
+        min-height: 700px;
         flex-direction: row;
-        justify-content: space-between;
-        clip-path: polygon(0 16%, 100% 0, 100% 80%, 0 100%);
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 70px 40px 40px 40px; /* 70px arriba: espacio seguro para el corte diagonal */
+        clip-path: polygon(0 55px, 100% 0, 100% 80%, 0 100%);
     }
 
     .logo-texto{
         flex-direction: row;
+        flex: 1 1 480px;
+        max-width: 750px;
+        min-width: 0; /* clave: permite que el bloque se encoja en vez de desbordarse */
         gap: 30px;
+        align-items: center;
+    }
+
+    .logo-bienvenida{
+        flex: 0 0 clamp(180px, 22vw, 260px); /* tamaño estable, ya no compite por espacio con el texto */
+        width: clamp(180px, 22vw, 260px);
+        max-width: none;
+        margin: 0;
+    }
+
+    .texto-texto{
+        flex: 1 1 220px;
+        min-width: 0; /* clave: sin esto el párrafo se desborda en vez de encogerse */
+        text-align: left;
+    }
+
+    h4{
+        text-align: left;
+    }
+
+    .texto-abstracto{
+        max-width: 100%; /* ya no un ancho fijo que pelea con el logo */
+        margin: 15px 0;
+        text-align: left;
     }
 
     .imagenB{
@@ -923,8 +966,11 @@ h3{
     }
 
     .texto-imagen{
-        height: 600px;
-        margin: 50px;
+        flex: 1 1 280px;
+        max-width: 320px;
+        min-width: 0;
+        height: auto;
+        margin: 0;
         align-items: flex-end;
     }
 }
