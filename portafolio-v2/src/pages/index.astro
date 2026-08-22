@@ -33,18 +33,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="circle c8"></div>
     </div>
         
-    <br /><br />
 <div class="tarjeta-central">
-    <br />
-    <img class="logo-central" src="imagenes/inicio/logo1FINALL.png"></div><br />
-
-<br /><br />
-<br /><br />
-<br /><br />
+    <img class="logo-central" src="/proyects/imagenes/inicio/logo1FINALL.png">
+</div>
 </section>
 
 <div class="container-lerp1-condel"> 
-    <img class="lerp1" src="imagenes/inicio/LERPsalu2.png" />
+    <img class="lerp1" src="/proyects/imagenes/inicio/LERPsalu2.png" />
 
     <div class="container_delgado">
         <p class="texto-principal">
@@ -53,11 +48,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="container_redes">
         <a href="https://www.instagram.com/eloadevteam" target="_blank" rel="noopener noreferrer">
-        <img class="imagenes_redes" src="imagenes/inicio/instagram.png" alt="Instagram" />
+        <img class="imagenes_redes" src="/proyects/imagenes/inicio/instagram.png" alt="Instagram" />
     </a>
-        <img class="imagenes_redes" src="imagenes/inicio/tiktol.png" /> 
+        <img class="imagenes_redes" src="/proyects/imagenes/inicio/tiktol.png" /> 
         <a href="mailto:eloadevteam@gmail.com">
-        <img class="imagenes_redes" src="imagenes/inicio/correo.png" alt="Correo" />
+        <img class="imagenes_redes" src="/proyects/imagenes/inicio/correo.png" alt="Correo" />
     </a>
     </div>
 </div>
@@ -68,7 +63,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <div class="container_abstracto">
     <div class="logo-texto">
-    <img class="logo-bienvenida" src="imagenes/inicio/logoBienvenida.png" />
+    <img class="logo-bienvenida" src="/proyects/imagenes/inicio/logoBienvenida.png" />
     <div class="texto-texto">
     <h4>Ingienería mexicana con propósito.</h4>
     <p class="texto-abstracto"> En ELOA, transformamos la teoría en experiencias interactivas. Somos estudiantes comprometidos con facilitar el aprendizaje a través de juegos y herramientas, creando un ecosistema digital donde educar es divertido y simultáneo. Explora nuestra visión de la tecnología. </p>
@@ -76,10 +71,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </div>
     <div class="texto-imagen">
     <div class="textoO">
-        <img src="imagenes/inicio/programacion.png" width="80px" />
+        <img src="/proyects/imagenes/inicio/programacion.png" width="80px" />
         <p class="texto-arriba">Desarrolladores universitarios mexicanos</p>
     </div>
-    <img class="imagenB" src="imagenes/inicio/junta.jpg" />
+    <img class="imagenB" src="/proyects/imagenes/inicio/junta.jpg" />
     </div>
 </div>   
 <br /><br />
@@ -89,7 +84,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <br/><br/>
 
 <div class="container2">
-  <div class="carruselcarousel-s">
+  <div class="carrusel-s">
     
     <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior"></button>
     <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente"></button>
@@ -99,23 +94,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="carrusel-tarjetas" id="carruselTarjetas">
         
         <a href="ruta/a/particulas.html" class="team-member-cardd card1">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
         </a>
 
         <a href="ruta/a/party-problems.html" class="team-member-cardd card2">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
         </a>
 
         <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card3">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
         </a>
 
-        <a href="../calculadoraF/inicio/inicio.html" class="team-member-cardd card4">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
+        <a href="/proyects/calculadoras" class="team-member-cardd card4">
+            <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
         </a>
 
         <a href="../coordenadasF/inicio/inicioC.html" class="team-member-cardd card5">
-          <div class="card-bottom"><img src="imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
         </a>
 
       </div> 
@@ -143,55 +138,60 @@ body{
     padding: 0;
 }
 
+/* -- MOBILE FIRST: base para pantallas chicas -- */
+
 .logo-central{
-    width: 600px; 
-    left:-100px; 
-    top: -200px;
+    width: 100%;
+    max-width: 320px;
+    left: 0;
+    top: 0;
     border-radius:10px; 
     display:flex; 
     justify-content:center; 
     align-items:center; 
-    position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+    position:relative;
 }
 
 /* Hero (la parte despues del nav)*/
 
 .hero{ 
     text-align:center; 
-    padding:100px 20px; 
+    padding:110px 15px 40px 15px; /* 110px arriba para que no lo tape el nav fijo */
     position:relative; 
 }
 
 /* Tarjeta central (rectangulo con el logo ELOA) */ 
 
 .tarjeta-central{ 
-    width:280px; 
-    height:140px;
-    left:150px; 
-    top:40px;
-    margin:auto; 
+    width:100%; 
+    max-width: 320px;
+    height:auto;
+    left:0; 
+    top:0;
+    margin:0 auto 20px auto; 
     border-radius:10px; 
     position:relative; 
 } 
 
 /* Titulo */ 
 h1{
-    margin-top:40px; 
-    font-size:60px; color:#624142; 
+    margin-top:20px; 
+    font-size:32px;
+    color:#624142; 
     text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
 } 
 
 h2{
     font-family: 'Franklin Gothic Medium';
-    letter-spacing: -4px;
-    font-size:80px; 
+    letter-spacing: -1px;
+    font-size:38px; 
     color:black; 
     text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
 }
 
 p{ 
     margin-top:15px; 
-    font-size:20px; 
+    font-size:16px; 
     color:black; 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 } 
@@ -210,7 +210,23 @@ p{
     box-shadow:0 4px 8px rgba(0,0,0,0.2); 
 } 
 
-/* Circulos de imagenes */ 
+/* Circulos de imagenes decorativos: los 8 iconos orbitando y el segundo arco se ocultan en mobile (ver nota arriba); dejamos un arco chico visible para que no se vea vacío */ 
+
+.orbit-container,
+.aro2{
+    display: none;
+}
+
+.aro1{
+    display: block;
+    position:absolute;
+    width: 220px;
+    height: 220px;
+    border: 15px solid rgba(125, 171, 197);
+    border-radius: 50%;
+    left: -110px;
+    top: 60px;
+}
 
 .circle{ 
     position:absolute; /*poner los elementos en una posicion exacta*/
@@ -222,7 +238,7 @@ p{
     height:110px; 
     left:300px; 
     top: 40px; 
-    background-image: url('/imagenes/inicio/icon1.png');
+    background-image: url('/proyects/imagenes/inicio/icon1.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -234,7 +250,7 @@ p{
      height:110px; 
      left:-50px; 
      top:380px;
-     background-image: url('/imagenes/inicio/icon2.png');
+     background-image: url('/proyects/imagenes/inicio/icon2.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute; 
@@ -245,7 +261,7 @@ p{
     height:110px; 
     left:280px; 
     top:340px;
-    background-image: url('/imagenes/inicio/icon3.png');
+    background-image: url('/proyects/imagenes/inicio/icon3.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -256,7 +272,7 @@ p{
     height:110px; 
     left:-90px; 
     top:-70px; 
-    background-image: url('/imagenes/inicio/icon4.png');
+    background-image: url('/proyects/imagenes/inicio/icon4.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -266,8 +282,8 @@ p{
     width:110px; 
     height:110px; 
     right:10px; 
-    top:490px; 
-    background-image: url('/imagenes/inicio/icon5.png');
+    top:270px; 
+    background-image: url('/proyects/imagenes/inicio/icon5.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -277,8 +293,8 @@ p{
     width:110px; 
     height:110px; 
     right:-10px; 
-    top:920px; 
-    background-image: url('/imagenes/inicio/icon6.png');
+    top:700px; 
+    background-image: url('/proyects/imagenes/inicio/icon6.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -288,8 +304,8 @@ p{
     width:110px; 
     height:110px; 
     right:-300px; 
-    top:600px; 
-    background-image: url('/imagenes/inicio/icon7.png');
+    top:380px; 
+    background-image: url('/proyects/imagenes/inicio/icon7.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
@@ -299,24 +315,14 @@ p{
     width:110px; 
     height:110px; 
     right:180px; 
-    top:680px; 
-    background-image: url('/imagenes/inicio/icon8.png');
+    top:460px; 
+    background-image: url('/proyects/imagenes/inicio/icon8.png');
     background-size: cover;    /*  la imagen cubre todo el cuadro */
     background-position: center; /* centrar la imagen */
     position: absolute;
 } 
 
-/* Aro del fondo */ 
-
-.aro1{ /* poner border en vez de background*/
-    position:absolute; 
-    width:500px; 
-    height:500px; 
-    border:30px solid rgba(125, 171, 197); 
-    border-radius:50%; 
-    left:-94px; 
-    top:-7px; 
-}
+/* Aro del fondo (el segundo, aro2, se restaura en la media query de escritorio) */ 
 
 .aro2{ /* poner border en vez de background*/
     position:absolute; 
@@ -325,26 +331,28 @@ p{
     border:30px solid rgba(125, 171, 197); 
     border-radius:50%; 
     right:-250px; 
-    top:500px; 
+    top:280px; 
 }
 
 .container_delgado{
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     background-color: #182d42;
     display: flex;
     justify-content: center;
     align-items: center;  
     position: relative;  /* Acepta el z-index pero NO se sale de su caja */
     z-index: 10;   
+    padding: 15px 10px;
 }
 
 .texto-principal{
-    letter-spacing: 15px;
-    word-spacing: 20px;
-    font-size: 60px;
+    letter-spacing: 3px;
+    word-spacing: 6px;
+    font-size: 22px;
     font-family: 'Franklin Gothic Medium';
     color:#ffffff;
+    text-align: center;
 }
 
 .destacado-rosa{
@@ -362,85 +370,100 @@ p{
     display: flex;
     flex-direction: column; 
     width: 100vw;
+    align-items: center;
+    
     
 }
 
 .lerp1{
-    width: 450px;
-    height: 300px;
+    width: 90%;
+    max-width: 450px;
+    height: auto;
 }
 
 .imagenes_redes{
-    width: 40px;
-    height: 40px;   
+    width: 36px;
+    height: 36px;   
+    transition: transform 0.2s ease;
+}
+
+.imagenes_redes:hover {
+    transform: scale(1.1);
 }
 
 .container_redes{
-    width: 200px;
-    height: 90px;
+    width: auto;
+    height: auto;
+    padding: 15px 0;
     display: flex;             
     justify-content: center;   
     align-items: center;
-    gap: 10px;        
+    gap: 15px;        
 }
 
 .titulo-bienvenido{
-    transform: rotate(-8deg) translateY(60px);
-    margin-bottom: 0;
+    transform: rotate(-4deg) translateY(30px);
+    margin-bottom: 40px; /* reserva espacio para el translateY, si no el contenedor azul lo tapa */
+    text-align: center;
 }
 
 .container_abstracto{
     width: 100%;
-    height: 700px;
+    height: auto;
     background-color:#182d42 ;
     z-index: 9999;/*este arriba de todo*/
     position: relative; /*esto para que funcione el z-index*/
     display: flex;  
+    flex-direction: column;
     align-items: center;           
-    /* Orden de los puntos: Arriba-Izquierda, Arriba-Derecha, Abajo-Derecha, Abajo-Izquierda */
-    clip-path: polygon(0 25%, 100% 0, 100% 80%, 0 100%);      
+    padding: 40px 20px;
 }
 
 .imagenB{
-    width: 250px;
-    height: 400px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
     border-radius: 10%;  
-    margin-left: auto;  
+    margin: 0 auto;  
 }
 
 .logo-texto{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     
 }
 
 .texto-texto{
+    display: flex;
     justify-content: center; 
     flex-direction: column;
 }
 
 h4{
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #ddd;
 }
 
 .logo-bienvenida{
-    margin: 30px;
-    width: 500px; 
+    margin: 15px auto;
+    width: 100%;
+    max-width: 280px; 
     border-radius:10px; 
 
 }
 
 .texto-abstracto{
-    line-height: 30px;
-    margin: 40px;
-    letter-spacing: 1px;
-    width: 500px;
+    line-height: 24px;
+    margin: 15px auto;
+    letter-spacing: 0.5px;
+    width: 100%;
+    max-width: 340px;
     text-align: justify;
     height: auto;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Lucida Sans Regular';
     color:#ffffff;
 
@@ -449,8 +472,9 @@ h4{
 .texto-imagen{
     flex-direction: column;
     display: flex;
-    height: 600px;
-    margin: 50px;
+    align-items: center;
+    height: auto;
+    margin: 20px auto;
 
 }
 
@@ -458,8 +482,9 @@ h4{
     color: white;
     padding: 10px;
     margin-bottom: 20px;
-    width: 300px; 
-    height: 80px;
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -469,9 +494,9 @@ h4{
 .texto-arriba{
     color: white;
     padding: 5px;
-    font-size: 17px;
+    font-size: 20px;
     width: 200px; 
-    height: 70px;
+    height: auto;
     font-family: 'Franklin Gothic';
 
 }
@@ -480,12 +505,12 @@ h4{
 
 h3{
     font-family: 'Franklin Gothic Medium';
-    letter-spacing: 4px;
-    font-size:60px; 
+    letter-spacing: 2px;
+    font-size:28px; 
     color:black; 
     text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
-    text-align: right;
-    margin-right: 20px;
+    text-align: center;
+    margin-right: 0;
 } 
 
 .container1{
@@ -506,9 +531,9 @@ h3{
 
 .container2{
     width: 100%;
-    height: 600px;
+    height: auto;
     background-color: #182d42;
-    
+    padding: 30px 0;
 }
 
 .carrusel-s {
@@ -516,15 +541,12 @@ h3{
     width: 90%;
     max-width: 1200px;
     margin: auto;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 /* Contenedor de scroll */
 .carrusel-container {
     overflow-x: auto;
     scrollbar-width: none;
-    overflow-x: hidden;
     display: flex;
 }
 
@@ -535,17 +557,18 @@ h3{
 /* Posters */
 .carrusel-tarjetas {
     display: flex;
-    gap: 20px;
-    padding: 20px 50px;
+    gap: 15px;
+    padding: 15px;
 }
 
 /* Diseño posters */
 .team-member-cardd {
-    flex: 0 0 300px;         
-    height: 550px;           
+    flex: 0 0 250px;
+    width: 250px;
+    height: 460px;
     background-color: white; 
     border-radius: 5px;
-    padding: 30px;
+    padding: 20px;
     
     /* Flexbox interno para separar el texto arriba y el logo abajo */
     display: flex;
@@ -569,15 +592,11 @@ h3{
     background-color: white;
 }
 
-.card1 { background-image: url('/imagenes/inicio/poster4.png'); }
-.card2 { background-image: url('/imagenes/inicio/poster5.png'); }
-.card3 { background-image: url('/imagenes/inicio/poster1.png'); }
-.card4 { background-image: url('/imagenes/inicio/poster3.png'); }
-.card5 { background-image: url('/imagenes/inicio/poster2.png'); }
-
-.team-member-cardd:hover {
-  transform: translateY(-10px);
-}
+.card1 { background-image: url('/proyects/imagenes/inicio/poster4.png'); }
+.card2 { background-image: url('/proyects/imagenes/inicio/poster5.png'); }
+.card3 { background-image: url('/proyects/imagenes/inicio/poster1.png'); }
+.card4 { background-image: url('/proyects/imagenes/inicio/poster3.png'); }
+.card5 { background-image: url('/proyects/imagenes/inicio/poster2.png'); }
 
 
 /* minilerp */
@@ -645,22 +664,11 @@ Botones
         color: inherit;
     }
 
-    .team-member-cardd {
-        flex: 0 0 300px; 
-        width: 300px;    
-        height: 550px;   
-
-    }
-
     a.team-member-cardd h3 {
         margin: 0;
         color: white;
     }
-/*
-    * {
-  outline: 2px solid red !important;
-}
-  */
+  
 
     /* El contenedor es el que gira, pero es invisible */
     .orbit-container {
@@ -695,8 +703,167 @@ Botones
     }
 
     .c5-container, .c6-container, .c7-container, .c8-container {
-        transform-origin: calc(100% - 0px) 750px; /* Centro del segundo arco 
+        transform-origin: calc(100% - 0px) 530px; /* Centro del segundo arco */
     }
+
+/* -- A partir de aquí, pantallas más grandes (tablet/escritorio): valores originales del diseño -- */
+@media (min-width: 700px) {
+
+    .logo-central{
+        width: 380px;
+        max-width: none;
+    }
+
+    .hero{
+        padding: 90px 20px 0px 20px;
+    }
+
+    .tarjeta-central{
+        width: 380px;
+        max-width: 90%;
+        height: auto;
+        margin: 0 auto 0 auto;
+    }
+
+    h1{
+        font-size: 60px;
+        margin-top: 40px;
+    }
+
+    h2{
+        letter-spacing: -4px;
+        font-size: 80px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+
+    .orbit-container,
+    .aro1,
+    .aro2{
+        display: block;
+    }
+
+    .aro1{
+        width:500px; 
+        height:500px; 
+        border:30px solid rgba(125, 171, 197); 
+        left:-94px; 
+        top:-7px; 
+    }
+
+    .container_delgado{
+        min-height: 100px;
+        padding: 0;
+    }
+
+    .texto-principal{
+        letter-spacing: 15px;
+        word-spacing: 20px;
+        font-size: 60px;
+    }
+
+    .lerp1{
+        width: 450px;
+        max-width: none;
+        height: 300px;
+    }
+
+    .imagenes_redes{
+        width: 56px;
+        height: 56px;
+    }
+
+    .container_redes{
+        width: auto;
+        height: auto;
+        padding: 7px;
+        gap: 15px;
+    }
+
+    .titulo-bienvenido{
+        transform: rotate(-8deg);
+        margin-bottom: 0;
+        text-align: left;
+        padding-left: 60px;
+    }
+
+    .container_abstracto{
+        height: 700px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 40px;
+        clip-path: polygon(0 25%, 100% 0, 100% 80%, 0 100%);
+    }
+
+    .imagenB{
+        max-width: 230px;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .logo-texto{
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    h4{
+        font-size: 20px;
+    }
+
+    .logo-bienvenida{
+        margin: 30px;
+        max-width: 500px;
+    }
+
+    .texto-abstracto{
+        line-height: 30px;
+        margin: 40px;
+        letter-spacing: 1px;
+        max-width: 500px;
+        font-size: 20px;
+    }
+
+    .texto-imagen{
+        height: 600px;
+        margin: 50px;
+        align-items: flex-end;
+    }
+
+    h3{
+        letter-spacing: 4px;
+        font-size: 60px;
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    .container2{
+        height: 600px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .carrusel-s{
+        top: 0;
+        transform: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .carrusel-tarjetas {
+        gap: 20px;
+        padding: 10px 20px;
+    }
+
+    .team-member-cardd {
+        flex: 0 0 300px;
+        width: 300px;
+        height: 540px;
+        padding: 30px;
+    }
+}
 
 </style>
 

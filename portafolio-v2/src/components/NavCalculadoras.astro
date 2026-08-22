@@ -1,0 +1,54 @@
+---
+// src/components/NavCalculadoras.astro
+const pathname = Astro.url.pathname;
+---
+
+<nav class="nav-calculadoras">
+    <div class="logo-box">
+        <a href="/proyects/" target="_blank">
+        <img class="logo" src="/proyects/imagenes/inicio/logo1FINAL.png" width="120px" alt="ELOA Logo">
+        </a>
+    </div>
+    
+        <a href="/proyects/" class="nav-link activo">INICIO</a>
+        <a href="#coordenadas" class="nav-link">CONVERSIÓN DE COORDENADAS</a>
+        <a href="#distancia" class="nav-link">DISTANCIA</a>
+</nav>
+
+<style>
+    header{
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+nav{
+    height: 90px;
+    display:flex; /*activar flexbox */
+    justify-content: center; /*alinear elementos horizontalmente */
+    align-items: center; /*alinear elementos verticalmente */
+    gap: 50px; /* espacio entre elemntos*/
+    position: fixed;   /*  fijo en pantalla */
+    top: 0;           /* borde superior */
+    left: 0;          /* borde izquierdo */
+    width: 100%;      
+    z-index: 10000;    /*  por encima de todo lo demás */
+    background-color: #F9F9F9; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+
+
+}
+
+.nav-link{/*para todos los links dentro del nav */
+    text-decoration:none;
+    color:black;
+    font-size:18px;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+
+}
+.nav-link:hover {
+    color: #7dabc5; 
+    border-bottom: 3px solid #7dabc5; /* línea de debajo */
+    font-weight: bold; 
+}
+</style>

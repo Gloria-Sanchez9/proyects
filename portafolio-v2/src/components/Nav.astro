@@ -3,7 +3,7 @@
         <a href="/proyects/nosotros" class="nav-link">NOSOTROS</a>
 
         <div class ="logo-box">
-            <img class = "logo" src="/proyects/imagenes/inicio/logoFINAL.png" width="150px">  
+            <img class = "logo" src="/proyects/imagenes/inicio/logoFINAL.png">
         </div>
 
         <a href="/proyects/#Proyectos" class="nav-link">PROYECTOS</a>
@@ -18,12 +18,15 @@ header{
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
+/* ===== MOBILE FIRST: esto es lo que se ve por default, en pantallas chicas ===== */
+
 nav{
-    height: 90px;
+    min-height: 70px;
     display:flex; /*activar flexbox */
+    flex-wrap: wrap; /* deja que los links pasen a la siguiente línea si no caben */
     justify-content: center; /*alinear elementos horizontalmente */
     align-items: center; /*alinear elementos verticalmente */
-    gap: 50px; /* espacio entre elemntos*/
+    gap: 10px 18px; /* espacio vertical 10px, horizontal 18px entre elementos*/
     position: fixed;   /*  fijo en pantalla */
     top: 0;           /* borde superior */
     left: 0;          /* borde izquierdo */
@@ -31,19 +34,18 @@ nav{
     z-index: 10000;    /*  por encima de todo lo demás */
     background-color: #F9F9F9; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-
-
+    padding: 10px 12px;
 }
 
 .nav-link{/*para todos los links dentro del nav */
     text-decoration:none;
     color:black;
-    font-size:18px;
+    font-size:14px; /* más chico en mobile para que quepan los 4 links */
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
     font-weight: bold;
 
 }
-.nav-link.activo {
+.nav-link:hover {
     color: #7dabc5; 
     border-bottom: 3px solid #7dabc5; /* línea de debajo */
     font-weight: bold; 
@@ -52,14 +54,45 @@ nav{
 /* Logo (dentro del nav) */
 
 .logo-box{
-    width:70px; 
-    height:55px; 
+    width:50px; 
+    height:40px; 
     background:#F9F9F9; 
     border-radius:10px; 
     display:flex; 
     justify-content:center; 
     align-items:center; 
     position:relative; /* mover un elmento respecto a su posicion original, sin sacarlo del flujo normal de la pagina*/
+    order: -1; /* en mobile, el logo se va primero (arriba) y los links debajo */
+    flex-basis: 100%; /* el logo ocupa toda la línea, empujando los links a su propia fila */
+}
+
+.logo-box .logo {
+    width: 90px; /* más chico que los 150px originales */
+}
+
+/* ===== A partir de aquí, pantallas más grandes (tablet/escritorio) ===== */
+@media (min-width: 700px) {
+    nav{
+        min-height: 90px;
+        flex-wrap: nowrap; /* ya no se envuelve, todo en una fila */
+        gap: 50px; /* el espaciado grande original */
+        padding: 0;
+    }
+
+    .nav-link{
+        font-size:18px; /* el tamaño grande original */
+    }
+
+    .logo-box{
+        width:70px; 
+        height:55px; 
+        order: 0; /* regresa a su posición normal en medio del nav */
+        flex-basis: auto;
+    }
+
+    .logo-box .logo {
+        width: 150px; /* el tamaño grande original */
+    }
 }
 
 .logo-central{

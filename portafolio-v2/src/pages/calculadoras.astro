@@ -1,0 +1,56 @@
+---
+// src/pages/calculadoras-coordenadas.astro
+import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
+---
+
+<BaseLayoutCal>
+
+<div class= "sobre_proyecto>
+    <h2> SOBRE ESTE PROYECTO </h2> 
+</div> 
+<div class= "container_azul"> 
+    <h3>Una herramienta diseñada por estudiantes de Ingeniería en Sistemas para simplificar el estudio de los sistemas de coordenadas. Combinamos cálculo preciso, recursos visuales y tutoriales rápidos para que pases menos tiempo sufriendo con las fórmulas y más tiempo entendiendo el espacio. Porque si hay una solución, nosotros la convertimos en arte. </h3> 
+</div> 
+
+
+</BaseLayoutCal>
+
+<style>
+
+*{
+    margin: 0; /*espacio dentro de la caja (elemento y borde) */
+    padding: 0; /*espacio entre cajas */
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image: url('/imagenes/calculadoras/fondo_madera.png');
+    overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
+    margin: 0;
+    padding: 0;
+}
+
+.sobre_proyecto{
+    font-family: 'Franklin Gothic Medium';
+    letter-spacing: 4px;
+    font-size:60px; 
+    color:black; 
+    text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
+    text-align: right;
+    margin-right: 20px;
+
+}
+
+.container_azul{
+    max-width: 900px;
+    margin-left: auto; 
+    padding: 20px;
+}
+
+.container_azul h3 {
+    font-size: 24px; 
+    font-weight: normal;
+}
+
+</style> 
