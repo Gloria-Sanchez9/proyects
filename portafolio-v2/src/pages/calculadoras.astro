@@ -1,56 +1,189 @@
 ---
-// src/pages/calculadoras-coordenadas.astro
 import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
 ---
 
 <BaseLayoutCal>
 
-<div class= "sobre_proyecto>
-    <h2> SOBRE ESTE PROYECTO </h2> 
-</div> 
-<div class= "container_azul"> 
-    <h3>Una herramienta diseñada por estudiantes de Ingeniería en Sistemas para simplificar el estudio de los sistemas de coordenadas. Combinamos cálculo preciso, recursos visuales y tutoriales rápidos para que pases menos tiempo sufriendo con las fórmulas y más tiempo entendiendo el espacio. Porque si hay una solución, nosotros la convertimos en arte. </h3> 
-</div> 
+<section class="calc-hero">
+    <h1 class="calc-titulo">CALCULADORAS</h1>
+    <p class="calc-subtitulo">
+        Del papel a la lógica digital. Explora las dimensiones del espacio con nuestras herramientas interactivas.
+    </p>
+</section>
 
+<div class="sobre-wrapper">
+    <h2 class="titulo-sobre">SOBRE EL PROYECTO</h2>
+    <img class="robot-boceto" src="/proyects/imagenes/calculadoras/LERPparado.png" alt="Robot ELOA">
+</div>
+
+<div class="container_proyecto">
+    <h3>Herramientas creada para automatizar las operaciones de conversión y distancia con coordenadas.</h3>
+    <a class="play-btn" aria-label="Reproducir" href="https://youtu.be/X9C-v5EGG_M?si=7mcgmWn_g_Fm-6-q" target="_blank" rel="noopener noreferrer">
+    <span class="play-triangulo"></span>
+</a>
+</div>
+
+<div class="galeria">
+    <img class="ilustracion" src="/proyects/imagenes/calculadoras/foto_nosotros.png" alt="Ilustración del equipo pensando">
+</div>
 
 </BaseLayoutCal>
 
 <style>
+*,
+*::before,
+*::after{
+    box-sizing: border-box; /* evita que el padding sume ancho extra y cause overflow-x */
+}
 
-*{
-    margin: 0; /*espacio dentro de la caja (elemento y borde) */
-    padding: 0; /*espacio entre cajas */
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+html{
+    overflow-x: hidden;
 }
 
 body{
-    background-image: url('/imagenes/calculadoras/fondo_madera.png');
-    overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
+    background-image: url('/proyects/imagenes/calculadoras/fondo_madera.png');
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
-.sobre_proyecto{
-    font-family: 'Franklin Gothic Medium';
-    letter-spacing: 4px;
-    font-size:60px; 
-    color:black; 
-    text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
-    text-align: right;
-    margin-right: 20px;
+/* ===== MOBILE FIRST ===== */
 
+.calc-hero{
+    padding: 110px 20px 20px 20px;
+    text-align: center;
 }
 
-.container_azul{
-    max-width: 900px;
-    margin-left: auto; 
+.calc-titulo{
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    font-size: clamp(30px, 6vw, 78px);
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    margin: 0;
+    text-transform: uppercase;
     padding: 20px;
 }
 
-.container_azul h3 {
-    font-size: 24px; 
-    font-weight: normal;
+.calc-subtitulo{
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: white;
+    font-size: clamp(15px, 1.4vw, 30px);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    text-align: center;
+    margin: 15px 0 0 0;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-</style> 
+/* Contenedor del bloque "sobre el proyecto": el robot va arriba
+   pegado a la derecha, y el título debajo, centrado (igual que el mockup,
+   en cualquier tamaño de pantalla) */
+.sobre-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px  50px 20px;
+    gap: clamp(10px, 1.5vw, 45px);
+    overflow: visible; /* para que las antenas del robot no se recorten */
+    max-width:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titulo-sobre{
+    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: -1px;
+    font-size: clamp(26px, 5vw, 56px);
+    color: #182d42;
+    text-align: center;
+    margin: 0;
+    order: 2; /* siempre va DESPUÉS del robot */
+}
+
+/* El robot vive en el flujo normal (no absolute) para que su alto real
+   nunca se salga de su espacio sin importar la proporción de la imagen.
+   El ancho escala con la pantalla; el alto queda libre para respetar
+   su proporción real. */
+.robot-boceto{
+    display: block;
+    width: clamp(190px, 20vw, 340px);
+    height: auto;
+    order: 1; /* siempre va PRIMERO, arriba del título */
+    align-self: flex-end; /* pegado a la derecha, como en el mockup */
+    margin-right: -6px; /* leve sangría hacia el borde */
+}
+
+.container_proyecto{
+    width: 100%;
+    background-color: #182d42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(20px, 3vw, 50px) 20px clamp(90px, 8vw, 140px) 20px;
+    margin-top: 15px;
+    position: relative;
+}
+
+h3{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 900px);
+    text-align: center;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 600;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: #ffffff;
+}
+
+.play-btn{
+    position: absolute;
+    bottom: clamp(15px, 2vw, 30px);
+    right: clamp(20px, 3vw, 50px);
+    width: clamp(42px, 4vw, 60px);
+    height: clamp(42px, 4vw, 60px);
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.15);
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 0;
+    z-index: 5;
+}
+
+.play-triangulo{
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid white;
+    margin-left: 3px; /* centra visualmente el triángulo dentro del círculo */
+}
+
+.galeria{
+    padding: 0 20px 40px 20px;
+    margin-top: clamp(-100px, -9vw, -60px); /* sube TODO este bloque para encimarlo con claridad sobre el azul */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.ilustracion{
+    display: block;
+    width: 100%;
+    max-width: clamp(220px, 22vw, 400px);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    z-index: 4;
+}
+</style>
