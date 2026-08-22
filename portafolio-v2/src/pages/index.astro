@@ -86,8 +86,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <div class="container2">
   <div class="carrusel-s">
     
-    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior"></button>
-    <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente"></button>
+    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Anterior" style="display:none;"></button>
+    <button class="nav-btn next-btn" id="nextBtn" aria-label="Siguiente" style="display:none;"></button>
 
     <div class="carrusel-container" id="carruselContainer">
       
@@ -138,17 +138,15 @@ body{
     padding: 0;
 }
 
-/* -- MOBILE FIRST: base para pantallas chicas -- */
+/* ===== MOBILE FIRST: base para pantallas chicas ===== */
 
 .logo-central{
     width: 100%;
-    max-width: 320px;
-    left: 0;
-    top: 0;
+    max-width: 280px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
     border-radius:10px; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
     position:relative;
 }
 
@@ -156,7 +154,7 @@ body{
 
 .hero{ 
     text-align:center; 
-    padding:110px 15px 40px 15px; /* 110px arriba para que no lo tape el nav fijo */
+    padding:110px 15px 15px 15px; /* 110px arriba para que no lo tape el nav fijo */
     position:relative; 
 }
 
@@ -164,11 +162,9 @@ body{
 
 .tarjeta-central{ 
     width:100%; 
-    max-width: 320px;
+    max-width: 280px;
     height:auto;
-    left:0; 
-    top:0;
-    margin:0 auto 20px auto; 
+    margin:0 auto 10px auto; 
     border-radius:10px; 
     position:relative; 
 } 
@@ -182,7 +178,7 @@ h1{
 } 
 
 h2{
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: -1px;
     font-size:38px; 
     color:black; 
@@ -350,19 +346,19 @@ p{
     letter-spacing: 3px;
     word-spacing: 6px;
     font-size: 22px;
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:#ffffff;
     text-align: center;
 }
 
 .destacado-rosa{
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:#d8a2d8;
 }
 
 .destacado-naranja{
     
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:#da5d1a;
 }
 
@@ -464,7 +460,7 @@ h4{
     text-align: justify;
     height: auto;
     font-size: 16px;
-    font-family: 'Lucida Sans Regular';
+    font-family: 'Lucida Sans Regular', 'Lucida Sans', Verdana, sans-serif;
     color:#ffffff;
 
 }
@@ -504,7 +500,7 @@ h4{
 /* FRAME 2 FIGMA*/
 
 h3{
-    font-family: 'Franklin Gothic Medium';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 2px;
     font-size:28px; 
     color:black; 
@@ -706,23 +702,24 @@ Botones
         transform-origin: calc(100% - 0px) 530px; /* Centro del segundo arco */
     }
 
-/* -- A partir de aquí, pantallas más grandes (tablet/escritorio): valores originales del diseño -- */
+/* ===== A partir de aquí, pantallas más grandes (tablet/escritorio): se restauran los valores originales del diseño ===== */
 @media (min-width: 700px) {
 
     .logo-central{
-        width: 380px;
+        width: 420px;
         max-width: none;
+        height: 150px;
     }
 
     .hero{
-        padding: 90px 20px 0px 20px;
+        padding: 90px 20px 15px 20px;
     }
 
     .tarjeta-central{
-        width: 380px;
+        width: 420px;
         max-width: 90%;
         height: auto;
-        margin: 0 auto 0 auto;
+        margin: 0 auto 10px auto;
     }
 
     h1{
