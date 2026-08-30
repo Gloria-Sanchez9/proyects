@@ -1,7 +1,5 @@
 ---
 import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayoutPets>
@@ -14,8 +12,8 @@ const base = import.meta.env.BASE_URL;
     <div class="fondo-secreto">
       <p class="mensaje-secreto">¡Nuestro primer congreso!</p>
     </div>
-    <div class="foto foto1" style={`background-image:url('${base}imagenes/parabolicpets/congreso1.jpg')`}></div>
-    <div class="foto foto2" style={`background-image:url('${base}imagenes/parabolicpets/congreso1.jpg')`}></div>
+    <div class="foto foto1" style="background-image:url('/proyects/imagenes/parabolicpets/congreso1.jpg')"></div>
+    <div class="foto foto2" style="background-image:url('/proyects/imagenes/parabolicpets/congreso1.jpg')"></div>
   </div>
 
 </BaseLayoutPets>
