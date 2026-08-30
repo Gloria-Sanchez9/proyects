@@ -28,6 +28,11 @@ const links = [
 </nav>
 
 <style>
+.game-nav,
+.game-nav *{
+    box-sizing: border-box;
+}
+
 .game-nav{
     display: flex;
     flex-wrap: wrap;
@@ -73,11 +78,6 @@ const links = [
 .game-nav-link.activo{
     color: #2c5578;
     border-bottom: 3px solid #7dabc5;
-}
-
-.game-nav,
-.game-nav *{
-    box-sizing: border-box;
 }
 
 @media (min-width: 700px){
