@@ -15,14 +15,6 @@ import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
         </div>
     </header>
 
-    <!-- Puntos de progreso: van marcando en qué parte de la historia vas -->
-    <nav class="scene-dots" aria-label="Progreso de la historia">
-        <a href="#escena-inicio" class="dot-link" data-dot aria-label="Inicio"><span class="dot"></span></a>
-        <a href="#escena-titulo" class="dot-link" data-dot aria-label="Práctica de matemáticas"><span class="dot"></span></a>
-        <a href="#escena-ayuda" class="dot-link" data-dot aria-label="Piden ayuda"><span class="dot"></span></a>
-        <a href="#escena-picnic" class="dot-link" data-dot aria-label="Rescate"><span class="dot"></span></a>
-    </nav>
-
     <a href="#escena-titulo" class="scroll-cue" aria-label="Bajar para empezar">
             <span>Desliza para empezar</span>
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -67,47 +59,6 @@ import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
     <br><br><br><br><br><br>
 
 </BaseLayoutPets>
-
-<script>
-  const revealEls = document.querySelectorAll('[data-animate]');
-  const dots = document.querySelectorAll<HTMLAnchorElement>('.dot-link');
-  const scenes = document.querySelectorAll('[data-scene]');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReduced || !('IntersectionObserver' in window)) {
-    revealEls.forEach((el) => el.classList.add('in-view'));
-  } else {
-    const revealIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            revealIO.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    revealEls.forEach((el) => revealIO.observe(el));
-  }
-
-  if (dots.length && scenes.length && 'IntersectionObserver' in window) {
-    const sceneIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            dots.forEach((dot) => {
-              dot.classList.toggle('is-active', dot.getAttribute('href') === `#${id}`);
-            });
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    scenes.forEach((s) => sceneIO.observe(s));
-  }
-</script>
 
 <style define:vars={{ colorWaveFill: '#ffffff' }}>
 *{
@@ -195,52 +146,6 @@ body{
 
 .scroll-cue svg{ animation: cue-arrow 2s ease-in-out infinite; }
 
-.scene-dots{
-    position: fixed;
-    right: 22px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 40;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-.dot-link{
-    display: block;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dot-link .dot{
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: rgba(76, 56, 57, 0.28);
-    display: block;
-    transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.dot-link:hover .dot,
-.dot-link:focus-visible .dot{
-    background: var(--colorCoral);
-    transform: scale(1.2);
-}
-
-.dot-link.is-active .dot{
-    background: var(--colorCoral);
-    transform: scale(1.5);
-    box-shadow: 0 0 0 3px rgba(255, 111, 94, 0.25);
-}
-
-.dot-link:focus-visible{
-    outline: 2px solid var(--colorTeal);
-    outline-offset: 3px;
-    border-radius: 50%;
-}
 
 @media (max-width: 640px){
     .scene-dots{ display: none; }
