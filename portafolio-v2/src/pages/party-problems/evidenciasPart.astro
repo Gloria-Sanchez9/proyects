@@ -1,0 +1,183 @@
+---
+import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
+---
+
+<BaseLayoutParty>
+
+  <p class="titulo-pagina">Evidencias</p>
+  <p class="titulo-collage">Niño Científico 2025</p>
+  <p class="hint">Arrastra cada foto para moverla</p>
+
+  <div class="collage" id="collage">
+    <div class="fondo-secreto">
+      <p class="mensaje-secreto">¡Gracias por acompañarnos!</p>
+    </div>
+    <div class="foto foto1" style="background-image:url('../imagenes/partyproblems/imagen1.jpg')"></div>
+    <div class="foto foto2" style="background-image:url('../imagenes/partyproblems/imagen2.jpg')"></div>
+    <div class="foto foto3" style="background-image:url('../imagenes/partyproblems/imagen3.jpg')"></div>
+  </div>
+
+</BaseLayoutParty>
+
+<style>
+  .titulo-pagina {
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 50px);
+    text-align: center;
+    color: #613F40;
+    padding-top: clamp(30px, 8vw, 70px);
+    margin-bottom: 0;
+  }
+
+  .titulo-collage {
+    font-family: 'Onest', sans-serif;
+    font-weight: 600;
+    font-size: clamp(18px, 4vw, 28px);
+    text-align: center;
+    color: #F0A400;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    padding: 0 16px;
+  }
+
+  .hint {
+    font-family: 'Onest', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #9b7f80;
+    margin-bottom: 24px;
+    padding: 0 16px;
+  }
+
+  .collage {
+    position: relative;
+    width: min(92vw, 700px);
+    aspect-ratio: 700 / 420; /*proporción en cualquier tamaño */
+    background: #fdfaf7;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(97, 63, 64, 0.12);
+    overflow: hidden;
+    margin: 0 auto clamp(40px, 8vw, 80px) auto;
+  }
+
+  .fondo-secreto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFAF0;
+    z-index: 0;
+    padding: 0 20px;
+  }
+
+  .mensaje-secreto {
+    font-family: 'Onest', sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 4vw, 32px);
+    color: #F0A400;
+    text-align: center;
+    opacity: 0.9;
+    transform: rotate(-3deg);
+    text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+  }
+
+  /* Las fotos ahora se miden y posicionan en % del contenedor,
+     así se reacomodan proporcionalmente en cualquier pantalla */
+  .foto {
+    position: absolute;
+    width: 43%;
+    aspect-ratio: 3 / 2;
+    background-size: cover;
+    background-position: center;
+    border: 6px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    cursor: grab;
+    user-select: none;
+    touch-action: none; /* necesario para que el drag táctil no haga scroll */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .foto.dragging {
+    cursor: grabbing;
+    transform: scale(1.06) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+    z-index: 999 !important;
+    transition: none;
+  }
+
+  .foto1 { top: 7%;  left: 4%;  transform: rotate(-8deg); z-index: 1; }
+  .foto2 { top: 14%; left: 37%; transform: rotate(5deg);  z-index: 2; }
+  .foto3 { top: 45%; left: 13%; transform: rotate(4deg);  z-index: 3; }
+
+  /* En pantallas muy chicas, apilamos las fotos en vez de encimarlas tanto */
+  @media (max-width: 480px) {
+    .foto {
+      width: 70%;
+    }
+    .foto1 { top: 4%;  left: 15%; }
+    .foto2 { top: 34%; left: 25%; }
+    .foto3 { top: 64%; left: 15%; }
+  }
+</style>
+
+<script>
+  const collage = document.getElementById('collage');
+  const fotos = collage.querySelectorAll('.foto');
+
+  fotos.forEach(foto => {
+    let offsetX = 0, offsetY = 0, dragging = false;
+
+    function start(clientX, clientY) {
+      dragging = true;
+      foto.classList.add('dragging');
+      const rect = foto.getBoundingClientRect();
+      offsetX = clientX - rect.left;
+      offsetY = clientY - rect.top;
+    }
+
+    function move(clientX, clientY) {
+      if (!dragging) return;
+      const parentRect = collage.getBoundingClientRect();
+      let x = clientX - parentRect.left - offsetX;
+      let y = clientY - parentRect.top - offsetY;
+
+      // Convertimos a % para que la posición se mantenga proporcional
+      const xPercent = (x / parentRect.width) * 100;
+      const yPercent = (y / parentRect.height) * 100;
+
+      foto.style.left = xPercent + '%';
+      foto.style.top = yPercent + '%';
+    }
+
+    function end() {
+      if (!dragging) return;
+      dragging = false;
+      foto.classList.remove('dragging');
+    }
+
+    // Mouse (computadoras) 
+    foto.addEventListener('mousedown', (e) => {
+      start(e.clientX, e.clientY);
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', (e) => move(e.clientX, e.clientY));
+    document.addEventListener('mouseup', end);
+
+    // Touch (celular / tablet)
+    foto.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      start(t.clientX, t.clientY);
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!dragging) return;
+      const t = e.touches[0];
+      move(t.clientX, t.clientY);
+    }, { passive: true });
+
+    document.addEventListener('touchend', end);
+  });
+</script>

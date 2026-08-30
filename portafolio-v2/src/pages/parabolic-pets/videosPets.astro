@@ -1,0 +1,118 @@
+---
+import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
+---
+
+<BaseLayoutPets>
+<strong><p class="onest">RECURSOS</p></strong>
+
+<div class="container">
+    <div class="containermini">
+        <div class="video-cuadro">
+                <img href="https://youtu.be/X9C-v5EGG_M?si=7mcgmWn_g_Fm-6-q" alt="explicacion">
+        </div>
+            <p class="video-titulo">Explicación <br> Parabolic Pets</p>
+    </div>
+
+    <div class="containermini">
+    <div class="video-cuadro">
+        <video controls width="100%">
+             <source src="/proyects/imagenes/parabolicpets/cutscene2.mp4" type="video/mp4">
+        </video>
+    </div>
+    <p class="video-titulo">Cut Scene 1</p>
+</div>
+
+    <div class="containermini">
+            <div class="video-cuadro">
+            <video controls width="100%">
+                <source src="/proyects/imagenes/parabolicpets/cutscene2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <p class="video-titulo">Cut Scene 2</p>
+    </div>
+
+</div>
+
+</BaseLayoutPets>
+
+<style define:vars={{ colorWaveFill: '#ffffff' }}>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.onest{
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #613F40;
+    padding-top:100px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    height: 350px;
+}
+
+
+.containermini{
+    width: 250px;      /* ajusta el tamaño de cada uno */
+    height: 220px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding:15px;
+}
+
+.video-cuadro{
+    width: 100%;
+    height: 130px;
+    background-color: #EFE2C6;
+    border-radius: 12px;
+    overflow: hidden;
+    
+}
+
+.video-cuadro img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-titulo{
+    margin-top: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 15px;
+    font-family:'Lucida Sans';
+}
+
+h4{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    text-align: center;
+    text-align:justify;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 600;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: black;
+}
+</style>

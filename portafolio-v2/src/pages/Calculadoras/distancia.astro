@@ -1,5 +1,5 @@
 ---
-import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
+import BaseLayoutCal from '../../layouts/BaseLayoutCal.astro';
 ---
 
 <BaseLayoutCal>
@@ -87,10 +87,16 @@ import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
 
 <style>
 body{
-    background-image: url('/proyects/imagenes/calculadoras/fondo_madera.png');
+    background-image: url('/proyects/imagenes/calculadoras/fondocalculadoras.png');
     overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
     margin: 0;
     padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    width: 100%;
+    min-height: 100vh;
 }
 .calc-hero{
     padding: 110px 15px 60px 15px;

@@ -1,0 +1,360 @@
+---
+import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
+---
+
+<BaseLayoutPets>
+
+    <header class="header-con-ola">
+        <img src="/proyects/imagenes/parabolicpets/titulo.png" alt="Parabolic Pets - Simulación de movimiento parabólico" class="imagen-flotante">
+
+        <div class="wave">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0,100 C150,220 180,-10 320,100 C370,160 510,80 500,80 L500,150 L0,150 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Puntos de progreso: van marcando en qué parte de la historia vas -->
+    <nav class="scene-dots" aria-label="Progreso de la historia">
+        <a href="#escena-inicio" class="dot-link" data-dot aria-label="Inicio"><span class="dot"></span></a>
+        <a href="#escena-titulo" class="dot-link" data-dot aria-label="Práctica de matemáticas"><span class="dot"></span></a>
+        <a href="#escena-ayuda" class="dot-link" data-dot aria-label="Piden ayuda"><span class="dot"></span></a>
+        <a href="#escena-picnic" class="dot-link" data-dot aria-label="Rescate"><span class="dot"></span></a>
+    </nav>
+
+    <a href="#escena-titulo" class="scroll-cue" aria-label="Bajar para empezar">
+            <span>Desliza para empezar</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"></path>
+            </svg>
+        </a>
+
+    <strong><p class="onest">CUANDO LA TEORÍA NO ES SUFICIENTE....</p></strong>
+
+    <div class="container_imagenes">
+        <div class="mitad-imagen">
+            <img src="/proyects/imagenes/parabolicpets/imagen1.png" width="600" alt="">
+        </div>
+
+        <div class="mitad-imagen">
+            <img src="/proyects/imagenes/parabolicpets/imagen2.png" width="800" alt="">
+        </div>
+    </div>
+    <br><br><br>
+
+    <strong><p class="onest1">LA PRÁCTICA ES LO QUE SIGUE</p></strong>
+    
+
+    <div class="container">
+        <center><img src="/proyects/imagenes/parabolicpets/imagen3.png" width="900px" alt=""></center>
+    </div>
+    <br><br>
+
+
+    <div class="container1">
+        <img src="/proyects/imagenes/parabolicpets/imagen4.pnf" class="img3" alt="">
+    </div>
+    
+
+    <div class="container2">
+        <p class="creepy">¿DONDE ESTAMOS?</p>
+        <img src="/proyects/imagenes/parabolicpets/animales1.png" width="900px" class="rebote" alt="">
+    </div>
+    <br><br><br><br><br>
+
+    <a href="/proyects/Parabolic Pets/parabolicpets" class="boton_jugar">¡Jugar!</a>
+    <br><br><br><br><br><br>
+
+</BaseLayoutPets>
+
+<script>
+  const revealEls = document.querySelectorAll('[data-animate]');
+  const dots = document.querySelectorAll<HTMLAnchorElement>('.dot-link');
+  const scenes = document.querySelectorAll('[data-scene]');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('in-view'));
+  } else {
+    const revealIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    revealEls.forEach((el) => revealIO.observe(el));
+  }
+
+  if (dots.length && scenes.length && 'IntersectionObserver' in window) {
+    const sceneIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            dots.forEach((dot) => {
+              dot.classList.toggle('is-active', dot.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    scenes.forEach((s) => sceneIO.observe(s));
+  }
+</script>
+
+<style define:vars={{ colorWaveFill: '#ffffff' }}>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+
+/* --- sección head con la ola --- */
+.header-con-ola{
+    position: relative;
+    height: 98vh;
+    background-image: url('/proyects/imagenes/parabolicpets/fondo1.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 90px; /* espacio para el nav fijo */
+    margin-bottom:90px;
+}
+
+.imagen-flotante{
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    max-width: 90vw;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-20px); }
+    100% { transform: translateX(-50%) translateY(0); }
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wave svg path{
+    fill: var(--colorWaveFill);
+}
+
+.scroll-cue{
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--colorPlum);
+    text-decoration: none;
+    font-family: 'Onest', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 8px 16px 10px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(76, 56, 57, 0.18);
+    animation: cue-bounce 2s ease-in-out infinite;
+}
+
+.scroll-cue svg{ animation: cue-arrow 2s ease-in-out infinite; }
+
+.scene-dots{
+    position: fixed;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dot-link{
+    display: block;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot-link .dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(76, 56, 57, 0.28);
+    display: block;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.dot-link:hover .dot,
+.dot-link:focus-visible .dot{
+    background: var(--colorCoral);
+    transform: scale(1.2);
+}
+
+.dot-link.is-active .dot{
+    background: var(--colorCoral);
+    transform: scale(1.5);
+    box-shadow: 0 0 0 3px rgba(255, 111, 94, 0.25);
+}
+
+.dot-link:focus-visible{
+    outline: 2px solid var(--colorTeal);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+@media (max-width: 640px){
+    .scene-dots{ display: none; }
+}
+
+.container_imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: #f9f9f9;
+    flex-direction: row;
+}
+
+.mitad-imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mitad-imagen img{
+    max-width: 100%;
+    height: auto;
+}
+
+.container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: #E8EFF0;
+}
+
+.img1{
+    width: 1000px;
+    max-width: 100%;
+}
+
+.img3{
+    width: 100%;
+    margin-top: -40px;
+}
+
+.creepy{
+    font-family: 'Creepster', cursive;
+    margin-top: -70px;
+    text-align: center;
+    font-size: 100px;
+    color: #FFCF0D;
+    -webkit-text-stroke: 3px #B7521B;
+}
+
+.onest{
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+.onest1{
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #FFCF0D;
+    -webkit-text-stroke: 2px #B7521B;
+}
+
+h2{
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    font-size: 50px;
+}
+
+.rebote{
+    animation: brincar 1s infinite;
+}
+
+@keyframes brincar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+}
+
+.boton_jugar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFCF0D;
+    color: #2c2c2c;
+    font-weight: bold;
+    text-decoration: none;
+    width: 140px;
+    height: 45px;
+    border-radius: 25px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    font-size:25px;
+}
+
+.boton_jugar:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    background-color: #ebd78a;
+}
+
+.boton_jugar:active{
+    transform: translateY(0);
+}
+</style>

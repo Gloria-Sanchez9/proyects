@@ -1,5 +1,5 @@
 ---
-import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
+import BaseLayoutCal from '../../layouts/BaseLayoutCal.astro';
 ---
 
 <BaseLayoutCal>
@@ -17,7 +17,7 @@ import BaseLayoutCal from '../layouts/BaseLayoutCal.astro';
 </div>
 
 <div class="container_proyecto">
-    <h3>Herramientas creada para automatizar las operaciones de conversión y distancia con coordenadas.</h3>
+    <h3>Herramientas creadas para automatizar y facilitar las operaciones de conversión y cálculo de distancias utilizando coordenadas. A través de estas herramientas, podrás realizar diferentes cálculos de manera rápida y precisa, evitando procesos manuales que pueden resultar complicados o propensos a errores. Además, podrás visualizar y comprender mejor la relación entre las coordenadas, sus unidades de medida y las distancias obtenidas, haciendo que el proceso sea más sencillo y práctico para ti.</h3>
     <a class="play-btn" aria-label="Reproducir" href="https://youtu.be/X9C-v5EGG_M?si=7mcgmWn_g_Fm-6-q" target="_blank" rel="noopener noreferrer">
     <span class="play-triangulo"></span>
 </a>
@@ -41,10 +41,16 @@ html{
 }
 
 body{
-     background-image: url('/proyects/imagenes/calculadoras/fondo_madera2.png');
+    background-image: url('/proyects/imagenes/calculadoras/fondocalculadoras.png');
     overflow-x: hidden; /* oculta lo que sale horizontalmente (izq-der) de un contendor*/
     margin: 0;
     padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    width: 100%;
+    min-height: 100vh; 
 }
 
 /* ===== MOBILE FIRST ===== */
@@ -131,6 +137,7 @@ h3{
     width: 100%;
     max-width: min(90vw, 900px);
     text-align: center;
+    text-align:justify;
     font-size: clamp(16px, 1.6vw, 24px);
     font-weight: 600;
     font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;

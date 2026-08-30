@@ -1,0 +1,21 @@
+---
+import NavPartyProblems from '../components/NavPartyProblems.astro';
+import Footer from '../components/Footer.astro';
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ELOA Party Problems</title>
+  </head>
+  <body>
+    <NavPartyProblems />
+
+    <!-- contenido de cada proyecto -->
+    <main>
+        <slot /> 
+    </main>
+
+    <Footer />
+  </body>
+</html>

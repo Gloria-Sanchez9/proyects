@@ -1,0 +1,101 @@
+---
+// src/components/NavParty.astro
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/proyects/party-problems/inicioParty", label: "INICIO" },
+  { href: "/proyects/party-problems/partyproblems", label: "JUEGO" },
+  { href: "/proyects/party-problems/sobrejuegoParty", label: "SOBRE EL JUEGO" },
+  { href: "/proyects/party-problems/videosParty", label: "VIDEOS" },
+  { href: "/proyects/party-problems/evidenciasPart", label: "EVIDENCIAS" },
+];
+---
+
+<nav class="game-nav">
+    <div class="game-nav-logo">
+        <a href="/proyects/">
+            <img src="/proyects/imagenes/inicio/logo1FINAL.png" alt="ELOA Logo">
+        </a>
+    </div>
+    {links.map(link => (
+      <a
+        href={link.href}
+        class:list={["game-nav-link", { activo: currentPath === link.href }]}
+      >
+        {link.label}
+      </a>
+    ))}
+</nav>
+
+<style>
+.game-nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 22px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 16px;
+    min-height: 60px;
+}
+
+.game-nav-logo{
+    width: 46px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: -1;
+    flex-basis: 100%;
+}
+
+.game-nav-logo img{
+    width: 90px;
+    height: auto;
+}
+
+.game-nav-link{
+    text-decoration: none;
+    color: black;
+    font-size: 13px;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.game-nav-link:hover,
+.game-nav-link.activo{
+    color: #EFBB95;
+    border-bottom: 3px solid #dca57d;
+}
+
+@media (min-width: 700px){
+    .game-nav{
+        flex-wrap: nowrap;
+        gap: 34px;
+        min-height: 70px;
+        padding: 0 30px;
+    }
+
+    .game-nav-logo{
+        width: 60px;
+        height: 50px;
+        order: 0;
+        flex-basis: auto;
+    }
+
+    .game-nav-logo img{
+        width: 120px;
+    }
+
+    .game-nav-link{
+        font-size: 17px;
+    }
+}
+</style>

@@ -1,0 +1,146 @@
+---
+import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
+---
+
+<BaseLayoutParty>
+<strong><p class="onest">SOBRE EL JUEGO</p></strong>
+
+<div class="container">
+        <h3>Somos un grupo de estudiantes de Ingeniería en Sistemas y desarrollamos esta página web con el objetivo de presentar el juego  <span class="destacado-rosa"> “Party Problems” </span>. Este proyecto busca facilitar el aprendizaje de manera dinámica.</h3>
+     <div class="container_peque">
+        <h4>Conceptos matemáticos aplicados: </h4> 
+        <h4 class="h4_2">Suma, resta, multiplicacion y division. </h4> 
+     </div> 
+</div> 
+
+<div class="galeria">
+    <img class="ilustracion" src="/proyects/imagenes/calculadoras/foto_nosotros.png" alt="Equipo">
+</div>
+
+</BaseLayoutParty>
+
+<style define:vars={{ colorWaveFill: '#ffffff' }}>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.onest{
+    font-family: 'Onest', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: #613F40;
+    padding-top:200px;
+    padding-bottom:50px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: #E8EFF0;
+    flex-direction: row;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    flex-direction:column;
+}
+
+h3{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    text-align: center;
+    text-align:justify;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 300;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: black;
+}
+
+.destacado-rosa{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    text-align: center;
+    text-align:justify;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 600;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: #F53870;
+
+}
+.container_peque{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+}
+
+.container_peque h4{
+    text-align: center;
+}
+
+h4{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    text-align: center;
+    text-align:justify;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 600;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: black;
+}
+
+.h4_2{
+    line-height: 1.6;
+    margin: 0 auto;
+    letter-spacing: 0.3px;
+    width: 100%;
+    max-width: min(90vw, 1200px);
+    text-align: center;
+    text-align:justify;
+    font-size: clamp(16px, 1.6vw, 24px);
+    font-weight: 600;
+    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
+    color: #613F40;
+}
+
+
+.galeria{
+    padding: 0 20px 40px 20px;
+    margin-top: clamp(-100px, -9vw, -60px); /* sube TODO este bloque para encimarlo con claridad sobre el azul */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.ilustracion{
+    display: block;
+    width: 100%;
+    max-width: clamp(220px, 22vw, 400px);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    z-index: 4;
+}
+
+</style>
