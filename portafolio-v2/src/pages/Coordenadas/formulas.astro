@@ -1,0 +1,296 @@
+---
+import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
+---
+
+<BaseLayoutCoord>
+
+  <section class="lenguaje">
+
+    <!-- Círculo decorativo de fondo -->
+    <span class="circulo circulo-right"></span>
+
+    <div class="contenido">
+      <h1>EL LENGUAJE DE LAS DIMENSIONES</h1>
+      <p class="subtitulo">
+        Cambiar de un sistema a otro no debería ser un dolor de cabeza.
+        Aqui tienes el mapa de ruta.
+      </p>
+
+      <div class="bloque-conversion">
+        <p class="etiqueta">Convertir de un sistema a otro</p>
+        <!-- TODO: apunta al link/página real de la conversión SRC -> SCE -->
+        <a href="#" class="btn-conversion">
+          <button>SRC - SCE</button>
+        </a>
+      </div>
+
+      <div class="conversion-con-info">
+        <div class="bloque-conversion">
+          <p class="etiqueta">Convertir de un sistema a otro</p>
+          <!-- TODO: apunta al link/página real de la conversión SCC -> SCE -->
+          <a href="#" class="btn-conversion">
+            <button>SCC - SCE</button>
+          </a>
+        </div>
+
+        <a href="#popupSiglas" class="info-icono" aria-label="Significado de las siglas">i</a>
+      </div>
+
+      <img
+        class="robot"
+        src="/imagenes/robot.png"
+        alt="Robot ELOA"
+        onerror="this.style.display='none'"
+      />
+
+      <div class="bloque-conversion distancia">
+        <p class="etiqueta">
+          Comprobación de la fórmula de la distancia entre dos puntos
+        </p>
+        <!-- TODO: apunta al link/página real de la fórmula de distancia -->
+        <a href="#" class="btn-conversion btn-distancia">
+          <button>d( B, A )</button>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== Popup: Significado de las siglas ===== -->
+  <div id="popupSiglas" class="popup">
+    <div class="popup-contenido siglas-box">
+      <a href="#" class="cerrar" aria-label="Cerrar">&times;</a>
+      <h3>SIGNIFICADO DE LAS SIGLAS</h3>
+
+      <div class="siglas-item">
+        <span class="sigla">SCC</span>
+        <span class="significado">Sistema de Coordenadas Cilíndricas</span>
+      </div>
+      <div class="siglas-item">
+        <span class="sigla">SRC</span>
+        <span class="significado">Sistema Rectangular de Coordenadas</span>
+      </div>
+      <div class="siglas-item">
+        <span class="sigla">SCE</span>
+        <span class="significado">Sistema de Coordenadas Esféricas</span>
+      </div>
+    </div>
+  </div>
+
+</BaseLayoutCoord>
+
+<style>
+  .lenguaje {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    overflow: hidden;
+  }
+
+  .contenido {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  h1 {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 5vw, 2.1rem);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitulo {
+    color: #555;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    max-width: 420px;
+    margin: 0 auto 2rem;
+    line-height: 1.4;
+  }
+
+  .bloque-conversion {
+    margin-bottom: 1.75rem;
+  }
+
+  /* ---------- Ícono de info junto al botón SCC - SCE ---------- */
+  .conversion-con-info {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .info-icono {
+    width: 44px;
+    height: 44px;
+    border: 3px solid #e8632a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e8632a;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.3rem;
+    text-decoration: none;
+    background: white;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-bottom: 1.75rem;
+  }
+
+  .info-icono:hover {
+    background-color: #e8632a;
+    color: white;
+  }
+
+  /* ---------- Popup: significado de las siglas ---------- */
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup:target {
+    display: block;
+  }
+
+  .popup-contenido {
+    margin: 10% auto;
+    max-width: 480px;
+    width: 85%;
+    position: relative;
+  }
+
+  .cerrar {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .cerrar:hover,
+  .cerrar:focus {
+    color: #0d1b4c;
+  }
+
+  /* ---------- Recuadro de siglas ---------- */
+  .siglas-box {
+    background-color: #e8632a;
+    border-radius: 30px;
+    padding: 2rem 1.75rem;
+    text-align: left;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+  }
+
+  .siglas-box h3 {
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 1.5rem;
+    line-height: 1.2;
+  }
+
+  .siglas-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .siglas-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .siglas-item .sigla {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    min-width: 3ch;
+    flex-shrink: 0;
+  }
+
+  .siglas-item .significado {
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.7rem, 2.2vw, 0.85rem);
+  }
+
+  .etiqueta {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    margin-bottom: 0.6rem;
+  }
+
+  .btn-conversion {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .btn-conversion button {
+    background-color: #0d1b4c;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.9rem 3.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-conversion button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(13, 27, 76, 0.35);
+  }
+
+  .btn-distancia button {
+    padding: 0.9rem 2.5rem;
+  }
+
+  .robot {
+    width: clamp(80px, 22vw, 120px);
+    height: auto;
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  /* ---------- Círculos decorativos ---------- */
+  .circulo {
+    position: absolute;
+    border-radius: 50%;
+    border: 14px solid #a9c8dd;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .circulo-right {
+    width: 160px;
+    height: 160px;
+    top: 45%;
+    right: -70px;
+  }
+</style>

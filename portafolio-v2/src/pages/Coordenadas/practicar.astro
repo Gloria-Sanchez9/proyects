@@ -1,0 +1,208 @@
+---
+import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
+---
+
+<BaseLayoutCoord>
+
+  <section class="desafio">
+
+    <!-- Círculos decorativos de fondo -->
+    <span class="circulo circulo-top-left"></span>
+    <span class="circulo circulo-right"></span>
+
+    <div class="contenido">
+      <h1>DESAFÍO DE COORDENADAS</h1>
+      <p class="subtitulo">
+        Pon a prueba tu lógica.<br>
+        Resuelve problemas reales y comprueba tus resultados al instante.
+      </p>
+
+      <p class="seccion-titulo centrado">Conversiones</p>
+      <div class="fila-botones">
+        <!-- TODO: apunta al link/página real de ejercicios de conversión SRC -> SCE -->
+        <a href="#" class="pill pill-naranja"><button>SRC - SCE</button></a>
+        <!-- TODO: apunta al link/página real de ejercicios de conversión SCC -> SCE -->
+        <a href="#" class="pill pill-naranja"><button>SCC - SCE</button></a>
+      </div>
+
+      <div class="columna-desafio">
+        <p class="seccion-titulo">Distancia entre dos puntos</p>
+
+        <!-- TODO: apunta al link/página real de ejercicios de d(B,A) -->
+        <a href="#" class="pill pill-navy offset-0"><button>d( B, A )</button></a>
+        <!-- TODO: apunta al link/página real de ejercicios de rho negativa -->
+        <a href="#" class="pill pill-navy offset-1"><button>RHO NEGATIVA</button></a>
+        <!-- TODO: apunta al link/página real de ejercicios de distancia -->
+        <a href="#" class="pill pill-navy offset-0"><button>EJERCICIOS</button></a>
+
+        <p class="seccion-titulo">Graficar</p>
+        <!-- TODO: apunta al link/página real de ejercicios de graficar -->
+        <a href="#" class="pill pill-verde offset-0"><button>EJERCICIOS</button></a>
+      </div>
+
+      <img
+        class="robot"
+        src="../imagenes/coordenadas/LERP.png"
+        alt="Robot ELOA"
+        onerror="this.style.display='none'"
+      />
+    </div>
+
+  </section>
+
+</BaseLayoutCoord>
+
+<style>
+  .desafio {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    overflow: hidden;
+  }
+
+  .contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.4rem, 5vw, 2.1rem);
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitulo {
+    color: #555;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    text-align: center;
+    line-height: 1.4;
+    margin: 0 0 1.75rem;
+  }
+
+  .seccion-titulo {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2.8vw, 1.05rem);
+    margin: 0 0 0.9rem;
+  }
+
+  .seccion-titulo.centrado {
+    text-align: center;
+  }
+
+  /* ---------- Fila de conversiones (naranja) ---------- */
+  .fila-botones {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ---------- Columna del desafío (escalonada) ---------- */
+  .columna-desafio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .columna-desafio .seccion-titulo {
+    margin-top: 0.5rem;
+  }
+
+  .columna-desafio .seccion-titulo:first-child {
+    margin-top: 0;
+  }
+
+  .offset-0 {
+    margin-left: 0;
+  }
+
+  .offset-1 {
+    margin-left: clamp(2rem, 12vw, 4rem);
+  }
+
+  /* ---------- Botones tipo píldora ---------- */
+  .pill {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .pill button {
+    border: none;
+    border-radius: 30px;
+    padding: 0.8rem 2.2rem;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    font-size: clamp(0.85rem, 2.6vw, 1rem);
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+  }
+
+  .pill button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .pill-naranja button {
+    background-color: #e8632a;
+    padding: 0.85rem 2.5rem;
+  }
+
+  .pill-navy button {
+    background-color: #0d1b4c;
+  }
+
+  .pill-verde button {
+    background-color: #7a8c3f;
+  }
+
+  .robot {
+    display: block;
+    width: clamp(140px, 40vw, 220px);
+    height: auto;
+    margin: 2rem 0 0 auto;
+    opacity: 0.9;
+  }
+
+  /* ---------- Círculos decorativos ---------- */
+  .circulo {
+    position: absolute;
+    border-radius: 50%;
+    border: 14px solid #a9c8dd;
+    opacity: 0.6;
+    z-index: 1;
+  }
+
+  .circulo-top-left {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: -60px;
+  }
+
+  .circulo-right {
+    width: 200px;
+    height: 200px;
+    bottom: 10px;
+    right: -80px;
+  }
+
+  @media (max-width: 480px) {
+    .offset-1 {
+      margin-left: 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,240 @@
+---
+import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
+---
+
+<BaseLayoutCoord>
+
+  <section class="visualiza">
+    <h1>VISUALIZA EL ESPACIO</h1>
+    <p class="subtitulo">
+      Domina las coordenadas esféricas con herramientas interactivas
+      y se un experto a la hora de graficarlas.
+    </p>
+
+    <div class="ggb-frame">
+      <!-- TODO: reemplaza el link por el applet de coordenadas esféricas -->
+      <iframe
+        src="https://www.geogebra.org/classic/H5SAVTXy"
+        width="100%"
+        height="100%"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <section class="ahora">
+    <div class="ahora-contenido">
+      <h2>OKEY....PERO AHORA<br>¿COMO HAGO ESO?</h2>
+
+      <div class="botones">
+        <a href="#popupPapel">
+          <button class="btn-opcion">PAPEL</button>
+        </a>
+        <a href="#popupGeogebra">
+          <button class="btn-opcion">GEOGEBRA</button>
+        </a>
+      </div>
+    </div>
+
+    <img
+      class="robot"
+      src="../imagenes/coordenadas/LERP.png"
+      alt="Robot ELOA"
+      onerror="this.style.display='none'"
+    />
+  </section>
+
+  <div id="popupPapel" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img src="/imagenes/1.png" width="80%"><br>
+      <br><img src="/imagenes/2.png" width="80%"><br>
+      <br><img src="/imagenes/3.png" width="80%"><br>
+      <br><img src="/imagenes/4.png" width="80%"><br>
+      <br><img src="/imagenes/5.png" width="80%"><br>
+      <br><img src="/imagenes/6.png" width="80%"><br>
+    </div>
+  </div>
+
+  <div id="popupGeogebra" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en geogebra -->
+      <img src="/imagenes/enGeogebra/1.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/2.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/3.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/4.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/5.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/6.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/7.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/8.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/9.png" width="80%"><br>
+      <br><img src="/imagenes/enGeogebra/10.png" width="80%"><br>
+    </div>
+  </div>
+
+</BaseLayoutCoord>
+
+<style>
+  section {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .visualiza {
+    text-align: center;
+  }
+
+  .visualiza h1 {
+    color: #0d1b4c;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    padding-top: 100px;
+  }
+
+  .subtitulo {
+    color: #333;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.4;
+  }
+
+  .ggb-frame {
+    border: 4px solid #0d1b4c;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(13, 27, 76, 0.25);
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+  }
+
+  .ggb-frame iframe {
+    border: none;
+    display: block;
+  }
+
+  .ahora {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-bottom: 2.5rem;
+    overflow: visible;
+  }
+
+  .ahora-contenido {
+    flex: 1 1 auto;
+    z-index: 1;
+  }
+
+  .ahora h2 {
+    color: #d95d1e;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.15;
+    margin: 0 0 1.5rem;
+  }
+
+  .botones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .botones .btn-opcion {
+    background-color: #7a8c3f;
+    border: none;
+    border-radius: 30px;
+    padding: 0.85rem 2.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .botones .btn-opcion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(122, 140, 63, 0.4);
+  }
+
+  .robot {
+    flex: 0 0 auto;
+    width: clamp(90px, 28vw, 160px);
+    height: auto;
+    align-self: flex-end;
+  }
+
+  @media (max-width: 480px) {
+    .ahora {
+      flex-wrap: wrap;
+    }
+    .robot {
+      margin-left: auto;
+    }
+  }
+
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup:target {
+    display: block;
+  }
+
+  .popup-contenido {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #0d1b4c;
+    width: 85%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .cerrar {
+    position: sticky;
+    top: 0;
+    display: inline-block;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .cerrar:hover,
+  .cerrar:focus {
+    color: #d95d1e;
+  }
+</style>
