@@ -236,9 +236,13 @@
       },
     };
 
-    // Keep the canvas crisp on high-DPI screens.
+    // Keep the canvas crisp on high-DPI screens, but cap pixel ratio on small/
+    // mobile screens: rendering at 2x-3x resolution on a phone eats a lot of
+    // extra memory and is a common cause of Safari killing the tab on iPhone.
     function resizeCanvas() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const isSmallScreen = Math.min(window.innerWidth, window.innerHeight) < 700;
+      const maxDpr = isSmallScreen ? 1 : 2;
+      const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
       const rect = canvas.getBoundingClientRect();
       canvas.width = Math.round(rect.width * dpr);
       canvas.height = Math.round(rect.height * dpr);
