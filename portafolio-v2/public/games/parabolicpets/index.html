@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Parabolic Pets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="theme-color" content="#1c3f8a" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pp-navy-dark:#152a5c;
+    --pp-navy:#20439c;
+    --pp-blue:#2f6fd6;
+    --pp-yellow:#ffd23f;
+    --pp-yellow-deep:#f5a623;
+    --pp-cream:#fff8e6;
+    --page-bg:#eef1f6;
+    --card-radius:22px;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:var(--page-bg);
+    font-family:'Nunito',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100%;
+    padding:24px;
+  }
+
+  /* ---------- game card ---------- */
+
+  #game-card{
+    position:relative;
+    width:100%;
+    max-width:1040px;
+    aspect-ratio:16/9;
+    border-radius:var(--card-radius);
+    overflow:hidden;
+    background:#0d1f4a;
+    box-shadow:
+      0 2px 0 rgba(255,255,255,.6) inset,
+      0 24px 48px -16px rgba(20,35,80,.45),
+      0 4px 12px rgba(20,35,80,.15);
+  }
+
+  #unity-container{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+
+  #unity-canvas{
+    width:100%;
+    height:100%;
+    display:block;
+    background:#0d1f4a;
+    outline:none;
+  }
+
+  /* ---------- loading cover ---------- */
+
+  #loading-cover{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(14px,3vw,28px);
+    background-image:url('TemplateData/background.jpg');
+    background-size:cover;
+    background-position:center;
+    transition:opacity .5s ease, visibility .5s ease;
+    padding:5% 6% 8%;
+  }
+
+  #loading-cover.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+
+  #pp-title{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(28px, 6vw, 56px);
+    letter-spacing:1px;
+    margin:0;
+    color:var(--pp-yellow);
+    text-align:center;
+    -webkit-text-stroke:clamp(2px,.6vw,4px) var(--pp-navy-dark);
+    paint-order:stroke fill;
+    text-shadow:0 6px 0 rgba(10,20,50,.35);
+  }
+
+  #pp-subtitle{
+    font-family:'Nunito',sans-serif;
+    font-weight:700;
+    color:#eaf1ff;
+    text-shadow:0 2px 6px rgba(10,20,50,.6);
+    font-size:clamp(12px,2.1vw,16px);
+    letter-spacing:.4px;
+    margin:0;
+    text-align:center;
+  }
+
+  #progress-wrap{
+    width:min(70%,360px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+  }
+
+  #progress-track{
+    width:100%;
+    height:16px;
+    border-radius:999px;
+    background:rgba(10,22,55,.45);
+    box-shadow:inset 0 2px 4px rgba(0,0,0,.35);
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.35);
+  }
+
+  #progress-fill{
+    height:100%;
+    width:0%;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--pp-yellow-deep), var(--pp-yellow));
+    transition:width .15s ease-out;
+  }
+
+  #progress-label{
+    font-family:'Nunito',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    color:#eaf1ff;
+    text-shadow:0 1px 4px rgba(10,20,50,.6);
+  }
+
+  /* ---------- controls ---------- */
+
+  #fullscreen-btn{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:none;
+    background:rgba(10,22,55,.55);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:5;
+    transition:background .15s ease, transform .15s ease;
+  }
+  #fullscreen-btn:hover{ background:rgba(10,22,55,.8); transform:scale(1.06); }
+  #fullscreen-btn svg{ width:18px; height:18px; fill:#fff; }
+
+  #error-banner{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:10px 14px;
+    background:#c0392b;
+    color:#fff;
+    font-size:13px;
+    font-family:'Nunito',sans-serif;
+    display:none;
+    z-index:10;
+  }
+</style>
+</head>
+<body>
+
+  <div id="game-card">
+
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+    </div>
+
+    <button id="fullscreen-btn" title="Pantalla completa" aria-label="Pantalla completa">
+      <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+    </button>
+
+    <div id="loading-cover">
+      <h1 id="pp-title">Parabolic Pets</h1>
+      <p id="pp-subtitle">Cargando el juego&hellip;</p>
+      <div id="progress-wrap">
+        <div id="progress-track"><div id="progress-fill"></div></div>
+        <span id="progress-label">0%</span>
+      </div>
+    </div>
+
+    <div id="error-banner"></div>
+  </div>
+
+  <script src="Build/ParabolicPets-Build.loader.js"></script>
+  <script>
+    const canvas = document.getElementById('unity-canvas');
+    const loadingCover = document.getElementById('loading-cover');
+    const progressFill = document.getElementById('progress-fill');
+    const progressLabel = document.getElementById('progress-label');
+    const subtitle = document.getElementById('pp-subtitle');
+    const errorBanner = document.getElementById('error-banner');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    const config = {
+      dataUrl: "Build/ParabolicPets-Build.data",
+      frameworkUrl: "Build/ParabolicPets-Build.framework.js",
+      codeUrl: "Build/ParabolicPets-Build.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "Parabolic Pets",
+      productName: "Parabolic Pets",
+      productVersion: "1.0",
+      showBanner: function (msg, type) {
+        errorBanner.style.display = 'block';
+        errorBanner.textContent = msg;
+        if (type !== 'error') {
+          setTimeout(() => { errorBanner.style.display = 'none'; }, 5000);
+        }
+      },
+    };
+
+    // Keep the canvas crisp on high-DPI screens.
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let unityInstance = null;
+
+    createUnityInstance(canvas, config, function (progress) {
+      const pct = Math.round(progress * 100);
+      progressFill.style.width = pct + '%';
+      progressLabel.textContent = pct + '%';
+    }).then(function (instance) {
+      unityInstance = instance;
+      subtitle.textContent = '¡Listo!';
+      loadingCover.classList.add('hidden');
+      resizeCanvas();
+    }).catch(function (message) {
+      errorBanner.style.display = 'block';
+      errorBanner.textContent = message;
+    });
+
+    fullscreenBtn.addEventListener('click', function () {
+      if (unityInstance) {
+        unityInstance.SetFullscreen(1);
+      }
+    });
+  </script>
+</body>
+</html>
