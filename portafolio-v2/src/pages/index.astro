@@ -34,12 +34,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
         
 <div class="tarjeta-central">
-    <img class="logo-central" src="/proyects/imagenes/inicio/logo1FINALL.png">
+    <img class="logo-central" src="/proyects/imagenes/inicio/logo1FINALL.png" alt="Logo de ELOA" fetchpriority="high" decoding="async" />
 </div>
 </section>
 
 <div class="container-lerp1-condel"> 
-    <img class="lerp1" src="/proyects/imagenes/inicio/LERPsalu2.png" />
+    <img class="lerp1" src="/proyects/imagenes/inicio/LERPsalu2.png" alt="" decoding="async" />
 
     <div class="container_delgado">
         <p class="texto-principal">
@@ -48,36 +48,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="container_redes">
         <a href="https://www.instagram.com/eloadevteam" target="_blank" rel="noopener noreferrer">
-        <img class="imagenes_redes" src="/proyects/imagenes/inicio/instagram.png" alt="Instagram" />
-    </a>
-        <img class="imagenes_redes" src="/proyects/imagenes/inicio/tiktol.png" /> 
+            <img class="imagenes_redes" src="/proyects/imagenes/inicio/instagram.png" alt="Instagram" decoding="async" />
+        </a>
         <a href="mailto:eloadevteam@gmail.com">
-        <img class="imagenes_redes" src="/proyects/imagenes/inicio/correo.png" alt="Correo" />
-    </a>
+            <img class="imagenes_redes" src="/proyects/imagenes/inicio/correo.png" alt="Correo" decoding="async" />
+        </a>
     </div>
 </div>
 
-<div class="titulo-bienvenido">
-<h2>BIENVENIDOS A</h2>
-</div>
-
-<div class="container_abstracto">
-    <div class="logo-texto">
-    <img class="logo-bienvenida" src="/proyects/imagenes/inicio/logoBienvenida.png" />
-    <div class="texto-texto">
-    <h4>Ingienería mexicana con propósito.</h4>
-    <p class="texto-abstracto"> En ELOA, transformamos la teoría en experiencias interactivas. Somos estudiantes comprometidos con facilitar el aprendizaje a través de juegos y herramientas, creando un ecosistema digital donde educar es divertido y simultáneo. Explora nuestra visión de la tecnología. </p>
+<section class="bienvenida">
+    <div class="bienvenida-decor bienvenida-decor-izq" aria-hidden="true"></div>
+    <div class="bienvenida-decor bienvenida-decor-der" aria-hidden="true"></div>
+    <div class="bienvenida-contenido">
+        <div class="bienvenida-texto-col">
+            <h2 class="bienvenida-titulo">
+                Bienvenidos a <span class="destacado-naranja">ELOA</span><br />
+                Ingeniería mexicana con propósito
+            </h2>
+            <p class="texto-abstracto"> En ELOA, transformamos la teoría en experiencias interactivas. Somos estudiantes comprometidos con facilitar el aprendizaje a través de juegos y herramientas, creando un ecosistema digital donde educar es divertido y simultáneo. </p>
+            <p class="bienvenida-cta">Explora nuestra visión de la tecnología.</p>
+        </div>
+        <img class="bienvenida-ilustracion" src="/proyects/imagenes/inicio/nosotros.png" alt="Ilustración estilo caricatura del equipo ELOA junto a su mascota robot, alrededor de una mesa" loading="lazy" decoding="async" />
     </div>
-</div>
-    <div class="texto-imagen">
-    <div class="textoO">
-        <img src="/proyects/imagenes/inicio/programacion.png" width="80px" />
-        <p class="texto-arriba">Desarrolladores universitarios mexicanos</p>
-    </div>
-    <img class="imagenB" src="/proyects/imagenes/inicio/junta.jpg" />
-    </div>
-</div>   
-<br /><br />
+</section>
+<br />
 
 <!--FRAME 3 FIGMA -->
 <h3 id="Proyectos">NUESTROS PROYECTOS</h3><br />
@@ -94,23 +88,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="carrusel-tarjetas" id="carruselTarjetas">
         
         <a href="ruta/a/particulas.html" class="team-member-cardd card1">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" alt="" loading="lazy" decoding="async" /></div>
         </a>
 
         <a href="/proyects/party-problems/inicioParty" class="team-member-cardd card2">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" alt="" loading="lazy" decoding="async" /></div>
         </a>
 
         <a href="/proyects/parabolic-pets/inicioPets" class="team-member-cardd card3">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" alt="" loading="lazy" decoding="async" /></div>
         </a>
 
         <a href="/proyects/Calculadoras/calculadoras" class="team-member-cardd card4">
-            <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+            <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" alt="" loading="lazy" decoding="async" /></div>
         </a>
 
         <a href="/proyects/Coordenadas/graficar" class="team-member-cardd card5">
-          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" /></div>
+          <div class="card-bottom"><img src="/proyects/imagenes/inicio/miniLERP.png" alt="" loading="lazy" decoding="async" /></div>
         </a>
 
       </div> 
@@ -120,6 +114,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style> 
+
+/* Fuentes nuevas: Space Grotesk para títulos, IBM Plex Mono para el eyebrow "BIENVENIDOS A".
+   Idealmente esto se mueve al <head> de BaseLayout.astro como <link>, igual que
+   quedamos antes; lo dejo aquí como @import para que funcione de una vez. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&family=Montserrat:wght@400;600&display=swap');
+
+:root{
+    --font-display: 'Space Grotesk', 'Oswald', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --ink: black;
+    --navy: #182d42;
+    --bg: #F9F9F9;
+}
 
 /* FRAME 1 FIGMA*/
 /* General */
@@ -182,11 +189,12 @@ h1{
 } 
 
 h2{
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: -1px;
-    font-size:38px; 
-    color:black; 
-    text-shadow:1px 1px 3px rgba(0,0,0,0.2); 
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0px;
+    font-size: clamp(1.7rem, 5vw, 2.75rem);
+    color: var(--ink);
 }
 
 p{ 
@@ -350,20 +358,20 @@ p{
     letter-spacing: 3px;
     word-spacing: 6px;
     font-size: 22px;
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-family: var(--font-display);
     font-weight: 600;
     color:#ffffff;
     text-align: center;
 }
 
 .destacado-rosa{
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-family: var(--font-display);
     color:#d8a2d8;
 }
 
 .destacado-naranja{
     
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
+    font-family: var(--font-display);
     color:#da5d1a;
 }
 
@@ -384,7 +392,8 @@ p{
 
 .imagenes_redes{
     width: 36px;
-    height: 36px;   
+    height: 36px;
+    object-fit: contain;
     transition: transform 0.2s ease;
 }
 
@@ -399,132 +408,86 @@ p{
     display: flex;             
     justify-content: center;   
     align-items: center;
-    gap: 15px;        
+    gap: 28px;        
 }
 
-.titulo-bienvenido{
-    transform: rotate(-4deg) translateY(30px);
-    margin-bottom: 40px; /* reserva espacio para el translateY, si no el contenedor azul lo tapa */
+.bienvenida{
+    position: relative;
+    width: 100%;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.bienvenida-decor{
+    display: none;
+}
+
+.bienvenida-contenido{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 24px 56px;
     text-align: center;
-}
-
-.container_abstracto{
-    width: 100%;
-    height: auto;
-    background-color:#182d42 ;
-    z-index: 9999;/*este arriba de todo*/
-    position: relative; /*esto para que funcione el z-index*/
-    display: flex;  
-    flex-direction: column;
-    align-items: center;           
-    padding: 40px 20px;
-}
-
-.imagenB{
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 10%;  
-    margin: 0 auto;  
-}
-
-.logo-texto{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    
+    gap: 16px;
 }
 
-.texto-texto{
-    display: flex;
-    justify-content: center; 
-    flex-direction: column;
-}
-
-h4{
-    text-align: center;
-    font-size: 18px;
-    color: #ddd;
-}
-
-.logo-bienvenida{
-    margin: 15px auto;
+.bienvenida-texto-col{
     width: 100%;
-    max-width: 280px; 
-    border-radius:10px; 
+}
 
+.bienvenida-ilustracion{
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 16px;
+}
+
+.bienvenida-logo{
+    width: 64px;
+    height: auto;
+    margin: 0 auto 18px;
+    display: block;
+}
+
+.bienvenida-titulo{
+    text-align: center;
 }
 
 .texto-abstracto{
-    line-height: 24px;
-    margin: 15px auto;
-    letter-spacing: 0.5px;
+    line-height: 1.6;
+    margin: 14px auto 0;
+    letter-spacing: 0.2px;
     width: 100%;
-    max-width: 340px;
-    text-align: justify;
-    height: auto;
-    font-size: 16px;
-    font-family: 'Mulish', 'Lucida Sans', Verdana, sans-serif;
-    color:#ffffff;
-
+    max-width: 480px;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    color: #1b2e45;
 }
 
-.texto-imagen{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    height: auto;
-    margin: 20px auto;
-
-}
-
-.textoO{
-    color: white;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 300px; 
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    gap: 10px;
-}
-
-.texto-arriba{
-    color: white;
-    padding: 5px;
-    font-size: 20px;
-    width: 200px; 
-    height: auto;
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-
+.bienvenida-cta{
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    color: #da5d1a;
+    margin: 14px auto 0;
+    max-width: 480px;
 }
 
 /* FRAME 2 FIGMA*/
 
 h3{
-    font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 2px;
-    font-size:28px; 
-    color:black; 
-    text-shadow:2px 2px 5px rgba(0,0,0,0.2); 
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 28px;
+    color: var(--ink);
     text-align: center;
-    margin-right: 0;
 } 
-
-.container1{
-    display: flex;            
-    justify-content: center;   
-    align-items: center;       
-    gap: 30px;                
-    flex-wrap: wrap;          
-    padding: 10px;
-    width: 100%;
-    height: 450px;
-    background-color: #ADCDCD;
-}
 
 
 
@@ -709,8 +672,8 @@ h3{
     }
 
     h2{
-        letter-spacing: -4px;
-        font-size: 80px;
+        letter-spacing: 0px;
+        font-size: 56px;
     }
 
     p{
@@ -757,39 +720,27 @@ h3{
         width: auto;
         height: auto;
         padding: 7px;
-        gap: 15px;
+        gap: 32px;
     }
 
-    .titulo-bienvenido{
-        transform: rotate(-8deg);
-        margin-bottom: 40px;
-        text-align: left;
-        padding-left: 60px;
+    .bienvenida-contenido{
+        padding: 60px 24px 72px;
     }
 
-    .container_abstracto{
-        padding: 0 40px;
-    }
-
-    .imagenB{
-        max-width: 230px;
-    }
-
-    h4{
-        font-size: 20px;
-    }
-
-    .logo-bienvenida{
-        margin: 30px;
-        max-width: 500px;
+    .bienvenida-logo{
+        width: 80px;
+        margin-bottom: 22px;
     }
 
     .texto-abstracto{
-        line-height: 30px;
-        margin: 40px;
-        letter-spacing: 1px;
-        max-width: 500px;
-        font-size: 20px;
+        margin: 14px auto 0;
+        letter-spacing: 0.2px;
+        max-width: 560px;
+    }
+
+    .bienvenida-cta{
+        font-size: 18px;
+        max-width: 560px;
     }
 
     h3{
@@ -859,7 +810,7 @@ h3{
     }
 
     h2{
-        font-size: 52px;
+        font-size: 42px;
     }
 
     .aro1{
@@ -880,24 +831,9 @@ h3{
         height: 44px;
     }
 
-    h4{
-        font-size: 19px;
-    }
-
-    .logo-bienvenida{
-        margin: 15px auto;
-        max-width: 320px;
-    }
-
     .texto-abstracto{
-        line-height: 26px;
-        margin: 15px auto;
-        max-width: 420px;
-        font-size: 17px;
-    }
-
-    .imagenB{
-        max-width: 260px;
+        margin: 14px auto 0;
+        max-width: 480px;
     }
 
     h3{
@@ -916,62 +852,65 @@ h3{
    Entre 700px y 1099px (tablets como iPad) se queda en columna, para que nunca se encimen. ===== */
 @media (min-width: 1100px) {
 
-    .container_abstracto{
-        height: auto;
-        min-height: 700px;
+    .bienvenida-decor{
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .bienvenida-decor-izq{
+        width: 130px;
+        height: 130px;
+        border: 12px solid rgba(125, 171, 197, 0.35);
+        left: -55px;
+        top: 90px;
+    }
+
+    .bienvenida-decor-der{
+        width: 90px;
+        height: 90px;
+        border: 10px solid rgba(218, 93, 26, 0.25);
+        right: -35px;
+        bottom: 50px;
+    }
+
+    .bienvenida-contenido{
+        max-width: 1100px;
+        padding: 76px 40px 96px;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
-        gap: 40px;
-        padding: 70px 40px 40px 40px; /* 70px arriba: espacio seguro para el corte diagonal */
-        clip-path: polygon(0 55px, 100% 0, 100% 80%, 0 100%);
-    }
-
-    .logo-texto{
-        flex-direction: row;
-        flex: 1 1 480px;
-        max-width: 750px;
-        min-width: 0; /* clave: permite que el bloque se encoja en vez de desbordarse */
-        gap: 30px;
-        align-items: center;
-    }
-
-    .logo-bienvenida{
-        flex: 0 0 clamp(180px, 22vw, 260px); /* tamaño estable, ya no compite por espacio con el texto */
-        width: clamp(180px, 22vw, 260px);
-        max-width: none;
-        margin: 0;
-    }
-
-    .texto-texto{
-        flex: 1 1 220px;
-        min-width: 0; /* clave: sin esto el párrafo se desborda en vez de encogerse */
         text-align: left;
+        gap: 24px;
     }
 
-    h4{
-        text-align: left;
+    .bienvenida-texto-col{
+        flex: 1 1 560px;
+        max-width: 620px;
+    }
+
+    .bienvenida-logo{
+        margin: 0 0 18px;
     }
 
     .texto-abstracto{
-        max-width: 100%; /* ya no un ancho fijo que pelea con el logo */
-        margin: 15px 0;
+        margin: 14px 0 0;
         text-align: left;
+        max-width: 100%;
     }
 
-    .imagenB{
-        margin-left: auto;
-        margin-right: 0;
+    .bienvenida-cta{
+        margin: 14px 0 0;
+        text-align: left;
+        max-width: 100%;
     }
 
-    .texto-imagen{
-        flex: 1 1 280px;
-        max-width: 320px;
-        min-width: 0;
-        height: auto;
-        margin: 0;
-        align-items: flex-end;
+    .bienvenida-ilustracion{
+        flex: 1 1 360px;
+        max-width: 400px;
+    }
+
+    h2{
+        font-size: 48px;
     }
 }
 
@@ -984,8 +923,6 @@ h3{
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('carruselContainer');
     const track = document.querySelector('.carrusel-tarjetas');
-    const btnSiguiente = document.getElementById('nextBtn');
-    const btnAtras = document.getElementById('prevBtn');
 
     // Clonación de las tarjetas para crear el efecto infinito
     const tarjetas = Array.from(track.children);
@@ -993,11 +930,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const clon = tarjeta.cloneNode(true);
         track.appendChild(clon); // se ponen los clones al final
     });
-
-    const obtenerAnchoBase = () => {
-        const tarjeta = document.querySelector('.team-member-card1');
-        return tarjeta ? tarjeta.offsetWidth + 20 : 320;
-    };
 
     // Movimiento automático
     let velocidad = 1.0; // el tiempo en el q se mueven

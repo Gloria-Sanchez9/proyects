@@ -172,7 +172,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </div>
 </div>
-<img class="lerp_naranja" src="/proyects/imagenes/nosotros/LERP_naranja.png" alt="LERP icono">
+ <a href="lerp">
+    <img class="lerp_naranja" src="/proyects/imagenes/nosotros/LERP_naranja.png" alt="LERP icono">
+  </a>
 </div>
 </BaseLayout>
 
@@ -472,6 +474,7 @@ h2{
 
 .lerp_naranja{
     display: none; /* en mobile no hay espacio limpio para este ícono flotante sin estorbar */
+    z-index: 999;
 }
 
 .img_integrante1{
