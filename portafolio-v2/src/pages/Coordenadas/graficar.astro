@@ -11,14 +11,16 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
       y se un experto a la hora de graficarlas.
     </p>
 
-    <div class="ggb-frame">
-      <!-- TODO: reemplaza el link por el applet de coordenadas esféricas -->
-      <iframe
-        src="https://www.geogebra.org/classic/H5SAVTXy"
-        width="100%"
-        height="100%"
-        allowfullscreen
-      ></iframe>
+    <div class="ggb-wrap" id="ggbWrap">
+      <div class="ggb-frame" id="ggbFrame">
+        <!-- TODO: reemplaza el link por el applet de coordenadas esféricas -->
+        <iframe
+          src="https://www.geogebra.org/classic/H5SAVTXy"
+          width="900"
+          height="850"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
   </section>
 
@@ -38,8 +40,10 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
 
     <img
       class="robot"
-      src="../imagenes/coordenadas/LERP.png"
+      src="/proyects/imagenes/coordenadas/LERP.png"
       alt="Robot ELOA"
+      loading="lazy"
+      decoding="async"
       onerror="this.style.display='none'"
     />
   </section>
@@ -50,12 +54,12 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
         <span class="cerrar">&times;</span>
       </a>
       <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
-      <img src="/imagenes/1.png" width="80%"><br>
-      <br><img src="/imagenes/2.png" width="80%"><br>
-      <br><img src="/imagenes/3.png" width="80%"><br>
-      <br><img src="/imagenes/4.png" width="80%"><br>
-      <br><img src="/imagenes/5.png" width="80%"><br>
-      <br><img src="/imagenes/6.png" width="80%"><br>
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/1.png" alt="Paso 1 en papel" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/2.png" alt="Paso 2 en papel" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/3.png" alt="Paso 3 en papel" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/4.png" alt="Paso 4 en papel" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/5.png" alt="Paso 5 en papel" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enPapel/6.png" alt="Paso 6 en papel" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -65,16 +69,16 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
         <span class="cerrar">&times;</span>
       </a>
       <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en geogebra -->
-      <img src="/imagenes/enGeogebra/1.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/2.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/3.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/4.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/5.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/6.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/7.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/8.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/9.png" width="80%"><br>
-      <br><img src="/imagenes/enGeogebra/10.png" width="80%"><br>
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/1.png" alt="Paso 1 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/2.png" alt="Paso 2 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/3.png" alt="Paso 3 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/4.png" alt="Paso 4 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/5.png" alt="Paso 5 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/6.png" alt="Paso 6 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/7.png" alt="Paso 7 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/8.png" alt="Paso 8 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/9.png" alt="Paso 9 en GeoGebra" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/enGeogebra/10.png" alt="Paso 10 en GeoGebra" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -109,17 +113,33 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     line-height: 1.4;
   }
 
+  /* GeoGebra: el applet "classic" no se reacomoda solo en pantallas angostas
+     (se ve con zoom/recortado). En vez de forzarlo a un ancho chico, lo
+     renderizamos siempre a su tamaño de diseño (900x850) y escalamos TODO
+     el bloque de forma proporcional según el ancho disponible — así se ve
+     exactamente igual que en computadora, solo que más chico. El cálculo
+     del escalado va en el <script> de abajo. */
+  .ggb-wrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
   .ggb-frame {
+    box-sizing: border-box;
     border: 4px solid #0d1b4c;
     border-radius: 22px;
     overflow: hidden;
     box-shadow: 0 6px 14px rgba(13, 27, 76, 0.25);
-    max-width: 900px;
-    aspect-ratio: 16 / 9;
-    margin: 0 auto;
+    width: 900px;
+    height: 850px;
+    transform-origin: top left;
   }
 
   .ggb-frame iframe {
+    width: 900px;
+    height: 850px;
     border: none;
     display: block;
   }
@@ -220,6 +240,15 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     text-align: center;
     max-height: 80vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .popup-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
 
   .cerrar {
@@ -227,7 +256,7 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     top: 0;
     display: inline-block;
     color: #aaa;
-    float: right;
+    align-self: flex-end;
     font-size: 28px;
     font-weight: bold;
     text-decoration: none;
@@ -238,3 +267,33 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     color: #d95d1e;
   }
 </style>
+
+<script>
+  // Escala el bloque de GeoGebra según el ancho disponible, para que se vea
+  // igual que en escritorio en vez de mostrarse recortado/con zoom en mobile.
+  function ajustarGGB() {
+    const wrap = document.getElementById('ggbWrap');
+    const frame = document.getElementById('ggbFrame');
+    if (!wrap || !frame) return;
+
+    const anchoDiseno = 900;
+    const altoDiseno = 850;
+    const anchoDisponible = wrap.clientWidth;
+    const escala = Math.min(1, anchoDisponible / anchoDiseno);
+
+    frame.style.transform = `scale(${escala})`;
+    wrap.style.height = `${altoDiseno * escala}px`;
+  }
+
+  ajustarGGB();
+
+  if ('ResizeObserver' in window) {
+    const wrap = document.getElementById('ggbWrap');
+    if (wrap) {
+      const ro = new ResizeObserver(() => ajustarGGB());
+      ro.observe(wrap);
+    }
+  } else {
+    window.addEventListener('resize', ajustarGGB);
+  }
+</script>

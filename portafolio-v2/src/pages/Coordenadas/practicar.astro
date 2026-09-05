@@ -20,30 +20,92 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
       <p class="seccion-titulo centrado">Conversiones</p>
       <div class="fila-botones">
         <!-- TODO: apunta al link/página real de ejercicios de conversión SRC -> SCE -->
-        <a href="#" class="pill pill-naranja"><button>SRC - SCE</button></a>
+        <a href="#popupConversion1" class="pill pill-naranja"><button>SRC - SCE</button></a>
         <!-- TODO: apunta al link/página real de ejercicios de conversión SCC -> SCE -->
-        <a href="#" class="pill pill-naranja"><button>SCC - SCE</button></a>
+        <a href="#popupConversion2" class="pill pill-naranja"><button>SCC - SCE</button></a>
       </div>
+
+       <div id="popupConversion1" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCEejer/1.png" alt="Ejercicio de conversión SRC a SCE, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCEejer/2.png" alt="Ejercicio de conversión SRC a SCE, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCEejer/3.png" alt="Ejercicio de conversión SRC a SCE, paso 3" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+   <div id="popupConversion2" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCEejer/1.png" alt="Ejercicio de conversión SCC a SCE, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCEejer/2.png" alt="Ejercicio de conversión SCC a SCE, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCEejer/3.png" alt="Ejercicio de conversión SCC a SCE, paso 3" loading="lazy" decoding="async">
+    </div>
+  </div>
 
       <div class="columna-desafio">
         <p class="seccion-titulo">Distancia entre dos puntos</p>
 
         <!-- TODO: apunta al link/página real de ejercicios de d(B,A) -->
-        <a href="#" class="pill pill-navy offset-0"><button>d( B, A )</button></a>
+        <a href="#popupConversion3" class="pill pill-navy offset-0"><button>d( B, A )</button></a>
         <!-- TODO: apunta al link/página real de ejercicios de rho negativa -->
-        <a href="#" class="pill pill-navy offset-1"><button>RHO NEGATIVA</button></a>
-        <!-- TODO: apunta al link/página real de ejercicios de distancia -->
-        <a href="#" class="pill pill-navy offset-0"><button>EJERCICIOS</button></a>
+        <a href="#popupConversion4" class="pill pill-navy offset-1"><button>RHO NEGATIVA</button></a>
+
+
+<div id="popupConversion3" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-Aejer/1.png" alt="Ejercicio de distancia entre dos puntos, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-Aejer/2.png" alt="Ejercicio de distancia entre dos puntos, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-Aejer/3.png" alt="Ejercicio de distancia entre dos puntos, paso 3" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+        <div id="popupConversion4" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/rho/1.png" alt="Ejercicio de rho negativa, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/rho/2.png" alt="Ejercicio de rho negativa, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/rho/3.png" alt="Ejercicio de rho negativa, paso 3" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/rho/4.png" alt="Ejercicio de rho negativa, paso 4" loading="lazy" decoding="async">
+    </div>
+  </div>
 
         <p class="seccion-titulo">Graficar</p>
         <!-- TODO: apunta al link/página real de ejercicios de graficar -->
-        <a href="#" class="pill pill-verde offset-0"><button>EJERCICIOS</button></a>
+        <a href="#popupConversion6" class="pill pill-verde offset-0"><button>EJERCICIOS</button></a>
       </div>
+
+      <div id="popupConversion6" class="popup">
+    <div class="popup-contenido">
+      <a href="#">
+        <span class="cerrar">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/graficarEjer/1.png" alt="Ejercicio de graficar, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/graficarEjer/2.png" alt="Ejercicio de graficar, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/graficarEjer/3.png" alt="Ejercicio de graficar, paso 3" loading="lazy" decoding="async">
+    </div>
+  </div>
 
       <img
         class="robot"
-        src="../imagenes/coordenadas/LERP.png"
+        src="/proyects/imagenes/coordenadas/robot.png"
         alt="Robot ELOA"
+        loading="lazy"
+        decoding="async"
         onerror="this.style.display='none'"
       />
     </div>
@@ -57,7 +119,7 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     position: relative;
     max-width: 950px;
     margin: 0 auto;
-    padding: 2rem 1.25rem 3rem;
+    padding: 110px 1.25rem 3rem;
     overflow: hidden;
   }
 
@@ -204,5 +266,65 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     .offset-1 {
       margin-left: 2rem;
     }
+  }
+
+  @media (min-width: 700px) {
+    .desafio {
+      padding-top: 130px;
+    }
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup:target {
+    display: block;
+  }
+
+  .popup-contenido {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #0d1b4c;
+    width: 85%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .popup-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .cerrar {
+    position: sticky;
+    top: 0;
+    display: inline-block;
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .cerrar:hover,
+  .cerrar:focus {
+    color: #d95d1e;
   }
 </style>

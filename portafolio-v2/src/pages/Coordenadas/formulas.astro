@@ -19,27 +19,60 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
       <div class="bloque-conversion">
         <p class="etiqueta">Convertir de un sistema a otro</p>
         <!-- TODO: apunta al link/página real de la conversión SRC -> SCE -->
-        <a href="#" class="btn-conversion">
+        <a href="#popupConversion" class="btn-conversion">
           <button>SRC - SCE</button>
         </a>
       </div>
+
+       <div id="popupConversion" class="popup">
+    <div class="popup-fotos">
+      <a href="#">
+        <span class="cerrar-fotos">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/1.png" alt="Conversión SRC a SCE, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/2.png" alt="Conversión SRC a SCE, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/3.png" alt="Conversión SRC a SCE, paso 3" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/4.png" alt="Conversión SRC a SCE, paso 4" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/5.png" alt="Conversión SRC a SCE, paso 5" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/6.png" alt="Conversión SRC a SCE, paso 6" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCR-SCE/7.png" alt="Conversión SRC a SCE, paso 7" loading="lazy" decoding="async">
+    </div>
+  </div>
 
       <div class="conversion-con-info">
         <div class="bloque-conversion">
           <p class="etiqueta">Convertir de un sistema a otro</p>
           <!-- TODO: apunta al link/página real de la conversión SCC -> SCE -->
-          <a href="#" class="btn-conversion">
+          <a href="#popupConversion2" class="btn-conversion">
             <button>SCC - SCE</button>
           </a>
         </div>
+
+          <div id="popupConversion2" class="popup">
+    <div class="popup-fotos">
+      <a href="#">
+        <span class="cerrar-fotos">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/1.png" alt="Conversión SCC a SCE, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/2.png" alt="Conversión SCC a SCE, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/3.png" alt="Conversión SCC a SCE, paso 3" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/4.png" alt="Conversión SCC a SCE, paso 4" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/5.png" alt="Conversión SCC a SCE, paso 5" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/SCC-SCE/6.png" alt="Conversión SCC a SCE, paso 6" loading="lazy" decoding="async">
+    </div>
+  </div>
 
         <a href="#popupSiglas" class="info-icono" aria-label="Significado de las siglas">i</a>
       </div>
 
       <img
         class="robot"
-        src="/imagenes/robot.png"
+        src="/proyects/imagenes/coordenadas/robot.png"
         alt="Robot ELOA"
+        loading="lazy"
+        decoding="async"
         onerror="this.style.display='none'"
       />
 
@@ -48,10 +81,26 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
           Comprobación de la fórmula de la distancia entre dos puntos
         </p>
         <!-- TODO: apunta al link/página real de la fórmula de distancia -->
-        <a href="#" class="btn-conversion btn-distancia">
+        <a href="#popupConversion3" class="btn-conversion btn-distancia">
           <button>d( B, A )</button>
         </a>
       </div>
+
+      
+          <div id="popupConversion3" class="popup">
+    <div class="popup-fotos">
+      <a href="#">
+        <span class="cerrar-fotos">&times;</span>
+      </a>
+      <!-- TODO: ajusta la ruta/cantidad de imágenes de los pasos en papel -->
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-A/1.png" alt="Fórmula de distancia, paso 1" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-A/2.png" alt="Fórmula de distancia, paso 2" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-A/3.png" alt="Fórmula de distancia, paso 3" loading="lazy" decoding="async">
+      <img class="popup-img" src="/proyects/imagenes/coordenadas/B-A/4.png" alt="Fórmula de distancia, paso 4" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+
     </div>
 
   </section>
@@ -84,7 +133,7 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     position: relative;
     max-width: 950px;
     margin: 0 auto;
-    padding: 2rem 1.25rem 3rem;
+    padding: 110px 1.25rem 3rem;
     overflow: hidden;
   }
 
@@ -119,8 +168,10 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
   /* ---------- Ícono de info junto al botón SCC - SCE ---------- */
   .conversion-con-info {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
   }
 
@@ -149,7 +200,12 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     color: white;
   }
 
-  /* ---------- Popup: significado de las siglas ---------- */
+  /* ================================================================
+     POPUPS: hay 2 variantes, con clases separadas para que nunca se
+     pisen entre sí (antes compartían .popup-contenido/.cerrar y la
+     de fotos ganaba siempre por venir después en el CSS).
+     ================================================================ */
+
   .popup {
     display: none;
     position: fixed;
@@ -166,6 +222,7 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     display: block;
   }
 
+  /* ---------- Variante 1: popup simple (significado de las siglas) ---------- */
   .popup-contenido {
     margin: 10% auto;
     max-width: 480px;
@@ -196,6 +253,8 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     padding: 2rem 1.75rem;
     text-align: left;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .siglas-box h3 {
@@ -234,6 +293,46 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     font-family: 'Segoe UI', sans-serif;
     font-weight: 700;
     font-size: clamp(0.7rem, 2.2vw, 0.85rem);
+  }
+
+  /* ---------- Variante 2: popups de pasos con fotos ---------- */
+  .popup-fotos {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #0d1b4c;
+    width: 85%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .popup-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .cerrar-fotos {
+    position: sticky;
+    top: 0;
+    display: inline-block;
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .cerrar-fotos:hover,
+  .cerrar-fotos:focus {
+    color: #d95d1e;
   }
 
   .etiqueta {
@@ -292,5 +391,26 @@ import BaseLayoutCoord from '../../layouts/BaseLayoutCoord.astro';
     height: 160px;
     top: 45%;
     right: -70px;
+  }
+
+  /* ---------- A partir de aquí, ajustes para pantallas muy angostas ---------- */
+  @media (max-width: 420px) {
+    .btn-conversion button {
+      padding: 0.8rem 2rem;
+    }
+
+    .siglas-box {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .siglas-item {
+      gap: 0.6rem;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .lenguaje {
+      padding-top: 130px;
+    }
   }
 </style>

@@ -61,6 +61,10 @@
 
     .footer-eloa {
     position: relative;
+    z-index: 0; /* crea su propio contexto de apilamiento: sin esto, los z-index de
+                   .redes-sociales y .footer-contenido "se escapan" del footer y
+                   compiten contra CUALQUIER otro elemento de la página (como un
+                   popup), en vez de quedar contenidos aquí adentro */
     overflow: hidden; 
     background-color: #ffffff;
     padding: 40px 0 20px 0;
