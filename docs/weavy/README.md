@@ -3,7 +3,7 @@
 Página web de un **juego de proyección interactiva** desarrollado por ELOA Dev Team.
 
 🔗 **Demo:** [Ver en línea](https://eloadev.github.io/proyects/Weavy/inicioWeavy/)
-🔗 **Código:** [Ver código de esta página](portafolio-v2/src/pages/Weavy)
+🔗 **Código:** [Ver código de esta página](/portafolio-v2/src/pages/Weavy/)
 
 ![Juego de proyección interactiva](img/12.png)
 
