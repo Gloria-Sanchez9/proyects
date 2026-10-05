@@ -4,7 +4,7 @@ Este repositorio contiene la página web de **ELOA Dev Team**, un grupo de desar
 
 La página funciona como un **portafolio en equipo** donde mostramos nuestros proyectos: guías, juegos e ideas, principalmente **juegos para aprender**.
 
-🔗 **Ver en línea:** [eloadev.github.io/proyectos](https://eloadev.github.io/proyectos/)
+🔗 **Ver en línea:** [eloadev.github.io/proyectos](https://eloadev.github.io/proyects/)
 
 ![Página de inicio de ELOA](docs/img/01.png)
 
