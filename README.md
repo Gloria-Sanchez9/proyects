@@ -21,10 +21,10 @@ La página funciona como un **portafolio en equipo** donde mostramos nuestros pr
 
 Cada proyecto tiene su propio README con la descripción, herramientas, funcionamiento y capturas:
 
-- [Página de inicio](portafolio-v2/src/pages/index.astro)
-- [Party Problems](portafolio-v2/src/pages/party-problems)
-- [Calculadoras de coordenadas](portafolio-v2/src/pages/Calculadoras/)
-- [Juego de proyección interactiva](portafolio-v2/src/pages/Weavy/)
+- [Página de inicio](docs/Inicio/)
+- [Party Problems](docs/party-problems/)
+- [Calculadoras de coordenadas](docs/calculadoras/)
+- [Juego de proyección interactiva](docs/weavy/)
 
 ## Estructura del repositorio
 
