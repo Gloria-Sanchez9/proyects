@@ -6,7 +6,7 @@ La página funciona como un **portafolio en equipo** donde mostramos nuestros pr
 
 🔗 **Ver en línea:** [eloadev.github.io/proyectos](https://eloadev.github.io/proyects/)
 
-![Página de inicio de ELOA](docs/img/01.png)
+![Página de inicio de ELOA](docs/Inicio/img/01.png)
 
 ## Herramientas
 
@@ -21,10 +21,10 @@ La página funciona como un **portafolio en equipo** donde mostramos nuestros pr
 
 Cada proyecto tiene su propio README con la descripción, herramientas, funcionamiento y capturas:
 
-- [Página de inicio](docs/Inicio/)
-- [Party Problems](docs/party-problems/)
-- [Calculadoras de coordenadas](docs/calculadoras/)
-- [Juego de proyección interactiva](docs/weavy/)
+- [Página de inicio](portafolio-v2/src/pages/)
+- [Party Problems](portafolio-v2/src/pages/party-problems)
+- [Calculadoras de coordenadas](portafolio-v2/src/pages/Calculadoras/)
+- [Juego de proyección interactiva](portafolio-v2/src/pages/Weavy/)
 
 ## Estructura del repositorio
 
