@@ -3,6 +3,7 @@
 Página web del proyecto **Party Problems**, un juego de matemáticas para niños de primaria desarrollado por ELOA Dev Team.
 
 🔗 **Demo:** [Ver en línea](https://eloadev.github.io/proyects/party-problems/inicioParty/)
+🔗 **Código:** [Ver código de esta página](portafolio-v2/src/pages/party-problems)
 
 ![Party Problems](img/05.png)
 

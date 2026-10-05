@@ -3,6 +3,7 @@
 Página web con **dos calculadoras interactivas** para calcular distancias y hacer conversiones de coordenadas, un tema de física.
 
 🔗 **Demo:** [Ver en línea](https://eloadev.github.io/proyects/Calculadoras/calculadoras/)
+🔗 **Código:** [Ver código de esta página](portafolio-v2/src/pages/calculadoras)
 
 ![Calculadoras de coordenadas](img/11.png)
 
