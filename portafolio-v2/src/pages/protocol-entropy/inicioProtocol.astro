@@ -1,0 +1,681 @@
+---
+import BaseLayoutProtocol from '../../layouts/BaseLayoutProtocol.astro';
+
+
+// Bocetos / dibujos (sección final). El orden es el que se ve en la página.
+const bocetos = [
+  {
+    titulo: 'Pilotos',
+    desc: 'Los cadetes enviados a combatir a la Colmena Kaiju. El protagonista, Axis, tiene un ADN aislado topológicamente que le permite alternar entre tres configuraciones de combate dentro del Sarcófago Biomecánico.',
+    imagen: '',
+  },
+  { titulo: 'Ducados', desc: 'Descripción de los ducados.', imagen: '' },
+  {
+    titulo: 'Kaijus',
+    desc: 'La Colmena Kaiju es la gran amenaza: recolecta biomasa para alimentar a su Reina, representada como un agujero negro temporal. Su sangre funciona como material superconductor dentro del juego.',
+    imagen: '',
+  },
+  {
+    titulo: 'Máquina sintetizadora',
+    desc: 'En la fase de síntesis subatómica, el jugador fusiona quarks Up y Down para formar nucleones (protones y neutrones), inspirado en la nucleosíntesis estelar. Luego estabiliza la mezcla con sangre Kaiju para producir el Líquido de Enlace.',
+    imagen: '',
+  },
+  {
+    titulo: 'Base "Humanidad"',
+    desc: 'Vista desde arriba del hogar de una humanidad que lleva sesenta mil años estancada biológicamente.',
+    imagen: '',
+  },
+  {
+    titulo: 'Ciudadanos en la ciudad',
+    desc: 'Los habitantes de la "Utopía Colectiva", que viven bajo el control del Cónclave de los Cuatro.',
+    imagen: '',
+  },
+  {
+    titulo: 'Ciudad destruida',
+    desc: 'La misma ciudad, ahora en ruinas: el contraste con la aparente calma de la Utopía Colectiva.',
+    imagen: '',
+  },
+  {
+    titulo: '"Universo" y planetas muertos',
+    desc: 'El universo de ciencia ficción donde ocurre la historia.',
+    imagen: '',
+  },
+];
+
+const pilotos = Array.from({ length: 6 });
+
+---
+
+<BaseLayoutProtocol>
+
+  <!-- 1. HERO: fondo oscuro con sombras rojas -->
+  <section class="hero">
+    <div class="glow glow-1" aria-hidden="true"></div>
+    <div class="glow glow-2" aria-hidden="true"></div>
+
+    <!-- avioncitos -->
+    <svg class="nave nave-1" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 16 L40 12 L56 4 L60 6 L50 14 L62 16 L50 18 L60 26 L56 28 L40 20 Z" /></svg>
+    <svg class="nave nave-2" viewBox="0 0 64 32" aria-hidden="true"><path d="M2 16 L40 12 L56 4 L60 6 L50 14 L62 16 L50 18 L60 26 L56 28 L40 20 Z" /></svg>
+
+    <!-- edificios a la izquierda -->
+    <svg class="ciudad" viewBox="0 0 160 220" preserveAspectRatio="xMinYMax meet" aria-hidden="true">
+      <rect x="0" y="110" width="26" height="110" />
+      <rect x="30" y="40" width="30" height="180" />
+      <rect x="64" y="80" width="22" height="140" />
+      <rect x="90" y="10" width="28" height="210" />
+      <rect x="122" y="120" width="34" height="100" />
+    </svg>
+
+    <div class="hero-contenido">
+      <span class="etiqueta">Idea en desarrollo</span>
+
+      <div class="logo-holder">
+        <img class="logo-emblema" src="/proyects/imagenes/protocol-entropy/logo-protocol-entropy.webp" alt="Logo de Protocol Entropy" width="800" height="753" fetchpriority="high" />
+        <h1 class="logo-texto">PROTOCOL<br />ENTROPY</h1>
+      </div>
+
+      <p class="intro">
+        <strong>Protocol Entropy</strong> es la <em>idea</em> de un videojuego educativo, todavía en
+        diseño: un shooter en tercera persona de tech-horror que lleva conceptos de física de
+        partículas, como el decaimiento atómico, la superposición cuántica y la fusión de quarks,
+        directo a sus mecánicas. La meta es que te familiarices con el vocabulario del Modelo
+        Estándar mientras juegas.
+      </p>
+    </div>
+
+    <!-- arte principal a la derecha -->
+    <div class="arte-holder" role="img" aria-label="Arte principal (placeholder)">
+      <span class="placeholder-tag">arte principal · placeholder</span>
+    </div>
+
+    <!-- pilotos como silueta, baja opacidad -->
+    <div class="pilotos" aria-hidden="true">
+      {pilotos.map(() => (
+        <svg class="piloto" viewBox="0 0 40 90">
+          <circle cx="20" cy="12" r="10" />
+          <rect x="10" y="24" width="20" height="34" rx="6" />
+          <rect x="3" y="26" width="6" height="28" rx="3" />
+          <rect x="31" y="26" width="6" height="28" rx="3" />
+          <rect x="11" y="56" width="8" height="32" rx="3" />
+          <rect x="21" y="56" width="8" height="32" rx="3" />
+        </svg>
+      ))}
+    </div>
+
+    <a class="scroll-cue" href="#cruce" aria-label="Bajar">
+      <span>Desliza</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+    </a>
+  </section>
+
+  <!-- 2. VIDEOJUEGO >< FÍSICA DE PARTÍCULAS -->
+  <section class="cruce" id="cruce">
+    <div class="glow glow-3" aria-hidden="true"></div>
+
+    <!-- íconos de juego (izquierda) -->
+    <div class="iconos iconos-juego" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="5" /><path d="M7 10v5M4.5 12.5h5" /><circle cx="16" cy="11" r="1" /><circle cx="18" cy="14" r="1" /></svg>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 1v5M12 18v5M1 12h5M18 12h5" /></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" /></svg>
+      <svg viewBox="0 0 24 24"><path d="M4 20l8-16 8 16zM12 10v4M12 17v.5" /></svg>
+      <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 7h6M9 11h6M9 15h3" /></svg>
+    </div>
+
+    <h2 class="cruce-titulo">
+      <span>Videojuego</span>
+      <span class="cruce-signo">&gt;&lt;</span>
+      <span>Física de partículas</span>
+    </h2>
+
+    <!-- íconos de física (derecha) -->
+    <div class="iconos iconos-fisica" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.8" /><ellipse cx="12" cy="12" rx="10" ry="4" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" /></svg>
+      <svg viewBox="0 0 24 24"><path d="M2 12c2-5 4-5 6 0s4 5 6 0 4-5 6 0 2 3 2 3" /></svg>
+      <svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2" /><path d="M7.5 16.5L12 12M12 12l8-7M12 12l7 3M12 12l-2-9" /></svg>
+      <svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="3" /><circle cx="16" cy="8" r="2" /><circle cx="16" cy="16" r="2" /><path d="M11 11l3-2M11 13l3 2" /></svg>
+      <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-6 7 6v11" /><path d="M9 21v-5h6v5" /></svg>
+    </div>
+
+    <div class="firma-eloa">
+      <img src="/proyects/imagenes/inicio/logo-eloa-blanco.webp" alt="ELOA Dev Team" width="900" height="273" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
+  <!-- 3. SOBRE: se presenta la idea del juego -->
+  <section class="sobre" id="sobre">
+    <h2 class="seccion-titulo">La idea del juego</h2>
+    <div class="sobre-grid">
+      <div class="holder holder-grande" role="img" aria-label="Imagen de boceto (placeholder)">
+        <span class="placeholder-tag">imagen boceto · placeholder</span>
+      </div>
+      <div class="sobre-texto">
+        <h3>Un mundo futurista</h3>
+        <p>
+          La humanidad lleva sesenta mil años estancada biológicamente y vive en una
+          "Utopía Colectiva" bajo el control del Cónclave de los Cuatro. Juegas como <strong>Axis</strong>,
+          un cadete enviado a combatir a la Colmena Kaiju.
+        </p>
+        <p>
+          Dentro del Sarcófago Biomecánico, Axis cambia entre tres configuraciones de combate,
+          cada una inspirada en un principio de la física:
+        </p>
+        <ul class="configs">
+          <li><strong>Colosos · Inercia:</strong> campo de Higgs y primera ley de Newton. Más masa, más lento, más fuerza.</li>
+          <li><strong>Segadores · Entropía:</strong> interacción débil. Usan cesio inestable para acelerar el decaimiento de los enemigos.</li>
+          <li><strong>Espectros · Vacío:</strong> superposición cuántica. Esquivan ataques y "colapsan" para golpear.</li>
+        </ul>
+        <p class="aclaracion">
+          Las mecánicas mezclan a propósito física real y ficción: son analogías simplificadas,
+          no modelos físicos exactos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BOCETOS / DIBUJOS -->
+  <section class="bocetos">
+    <h2 class="seccion-titulo">Bocetos y dibujos</h2>
+    <p class="bocetos-nota">Arte conceptual en proceso.</p>
+
+    <div class="bocetos-lista">
+      {bocetos.map((b, i) => (
+        <article class:list={["boceto", { invertido: i % 2 === 1 }]}>
+          {b.imagen ? (
+            <img class="boceto-img" src={b.imagen} alt={b.titulo} loading="lazy" decoding="async" />
+          ) : (
+            <div class="holder boceto-img" role="img" aria-label={`${b.titulo} (placeholder)`}>
+              <span class="placeholder-tag">{b.titulo} · placeholder</span>
+            </div>
+          )}
+          <div class="boceto-texto">
+            <span class="boceto-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{b.titulo}</h3>
+            <p>{b.desc}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+</BaseLayoutProtocol>
+
+<style>
+  /* ---------- Colores y piezas comunes ---------- */
+  .hero, .cruce, .sobre, .bocetos {
+    --rojo: #ff1f4b;
+    --rojo-suave: #ff4d6d;
+    --texto: #f2e9ea;
+    --texto-2: #b9a9ac;
+    --negro: #050304;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  .placeholder-tag {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 120, 140, 0.75);
+  }
+
+  .holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(255, 60, 90, 0.45);
+    border-radius: 14px;
+    background:
+      repeating-linear-gradient(135deg, rgba(255, 30, 70, 0.06) 0 12px, transparent 12px 24px),
+      rgba(30, 6, 12, 0.55);
+    text-align: center;
+    padding: 12px;
+  }
+
+  .seccion-titulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 2.5rem;
+    color: var(--texto);
+    text-shadow: 0 0 18px rgba(255, 31, 75, 0.45);
+  }
+
+  /* ---------- 1. HERO ---------- */
+  .hero {
+    min-height: 100svh;
+    padding: 120px 6vw 0;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 560px) 1fr;
+    align-items: center;
+    gap: 24px;
+    /* "degradado al bajar": de rojo oscuro arriba a negro abajo */
+    background: linear-gradient(180deg, #2a0309 0%, #140205 55%, var(--negro) 100%);
+  }
+
+  .glow-1 { width: 520px; height: 520px; background: rgba(255, 0, 40, 0.35); top: -120px; right: -120px; }
+  .glow-2 { width: 420px; height: 420px; background: rgba(180, 0, 30, 0.3); bottom: 60px; left: -160px; }
+
+  .nave {
+    position: absolute;
+    width: 54px;
+    fill: rgba(255, 210, 215, 0.55);
+    animation: volar 9s ease-in-out infinite;
+  }
+  .nave-1 { top: 110px; left: 8%; transform: rotate(-8deg); }
+  .nave-2 { top: 150px; right: 30%; width: 40px; animation-delay: -4s; transform: scaleX(-1) rotate(-8deg); }
+
+  @keyframes volar {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 18px -10px; }
+  }
+
+  .ciudad {
+    grid-column: 1;
+    align-self: end;
+    justify-self: start;
+    width: min(220px, 22vw);
+    height: auto;
+    fill: rgba(255, 31, 75, 0.16);
+    stroke: rgba(255, 77, 109, 0.35);
+    stroke-width: 1;
+    margin-bottom: 120px;
+  }
+
+  .hero-contenido {
+    grid-column: 2;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 36px 28px;
+    border-radius: 999px / 220px; /* el óvalo del boceto */
+    background: radial-gradient(ellipse at center, rgba(40, 4, 12, 0.75) 0%, rgba(20, 2, 6, 0.4) 70%, transparent 100%);
+  }
+
+  .etiqueta {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rojo-suave);
+    border: 1px solid rgba(255, 77, 109, 0.5);
+    border-radius: 999px;
+    padding: 6px 14px;
+    margin-bottom: 22px;
+  }
+
+  .logo-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .logo-emblema {
+    width: clamp(120px, 18vw, 200px);
+    height: auto;
+    filter: drop-shadow(0 0 14px rgba(255, 31, 75, 0.75)) drop-shadow(0 0 2px rgba(255, 160, 175, 0.9));
+    animation: emblema-brilla 3.5s ease-in-out infinite;
+  }
+
+  @keyframes emblema-brilla {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 31, 75, 0.55)) drop-shadow(0 0 2px rgba(255, 160, 175, 0.8)); }
+    50% { filter: drop-shadow(0 0 22px rgba(255, 31, 75, 0.95)) drop-shadow(0 0 3px rgba(255, 160, 175, 1)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-emblema { animation: none; }
+  }
+
+  .logo-texto {
+    margin: 4px 0 0;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: 0.08em;
+    color: var(--texto);
+    text-shadow: 0 0 24px rgba(255, 31, 75, 0.7), 0 0 4px rgba(255, 120, 140, 0.8);
+  }
+
+  .intro {
+    font-family: 'Mulish', sans-serif;
+    font-size: clamp(0.98rem, 1.6vw, 1.1rem);
+    line-height: 1.65;
+    color: var(--texto-2);
+    margin: 0;
+  }
+
+  .intro strong { color: var(--texto); }
+  .intro em { color: var(--rojo-suave); font-style: normal; font-weight: 700; }
+
+  .arte-holder {
+    grid-column: 3;
+    justify-self: end;
+    width: min(220px, 20vw);
+    aspect-ratio: 3 / 5;
+    border-radius: 999px 999px 24px 24px; /* forma de arco, como en el boceto */
+    border: 2px dashed rgba(255, 60, 90, 0.5);
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(255, 31, 75, 0.25), transparent 70%),
+      rgba(30, 6, 12, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 120px;
+  }
+
+  .pilotos {
+    grid-column: 1 / -1;
+    align-self: end;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 2vw;
+    padding: 0 4vw;
+    margin-bottom: 70px;
+    opacity: 0.22; /* "pilotos como silueta, baja opacidad" */
+  }
+
+  .piloto {
+    width: clamp(34px, 6vw, 70px);
+    height: auto;
+    fill: #ffd5dc;
+  }
+  .piloto:nth-child(even) { transform: translateY(-6px) scale(1.08); }
+
+  .scroll-cue {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--texto-2);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bajar 2s ease-in-out infinite;
+  }
+
+  @keyframes bajar {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 5px; }
+  }
+
+  /* ---------- 2. CRUCE ---------- */
+  .cruce {
+    background: var(--negro);
+    padding: 110px 6vw 90px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    min-height: 70vh;
+  }
+
+  .glow-3 { width: 640px; height: 320px; background: rgba(255, 0, 40, 0.22); top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+  .cruce-titulo {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3.6vw, 2.6rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--texto);
+  }
+
+  .cruce-signo {
+    color: var(--rojo);
+    font-size: 1.3em;
+    text-shadow: 0 0 20px rgba(255, 31, 75, 0.9);
+  }
+
+  .iconos {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 22px 26px;
+    justify-content: center;
+  }
+
+  .iconos-juego { justify-self: end; }
+  .iconos-fisica { justify-self: start; }
+
+  .iconos svg {
+    width: clamp(30px, 4vw, 46px);
+    height: auto;
+    fill: none;
+    stroke: rgba(255, 120, 140, 0.85);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px rgba(255, 31, 75, 0.5));
+    animation: flotar 4s ease-in-out infinite;
+  }
+  .iconos svg:nth-child(2n) { animation-delay: -1.3s; }
+  .iconos svg:nth-child(3n) { animation-delay: -2.6s; }
+  .iconos-juego svg:nth-child(odd) { transform: translateY(14px); }
+  .iconos-fisica svg:nth-child(even) { transform: translateY(14px); }
+
+  @keyframes flotar {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -8px; }
+  }
+
+  .firma-eloa {
+    grid-column: 1 / -1;
+    justify-self: center;
+    position: relative;
+    z-index: 1;
+    margin-top: clamp(28px, 5vw, 56px);
+  }
+
+  .firma-eloa img {
+    display: block;
+    width: clamp(180px, 26vw, 320px);
+    height: auto;
+    opacity: 0.9;
+  }
+
+  /* ---------- 3. SOBRE ---------- */
+  .sobre {
+    background: linear-gradient(180deg, var(--negro) 0%, #0d0205 100%);
+    padding: 90px 6vw;
+  }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(24px, 5vw, 64px);
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .holder-grande {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+  }
+
+  .sobre-texto h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+    margin: 0 0 1rem;
+    color: var(--rojo-suave);
+    letter-spacing: 0.04em;
+  }
+
+  .configs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .configs li {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.55;
+    color: var(--texto-2);
+    padding: 10px 14px;
+    border-left: 3px solid var(--rojo);
+    background: rgba(255, 31, 75, 0.06);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .configs strong,
+  .sobre-texto p strong {
+    color: var(--texto);
+  }
+
+  .sobre-texto .aclaracion {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  .sobre-texto p {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.7;
+    color: var(--texto-2);
+    margin: 0 0 1rem;
+  }
+
+  /* ---------- 4. BOCETOS ---------- */
+  .bocetos {
+    background:
+      radial-gradient(ellipse at 15% 20%, rgba(255, 0, 40, 0.12), transparent 50%),
+      radial-gradient(ellipse at 85% 70%, rgba(255, 0, 40, 0.1), transparent 50%),
+      #0d0205;
+    padding: 80px 6vw 110px;
+  }
+
+  .bocetos-nota {
+    text-align: center;
+    font-family: 'Mulish', sans-serif;
+    color: var(--texto-2);
+    margin: -1.8rem 0 3rem;
+  }
+
+  .bocetos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(36px, 6vw, 70px);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .boceto {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+  }
+
+  /* zigzag como en el boceto: una a la izquierda, la siguiente a la derecha */
+  .boceto.invertido .boceto-img { order: 2; }
+
+  .boceto-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  .boceto:nth-child(odd) .boceto-img { transform: rotate(-1.2deg); }
+  .boceto:nth-child(even) .boceto-img { transform: rotate(1.2deg); }
+
+  .boceto-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--rojo);
+  }
+
+  .boceto-texto h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    margin: 6px 0 10px;
+    color: var(--texto);
+  }
+
+  .boceto-texto p {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.65;
+    color: var(--texto-2);
+    margin: 0;
+  }
+
+  /* ---------- Celular ---------- */
+  @media (max-width: 820px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 130px 20px 0;
+      text-align: center;
+    }
+    .ciudad {
+      position: absolute;
+      left: 0;
+      bottom: 150px;
+      width: 80px;
+      margin: 0;
+      opacity: 0.5;
+    }
+    .hero-contenido { grid-column: 1; padding: 24px 8px; }
+    .arte-holder {
+      grid-column: 1;
+      justify-self: center;
+      width: min(180px, 50vw);
+      margin-bottom: 0;
+    }
+    .pilotos { grid-column: 1; margin-bottom: 64px; }
+    .nave-2 { top: auto; bottom: 300px; right: 8%; }
+
+    .cruce {
+      grid-template-columns: 1fr;
+      padding: 90px 20px 110px;
+    }
+    .iconos { grid-template-columns: repeat(5, auto); gap: 14px 18px; }
+    .iconos-juego, .iconos-fisica { justify-self: center; }
+    .iconos-fisica { order: 3; }
+    .cruce-titulo { order: 2; }
+    .firma-eloa { order: 4; }
+
+    .sobre-grid,
+    .boceto { grid-template-columns: 1fr; }
+    .boceto.invertido .boceto-img { order: 0; }
+    .boceto-texto { text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nave, .iconos svg, .scroll-cue { animation: none; }
+  }
+</style>
