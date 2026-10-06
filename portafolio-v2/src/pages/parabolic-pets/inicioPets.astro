@@ -382,4 +382,58 @@ h2{
 .boton_jugar:active{
     transform: translateY(0);
 }
+
+/* ===== Ajustes para celular (van al final para que ganen sobre las reglas de arriba) ===== */
+
+/* el botón "Desliza para empezar" se acomoda dentro de su sección, no al final de la página */
+#escena-inicio{
+    position: relative;
+}
+
+@media (max-width: 768px){
+    /* "fixed" en celular estira el fondo a lo alto de toda la página: por eso se veía tan acercado */
+    .header-con-ola{
+        background-attachment: scroll;
+        margin-bottom: 40px;
+    }
+
+    .creepy{
+        margin-top: 0;
+    }
+
+    /* menos huecos alrededor del botón ¡Jugar! */
+    #escena-picnic br{
+        display: none;
+    }
+
+    .boton_jugar{
+        margin: 32px auto 64px;
+    }
+}
+
+/* Celular vertical: fondo recortado al centro (villano y mascotas), completo abajo,
+   y el cielo continúa arriba, donde va el título */
+@media (max-width: 768px) and (orientation: portrait){
+    .header-con-ola{
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 3 / 4;
+        max-height: 82svh;
+        background:
+            url('/proyects/imagenes/parabolicpets/fondo1-movil.webp') center bottom / 100% auto no-repeat,
+            linear-gradient(180deg, #0f47a6 0%, #1656b8 60%);
+        padding-top: 0;
+    }
+
+    .imagen-flotante{
+        top: 8%;
+        width: 86vw;
+    }
+
+    .scroll-cue{
+        bottom: 18px;
+        font-size: 12px;
+        padding: 7px 14px 8px;
+    }
+}
 </style>
