@@ -14,7 +14,7 @@ import BaseLayoutPets from '../../layouts/BaseLayoutPets.astro';
 </div> 
 
 <div class="galeria">
-    <img class="ilustracion" src="/proyects/imagenes/parabolicpets/nosotros.png" alt="Equipo">
+    <img class="ilustracion" src="/proyects/imagenes/parabolicpets/nosotros.webp" alt="Equipo" width="1600" height="914" loading="lazy" decoding="async">
 </div>
 
 </BaseLayoutPets>
@@ -120,9 +120,24 @@ h4{
     z-index: 3;
 }
 
+/* En celular la caja azul crece con el texto (antes medía 400px fijos y el texto se salía) */
+@media (max-width: 768px){
+    .onest{ font-size: clamp(32px, 9vw, 50px); padding-top: 150px; }
+    .container{
+        height: auto;
+        flex-wrap: nowrap;
+        gap: 16px;
+        padding: 28px 18px 90px;
+    }
+    .container_peque{ min-height: 0; }
+    h3, h4, .h4_2{ text-align: left; }
+    .ilustracion{ max-width: 80vw; }
+}
+
 .ilustracion{
     display: block;
     width: 100%;
+    height: auto;
     max-width: clamp(220px, 22vw, 400px);
     border-radius: 6px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.3);

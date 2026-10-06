@@ -1,0 +1,205 @@
+---
+import BaseLayoutGame from '../../layouts/BaseLayoutGame.astro';
+---
+
+<BaseLayoutGame>
+<section class="hero">
+      <div class="logo">EL</div>
+      <h1>Eat logic. Output art.</h1>
+      <p class="subtitle">
+        Ingeniería mexicana con propósito — juegos y herramientas educativas.
+      </p>
+      <div class="social-icons">
+        <a href="https://instagram.com/tu_usuario" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@tu_usuario" aria-label="TikTok">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.5 2c.3 2 1.7 3.6 3.7 3.9v3.1c-1.4 0-2.7-.4-3.7-1.2v6.6c0 3.4-2.7 6.1-6.1 6.1S4.3 17.8 4.3 14.4c0-3.3 2.6-6 5.9-6.1v3.2c-1.5.1-2.7 1.4-2.7 2.9 0 1.6 1.3 2.9 2.9 2.9s2.9-1.3 2.9-2.9V2h3.2z"/>
+          </svg>
+        </a>
+        <a href="mailto:contacto@eloadev.dev" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m2 6 10 7 10-7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+</BaseLayoutGame>
+
+<!-- PROYECTOS -->
+    <section class="projects-section">
+      <p class="eyebrow">Bienvenidos a ELOA</p>
+      <p class="intro">
+        En ELOA transformamos la teoría en experiencias interactivas: un
+        ecosistema digital donde aprender también es jugar.
+      </p>
+ 
+      <h2 class="projects-title">Nuestros proyectos</h2>
+ 
+      <div class="project-grid">
+        {
+          projects.map((p) => (
+            <a class="project-card" href={p.href}>
+              <div class="thumb" style={`background:${p.color}`} />
+              <div class="card-body">
+                <h3>{p.name}</h3>
+                <p>{p.desc}</p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+<script>
+
+</script>
+
+<style>
+:root {
+    --navy: #172033;
+    --accent-orange: #e8703a;
+  }
+ 
+  * {
+    box-sizing: border-box;
+  }
+ 
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1a1a2e;
+  }
+ 
+  /* HERO */
+  .hero {
+    background: #fafbfc;
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .logo {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.5rem;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+ 
+  .hero h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+ 
+  .subtitle {
+    color: #6b7280;
+    max-width: 32rem;
+    margin: 0 auto 1.75rem;
+    line-height: 1.5;
+  }
+ 
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+ 
+  .social-icons a {
+    color: #374151;
+    transition: color 0.2s ease;
+  }
+ 
+  .social-icons a:hover {
+    color: var(--navy);
+  }
+ 
+  /* PROYECTOS */
+  .projects-section {
+    background: var(--navy);
+    color: #fff;
+    padding: 3rem 1.75rem 4rem;
+  }
+ 
+  .eyebrow {
+    color: var(--accent-orange);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 0.5rem;
+  }
+ 
+  .intro {
+    max-width: 40rem;
+    line-height: 1.6;
+    color: #dbe1ea;
+    margin: 0 0 2.5rem;
+  }
+ 
+  .projects-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+  }
+ 
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+ 
+  @media (max-width: 800px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+ 
+  .project-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #1e2940;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+ 
+  .project-card:hover {
+    transform: translateY(-3px);
+  }
+ 
+  .thumb {
+    height: 130px;
+    width: 100%;
+  }
+ 
+  .card-body {
+    padding: 1rem 1.1rem 1.25rem;
+  }
+ 
+  .card-body h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+ 
+  .card-body p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #b6bfcf;
+  }
+</style>

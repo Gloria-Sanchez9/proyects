@@ -1,21 +1,40 @@
 ---
 import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
+
+
+const eventos = [
+  {
+    nombre: 'Ludicon 2026, Guadalajara',
+    fotos: ['ludicon/ludicon1.webp', 'ludicon/ludicon2.webp', 'ludicon/ludicon3.webp'],
+  },
+  {
+    nombre: 'Niño Científico 2025, Universidad de Sonora',
+    fotos: ['imagen1.webp', 'imagen2.webp', 'imagen3.webp'],
+  },
+];
 ---
 
 <BaseLayoutParty>
 
   <p class="titulo-pagina">Evidencias</p>
-  <p class="titulo-collage">Niño Científico 2025</p>
   <p class="hint">Arrastra cada foto para moverla</p>
 
-  <div class="collage" id="collage">
-    <div class="fondo-secreto">
-      <p class="mensaje-secreto">¡Gracias por acompañarnos!</p>
-    </div>
-    <div class="foto foto1" style="background-image:url('/proyects/imagenes/partyproblems/imagen1.jpg')"></div>
-    <div class="foto foto2" style="background-image:url('/proyects/imagenes/partyproblems/imagen2.jpg')"></div>
-    <div class="foto foto3" style="background-image:url('/proyects/imagenes/partyproblems/imagen3.jpg')"></div>
-  </div>
+  {eventos.map((evento) => (
+    <section class="evento">
+      <p class="titulo-collage">{evento.nombre}</p>
+      <div class="collage">
+        <div class="fondo-secreto">
+          <p class="mensaje-secreto">¡Gracias por acompañarnos!</p>
+        </div>
+        {evento.fotos.map((foto, i) => (
+          <div
+            class={`foto foto${i + 1}`}
+            style={`background-image:url('${import.meta.env.BASE_URL}imagenes/partyproblems/${foto}')`}
+          ></div>
+        ))}
+      </div>
+    </section>
+  ))}
 
 </BaseLayoutParty>
 
@@ -46,8 +65,16 @@ import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
     font-size: 14px;
     text-align: center;
     color: #9b7f80;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     padding: 0 16px;
+  }
+
+  .evento {
+    margin-top: clamp(16px, 4vw, 32px);
+  }
+
+  .evento .titulo-collage {
+    margin-bottom: 16px;
   }
 
   .collage {
@@ -89,6 +116,7 @@ import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
     position: absolute;
     width: 43%;
     aspect-ratio: 3 / 2;
+    background-color: #f3e9dc; /* se ve mientras no haya foto */
     background-size: cover;
     background-position: center;
     border: 6px solid #fff;
@@ -124,10 +152,8 @@ import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
 </style>
 
 <script>
-  const collage = document.getElementById('collage');
-  const fotos = collage.querySelectorAll('.foto');
-
-  fotos.forEach(foto => {
+  document.querySelectorAll('.collage').forEach(collage => {
+  collage.querySelectorAll('.foto').forEach(foto => {
     let offsetX = 0, offsetY = 0, dragging = false;
 
     function start(clientX, clientY) {
@@ -179,5 +205,6 @@ import BaseLayoutParty from '../../layouts/BaseLayoutParty.astro';
     }, { passive: true });
 
     document.addEventListener('touchend', end);
+  });
   });
 </script>

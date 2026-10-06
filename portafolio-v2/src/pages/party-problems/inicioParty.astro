@@ -43,7 +43,7 @@ const symbolsAyuda = makeSymbols(6, 5);
             <span class="confetti c8"></span>
         </div>
 
-        <img src="/proyects/imagenes/partyproblems/logo.png" alt="Party Problems" class="imagen-flotante">
+        <img src="/proyects/imagenes/partyproblems/logo.webp" alt="Party Problems" class="imagen-flotante" width="1000" height="592" fetchpriority="high">
 
         <a href="#escena-titulo" class="scroll-cue" aria-label="Bajar para empezar">
             <span>Desliza para empezar</span>
@@ -68,12 +68,12 @@ const symbolsAyuda = makeSymbols(6, 5);
         </div>
 
         <div class="titulo-wrap">
-            <img src="/proyects/imagenes/partyproblems/luciafeliz.gif" alt="lucia" class="imagen imagen-izq">
+            <img src="/proyects/imagenes/partyproblems/luciafeliz-web.gif" loading="lazy" decoding="async" alt="lucia" class="imagen imagen-izq">
             <div class="titulo-bloque">
                 <strong><p class="titulo">Práctica Matemáticas</p></strong>
                 <span class="titulo-subrayado" aria-hidden="true"></span>
             </div>
-            <img src="/proyects/imagenes/partyproblems/mateofeliz.gif" alt="mateo" class="imagen imagen-der">
+            <img src="/proyects/imagenes/partyproblems/mateofeliz-web.gif" loading="lazy" decoding="async" alt="mateo" class="imagen imagen-der">
         </div>
     </div>
 
@@ -85,7 +85,7 @@ const symbolsAyuda = makeSymbols(6, 5);
         </div>
 
         <div class="ayuda-contenido">
-            <img src="/proyects/imagenes/partyproblems/mateolucia.gif" alt="Lucía y Mateo tristes" class="imagen-personajes">
+            <img src="/proyects/imagenes/partyproblems/mateolucia-web.gif" loading="lazy" decoding="async" alt="Lucía y Mateo tristes" class="imagen-personajes">
             <div class="globo-texto">
                 <p>¡Ayúdanos!</p>
                 <p class="linea2">"La fiesta se destruyó"</p>
@@ -102,7 +102,7 @@ const symbolsAyuda = makeSymbols(6, 5);
         </div>
 
         <p class="frase-fiesta">¡No los dejaré!</p>
-        <img src="/proyects/imagenes/partyproblems/patapizgif.gif" alt="Patapiz" class="imagen-pato">
+        <img src="/proyects/imagenes/partyproblems/patapizgif-web.gif" loading="lazy" decoding="async" alt="Patapiz" class="imagen-pato">
 
         <div class="cta-wrap">
             <a class="cta-btn" href="partyproblems">
@@ -260,7 +260,7 @@ body{
 .header-con-ola{
     position: relative;
     height: 98vh;
-    background-image: url('/proyects/imagenes/partyproblems/fondoFiestaBonis.png');
+    background-image: url('/proyects/imagenes/partyproblems/fondoFiestaBonis.webp');
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -270,17 +270,18 @@ body{
     flex-direction: column;
     text-align: center;
     padding-top: 90px; /* espacio para el nav fijo */
+    margin-top: -30px; /* quita la franja blanca entre el nav y la ola */
     margin-bottom: 0;
     scroll-snap-align: start; /* el header también es una escena */
 }
 
 .imagen-flotante{
     position: absolute;
-    top: 40px;
+    top: 170px;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    max-width: 90vw;
+    width: 340px;
+    max-width: 80vw;
     height: auto;
     animation: float 4s ease-in-out infinite;
 }
@@ -578,7 +579,7 @@ body{
 /* Escena: Patapiz*/
 .escena-fiesta{
     position: relative;
-    background-image: url('/proyects/imagenes/partyproblems/fondoFiestaDestruida.png');
+    background-image: url('/proyects/imagenes/partyproblems/fondoFiestaDestruida.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -738,6 +739,25 @@ body{
 /* Ajustes responsive */
 @media (max-width: 768px){
     .header-con-ola{ background-attachment: scroll; }
+}
+
+/* Celular vertical: imagen recortada al centro (más ligera y nítida),
+   header más bajo para que se vea más de la escena y logo más grande */
+@media (max-width: 768px) and (orientation: portrait){
+    .header-con-ola{
+        background-image: url('/proyects/imagenes/partyproblems/fondoFiestaBonis-movil.webp');
+        background-position: center 65%;
+        height: 62svh;
+        min-height: 380px;
+    }
+    .imagen-flotante{
+        width: 78vw;
+        top: auto;
+        bottom: 34%;
+    }
+    .escena-fiesta{
+        background-image: url('/proyects/imagenes/partyproblems/fondoFiestaDestruida-movil.webp');
+    }
 }
 
 @media (max-width: 480px){

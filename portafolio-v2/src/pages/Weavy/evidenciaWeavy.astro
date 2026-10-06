@@ -1,21 +1,37 @@
 ---
 import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
+
+// Para agregar otro evento: copia un bloque y pon sus fotos (hasta 4)
+// dentro de public/imagenes/weavy/
+const eventos = [
+  {
+    nombre: 'Niño Científico 2026',
+    fotos: ['01.jpeg', '02.jpeg', '03.jpeg', '04.jpeg'],
+  },
+];
 ---
 
 <BaseLayoutWeavy>
 
   <p class="titulo-pagina">Evidencias</p>
-  <p class="titulo-collage">Niño Científico 2026</p>
   <p class="hint">Arrastra cada foto para moverla</p>
 
-  <div class="collage" id="collage">
-    <div class="fondo-secreto">
-      <p class="mensaje-secreto">¡Gracias por acompañarnos!</p>
-    </div>
-    <div class="foto foto1" style="background-image:url('/proyects/imagenes/weavy/image1.png')"></div>
-    <div class="foto foto2" style="background-image:url('/proyects/imagenes/weavy/image1.png')"></div>
-    <div class="foto foto3" style="background-image:url('/proyects/imagenes/weavy/image1.png')"></div>
-  </div>
+  {eventos.map((evento) => (
+    <section class="evento">
+      <p class="titulo-collage">{evento.nombre}</p>
+      <div class="collage">
+        <div class="fondo-secreto">
+          <p class="mensaje-secreto">¡Gracias por acompañarnos!</p>
+        </div>
+        {evento.fotos.map((foto, i) => (
+          <div
+            class={`foto foto${i + 1}`}
+            style={`background-image:url('${import.meta.env.BASE_URL}imagenes/weavy/${foto}')`}
+          ></div>
+        ))}
+      </div>
+    </section>
+  ))}
 
 </BaseLayoutWeavy>
 
@@ -46,8 +62,16 @@ import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
     font-size: 14px;
     text-align: center;
     color: #9b7f80;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     padding: 0 16px;
+  }
+
+  .evento {
+    margin-top: clamp(16px, 4vw, 32px);
+  }
+
+  .evento .titulo-collage {
+    margin-bottom: 16px;
   }
 
   .collage {
@@ -89,6 +113,7 @@ import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
     position: absolute;
     width: 43%;
     aspect-ratio: 3 / 2;
+    background-color: #dfe9f0; /* se ve mientras no haya foto */
     background-size: cover;
     background-position: center;
     border: 6px solid #fff;
@@ -111,6 +136,7 @@ import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
   .foto1 { top: 7%;  left: 4%;  transform: rotate(-8deg); z-index: 1; }
   .foto2 { top: 14%; left: 37%; transform: rotate(5deg);  z-index: 2; }
   .foto3 { top: 45%; left: 13%; transform: rotate(4deg);  z-index: 3; }
+  .foto4 { top: 45%; left: 40%; transform: rotate(4deg);  z-index: 3; }
 
   /* En pantallas muy chicas, apilamos las fotos en vez de encimarlas tanto */
   @media (max-width: 480px) {
@@ -120,14 +146,13 @@ import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
     .foto1 { top: 4%;  left: 15%; }
     .foto2 { top: 34%; left: 25%; }
     .foto3 { top: 64%; left: 15%; }
+    .foto4 { top: 64%; left: 25%; }
   }
 </style>
 
 <script>
-  const collage = document.getElementById('collage');
-  const fotos = collage.querySelectorAll('.foto');
-
-  fotos.forEach(foto => {
+  document.querySelectorAll('.collage').forEach(collage => {
+  collage.querySelectorAll('.foto').forEach(foto => {
     let offsetX = 0, offsetY = 0, dragging = false;
 
     function start(clientX, clientY) {
@@ -179,5 +204,6 @@ import BaseLayoutWeavy from '../../layouts/BaseLayoutWeavy.astro';
     }, { passive: true });
 
     document.addEventListener('touchend', end);
+  });
   });
 </script>
